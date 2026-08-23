@@ -4,27 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Devs Anarchy | Minecraft</title>
+    <title>Devs Anarchy | Minecraft Anarchy Server</title>
 
-    <!-- Discord / Social Media Link Preview -->
+    <meta name="description" content="Devs Anarchy - A Minecraft anarchy server. No rules. No limits. Just anarchy.">
+    <meta name="theme-color" content="#1677ff">
+
     <meta property="og:title" content="Devs Anarchy">
-    <meta property="og:description" content="A Minecraft anarchy server. No rules. No limits. Just anarchy.">
+    <meta property="og:description" content="No rules. No limits. Just anarchy.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://devsanarchy.xyz">
     <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
 
-    <!-- Discord Theme Color -->
-    <meta name="theme-color" content="#1677ff">
-
-    <!-- Browser Tab Logo -->
     <link rel="icon" type="image/png" href="Devs Anarchy logo.png">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
         }
 
         html {
@@ -32,9 +30,74 @@
         }
 
         body {
-            background: #050505;
+            background: #030407;
             color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
+        }
+
+        ::selection {
+            background: #1677ff;
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(22,119,255,0.20),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 100% 50%,
+                    rgba(22,119,255,0.07),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 0% 80%,
+                    rgba(22,119,255,0.05),
+                    transparent 30%
+                );
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            pointer-events: none;
+            z-index: -1;
+
+            opacity: 0.15;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+
+            background-size: 50px 50px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030407;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1677ff;
+            border-radius: 20px;
         }
 
 
@@ -43,23 +106,24 @@
         ========================= */
 
         nav {
-            height: 75px;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+
             width: 100%;
+            height: 76px;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 7%;
+            padding: 0 6%;
 
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background: rgba(3,4,7,0.78);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
 
-            background: rgba(5, 5, 5, 0.95);
-            border-bottom: 1px solid #191919;
-
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
         }
 
         .nav-logo {
@@ -68,59 +132,152 @@
             gap: 12px;
 
             text-decoration: none;
-            color: white;
         }
 
         .nav-logo img {
             width: 42px;
             height: 42px;
             object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 0 12px rgba(22,119,255,0.35)
+                );
         }
 
         .nav-logo span {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 900;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-logo span::after {
+            content: ".";
+            color: #1677ff;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
             gap: 28px;
+
             list-style: none;
         }
 
         .nav-links a {
-            color: #999;
-            text-decoration: none;
-            font-size: 14px;
+            position: relative;
 
-            transition: 0.2s;
+            color: #8d9199;
+
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+        .nav-links a:not(.discord-button)::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: #1677ff;
+
+            transition: 0.25s;
         }
 
         .nav-links a:hover {
-            color: #1680ff;
+            color: #fff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .discord-button {
             padding: 10px 17px;
 
-            color: white !important;
+            color: #fff !important;
+
             background: #5865F2;
 
             border-radius: 7px;
+
+            box-shadow:
+                0 5px 20px rgba(88,101,242,0.20);
         }
 
         .discord-button:hover {
             background: #4752c4 !important;
+            transform: translateY(-2px);
         }
+
+
+        /* =========================
+           LAUNCH BAR
+        ========================= */
+
+        .launch-bar {
+            width: 100%;
+
+            padding: 12px 20px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(22,119,255,0.08),
+                    rgba(22,119,255,0.18),
+                    rgba(22,119,255,0.08)
+                );
+
+            border-bottom: 1px solid rgba(22,119,255,0.18);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+        }
+
+        .launch-dot {
+            display: inline-block;
+
+            width: 8px;
+            height: 8px;
+
+            margin-right: 8px;
+
+            background: #ffae00;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px #ffae00;
+
+            animation: pulse 1.5s infinite;
+        }
+
+        .launch-bar span {
+            color: #1677ff;
+        }
+
 
         /* =========================
            HERO
         ========================= */
 
         .hero {
-            min-height: 720px;
+            position: relative;
+
+            min-height: 850px;
 
             display: flex;
             align-items: center;
@@ -128,229 +285,594 @@
 
             text-align: center;
 
-            padding: 80px 20px;
+            padding: 100px 20px 130px;
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(20, 115, 255, 0.17),
-                    transparent 58%
-                );
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 700px;
+            height: 700px;
+
+            top: -350px;
+
+            background: #1677ff;
+
+            opacity: 0.08;
+
+            filter: blur(140px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
         }
 
         .hero-content {
-            max-width: 900px;
+            position: relative;
+            z-index: 2;
+
+            width: 100%;
+            max-width: 1100px;
         }
 
         .hero-logo {
-            width: 180px;
-            height: 180px;
+            width: 190px;
+            height: 190px;
 
             object-fit: contain;
 
-            margin-bottom: 20px;
+            margin-bottom: 28px;
 
             filter:
-                drop-shadow(0 0 25px rgba(22, 119, 255, 0.18));
+                drop-shadow(
+                    0 0 20px rgba(22,119,255,0.22)
+                )
+                drop-shadow(
+                    0 0 55px rgba(22,119,255,0.10)
+                );
+
+            animation:
+                floating 5s ease-in-out infinite;
         }
 
         .hero h1 {
-            font-size: clamp(55px, 9vw, 105px);
+            font-size: clamp(55px, 10vw, 115px);
 
-            font-weight: 900;
-            letter-spacing: 4px;
-            line-height: 1;
+            line-height: 0.95;
+
+            font-weight: 1000;
+
+            letter-spacing: -3px;
         }
 
         .hero h1 span {
             color: #1677ff;
+
+            text-shadow:
+                0 0 40px rgba(22,119,255,0.25);
         }
 
-        .hero p {
-            margin-top: 20px;
+        .hero-subtitle {
+            max-width: 650px;
 
-            color: #888;
+            margin: 25px auto 0;
+
+            color: #8d9199;
 
             font-size: 18px;
-            line-height: 1.6;
+
+            line-height: 1.7;
         }
+
+
+        /* =========================
+           COUNTDOWN
+        ========================= */
+
+        .countdown-container {
+            max-width: 900px;
+
+            margin: 45px auto 0;
+
+            padding: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15,18,25,0.95),
+                    rgba(7,9,13,0.95)
+                );
+
+            border: 1px solid rgba(22,119,255,0.22);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.45),
+                0 0 50px rgba(22,119,255,0.05);
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .countdown-container::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #1677ff,
+                    transparent
+                );
+
+            animation:
+                scan 3s linear infinite;
+        }
+
+        .countdown-label {
+            color: #777d88;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+        .countdown-title {
+            margin-top: 8px;
+
+            font-size: 25px;
+
+            font-weight: 900;
+        }
+
+        .countdown-title span {
+            color: #1677ff;
+        }
+
+        .countdown {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 14px;
+
+            margin-top: 25px;
+        }
+
+        .time-box {
+            padding: 20px 10px;
+
+            background: #080a0e;
+
+            border: 1px solid #171c25;
+
+            border-radius: 12px;
+
+            transition: 0.25s;
+        }
+
+        .time-box:hover {
+            border-color:
+                rgba(22,119,255,0.45);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 10px 30px rgba(22,119,255,0.07);
+        }
+
+        .time-number {
+            display: block;
+
+            color: #fff;
+
+            font-size: clamp(32px, 5vw, 52px);
+
+            line-height: 1;
+
+            font-weight: 1000;
+
+            font-variant-numeric:
+                tabular-nums;
+        }
+
+        .time-label {
+            display: block;
+
+            margin-top: 9px;
+
+            color: #555c68;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+        }
+
+        .launch-time {
+            margin-top: 20px;
+
+            color: #666d78;
+
+            font-size: 12px;
+        }
+
+        .launch-time strong {
+            color: #1677ff;
+        }
+
+
+        /* =========================
+           LIVE MESSAGE
+        ========================= */
+
+        .live-message {
+            display: none;
+
+            text-align: center;
+
+            padding: 10px 0 5px;
+
+            animation:
+                liveAppear 0.8s ease forwards;
+        }
+
+        .live-icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 18px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(60,255,136,0.08);
+
+            border: 2px solid #3cff88;
+
+            color: #3cff88;
+
+            font-size: 32px;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 0 30px rgba(60,255,136,0.15);
+        }
+
+        .live-message h3 {
+            color: #3cff88;
+
+            font-size: 32px;
+
+            font-weight: 1000;
+
+            letter-spacing: 1px;
+        }
+
+        .live-message p {
+            margin-top: 10px;
+
+            color: #777d88;
+
+            font-size: 15px;
+        }
+
+        .join-server-button {
+            margin-top: 22px;
+
+            padding: 15px 28px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #1677ff;
+
+            color: #fff;
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px rgba(22,119,255,0.25);
+
+            transition: 0.25s;
+        }
+
+        .join-server-button:hover {
+            background: #0d63d8;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 40px rgba(22,119,255,0.35);
+        }
+
+
+        /* =========================
+           IP
+        ========================= */
 
         .ip-box {
             display: inline-flex;
 
+            align-items: center;
+
+            gap: 12px;
+
             margin-top: 30px;
 
-            padding: 15px 25px;
-
-            background: #0b0b0b;
-            border: 1px solid #222;
-
-            border-radius: 8px;
+            padding: 15px 22px;
 
             color: #1677ff;
 
-            font-weight: bold;
+            background:
+                rgba(8,10,14,0.9);
+
+            border: 1px solid #1b2430;
+
+            border-radius: 9px;
+
+            font-size: 15px;
+
+            font-weight: 900;
 
             cursor: pointer;
 
-            transition: 0.2s;
+            transition: 0.25s;
         }
 
         .ip-box:hover {
             border-color: #1677ff;
 
+            transform: translateY(-2px);
+
             box-shadow:
-                0 0 25px rgba(22, 119, 255, 0.10);
+                0 10px 30px rgba(22,119,255,0.10);
         }
+
+        .copy-icon {
+            color: #5e6672;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
 
         .hero-buttons {
             display: flex;
+
             justify-content: center;
 
-            gap: 15px;
+            gap: 13px;
 
-            margin-top: 30px;
+            margin-top: 25px;
         }
 
         .button {
-            display: inline-block;
+            display: inline-flex;
 
-            padding: 14px 25px;
+            align-items: center;
 
-            border-radius: 7px;
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding: 0 24px;
+
+            border-radius: 8px;
 
             text-decoration: none;
 
-            font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
 
-            transition: 0.2s;
+            font-weight: 900;
+
+            transition: 0.25s;
         }
 
         .primary {
-            color: white;
             background: #1677ff;
+
+            color: #fff;
+
+            box-shadow:
+                0 10px 30px rgba(22,119,255,0.20);
         }
 
         .primary:hover {
             background: #0d63d8;
-            transform: translateY(-2px);
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 40px rgba(22,119,255,0.28);
         }
 
         .secondary {
-            color: white;
+            background: #0c0e12;
 
-            background: #101010;
+            border: 1px solid #202631;
 
-            border: 1px solid #252525;
+            color: #fff;
         }
 
         .secondary:hover {
             border-color: #1677ff;
-            transform: translateY(-2px);
+
+            transform: translateY(-3px);
         }
 
+
         /* =========================
-           GENERAL
+           SECTIONS
         ========================= */
 
         section {
-            padding: 100px 7%;
+            padding: 110px 7%;
+        }
+
+        .section-dark {
+            background:
+                rgba(5,7,10,0.75);
+
+            border-top:
+                1px solid rgba(255,255,255,0.035);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.035);
         }
 
         .section-title {
             text-align: center;
 
-            margin-bottom: 55px;
+            max-width: 700px;
+
+            margin:
+                0 auto 55px;
+        }
+
+        .section-kicker {
+            color: #1677ff;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 10px;
         }
 
         .section-title h2 {
-            font-size: 40px;
+            font-size:
+                clamp(32px,5vw,46px);
 
-            font-weight: 900;
+            font-weight: 1000;
+
+            letter-spacing: -1px;
         }
 
         .section-title p {
-            color: #777;
+            margin-top: 12px;
 
-            margin-top: 10px;
+            color: #666d78;
 
-            line-height: 1.6;
+            font-size: 15px;
+
+            line-height: 1.7;
         }
+
 
         /* =========================
-           SERVER STATUS
+           STATUS
         ========================= */
 
-        .status-section {
-            background: #080808;
-        }
-
         .status-grid {
-            max-width: 1100px;
+            max-width: 1150px;
 
             margin: auto;
 
             display: grid;
 
             grid-template-columns:
-                repeat(4, 1fr);
+                repeat(4,1fr);
 
-            gap: 18px;
+            gap: 16px;
         }
 
         .status-card {
-            padding: 28px;
-
-            background: #0d0d0d;
-
-            border: 1px solid #1c1c1c;
-
-            border-radius: 10px;
+            padding: 30px 22px;
 
             text-align: center;
 
-            transition: 0.2s;
+            background:
+                linear-gradient(
+                    145deg,
+                    #0b0e13,
+                    #07090c
+                );
+
+            border: 1px solid #161b23;
+
+            border-radius: 14px;
+
+            transition: 0.3s;
         }
 
         .status-card:hover {
-            border-color: #1677ff;
+            transform: translateY(-6px);
 
-            transform: translateY(-4px);
+            border-color:
+                rgba(22,119,255,0.35);
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.25);
         }
 
         .status-icon {
             font-size: 30px;
 
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .status-card h3 {
-            font-size: 16px;
-
-            margin-bottom: 8px;
+            font-size: 15px;
         }
 
         .status-card p {
-            color: #777;
+            margin-top: 9px;
 
-            font-size: 13px;
-        }
+            color: #777d88;
 
-        .coming {
-            color: #ffae00 !important;
+            font-size: 11px;
 
-            font-weight: bold;
+            font-weight: 900;
+
+            letter-spacing: 1px;
         }
 
         .available {
             color: #3cff88 !important;
-
-            font-weight: bold;
         }
 
+        .coming {
+            color: #ffae00 !important;
+        }
+
+
         /* =========================
-           HOW TO JOIN
+           JOIN
         ========================= */
 
         .join-grid {
@@ -361,78 +883,92 @@
             display: grid;
 
             grid-template-columns:
-                repeat(3, 1fr);
+                repeat(3,1fr);
 
-            gap: 20px;
+            gap: 18px;
         }
 
         .join-card {
-            padding: 30px;
+            padding: 35px 28px;
 
-            background: #0b0b0b;
+            background: #090c10;
 
-            border: 1px solid #1b1b1b;
+            border: 1px solid #171c23;
 
-            border-radius: 12px;
+            border-radius: 14px;
 
             text-align: center;
 
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
         .join-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-7px);
 
-            border-color: #1677ff;
+            border-color:
+                rgba(22,119,255,0.40);
         }
 
         .join-number {
-            width: 50px;
-            height: 50px;
+            width: 54px;
+            height: 54px;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
-            margin: 0 auto 20px;
+            margin:
+                0 auto 20px;
 
             background: #1677ff;
 
             border-radius: 50%;
 
-            font-weight: 900;
+            font-weight: 1000;
+
+            box-shadow:
+                0 10px 25px rgba(22,119,255,0.20);
         }
 
         .join-card h3 {
             margin-bottom: 10px;
+
+            font-size: 18px;
         }
 
         .join-card p {
-            color: #777;
+            color: #666d78;
 
-            font-size: 14px;
+            font-size: 13px;
 
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
         .server-info {
             max-width: 700px;
 
-            margin: 45px auto 0;
+            margin: 40px auto 0;
 
             padding: 25px;
 
-            background: #090909;
-
-            border: 1px solid #1b1b1b;
-
-            border-radius: 10px;
-
             text-align: center;
+
+            background: #080a0e;
+
+            border: 1px solid #171c23;
+
+            border-radius: 12px;
         }
 
         .server-info small {
-            color: #555;
+            color: #4e5661;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
         }
 
         .server-ip {
@@ -442,24 +978,21 @@
 
             font-size: 22px;
 
-            font-weight: bold;
+            font-weight: 1000;
         }
 
         .version {
             margin-top: 8px;
 
-            color: #777;
+            color: #555d68;
 
-            font-size: 13px;
+            font-size: 12px;
         }
+
 
         /* =========================
            COMMANDS
         ========================= */
-
-        .commands {
-            background: #080808;
-        }
 
         .command-grid {
             max-width: 1000px;
@@ -469,41 +1002,51 @@
             display: grid;
 
             grid-template-columns:
-                repeat(2, 1fr);
+                repeat(2,1fr);
 
-            gap: 18px;
+            gap: 12px;
         }
 
         .command {
             display: flex;
 
-            justify-content: space-between;
             align-items: center;
 
-            padding: 20px 25px;
+            justify-content: space-between;
 
-            background: #0d0d0d;
+            padding: 21px 24px;
 
-            border: 1px solid #1c1c1c;
+            background: #090c10;
 
-            border-radius: 9px;
+            border: 1px solid #171c23;
+
+            border-radius: 10px;
+
+            transition: 0.25s;
+        }
+
+        .command:hover {
+            border-color:
+                rgba(22,119,255,0.35);
+
+            transform:
+                translateX(4px);
         }
 
         .command code {
             color: #1677ff;
 
-            font-size: 15px;
+            font-size: 14px;
 
-            font-weight: bold;
+            font-weight: 900;
         }
 
         .command span {
-            color: #777;
+            color: #555d68;
 
-            font-size: 13px;
-
-            text-align: right;
+            font-size: 12px;
         }
+
 
         /* =========================
            RANKS
@@ -517,25 +1060,28 @@
             display: grid;
 
             grid-template-columns:
-                repeat(5, 1fr);
+                repeat(5,1fr);
 
-            gap: 18px;
+            gap: 15px;
         }
 
         .rank {
-            position: relative;
-
-            padding: 30px 22px;
-
-            background: #0b0b0b;
-
-            border: 1px solid #1c1c1c;
-
-            border-radius: 12px;
+            padding: 32px 20px;
 
             text-align: center;
 
-            transition: 0.25s;
+            background:
+                linear-gradient(
+                    150deg,
+                    #0b0e13,
+                    #07090c
+                );
+
+            border: 1px solid #171c23;
+
+            border-radius: 14px;
+
+            transition: 0.3s;
         }
 
         .rank:hover {
@@ -544,18 +1090,17 @@
             border-color: #1677ff;
 
             box-shadow:
-                0 15px 35px
-                rgba(22, 119, 255, 0.10);
+                0 20px 45px rgba(22,119,255,0.08);
         }
 
         .rank-icon {
-            font-size: 38px;
+            font-size: 36px;
 
             margin-bottom: 15px;
         }
 
         .rank h3 {
-            font-size: 22px;
+            font-size: 20px;
 
             letter-spacing: 1px;
         }
@@ -567,53 +1112,49 @@
 
             padding: 5px 10px;
 
-            background: rgba(255, 174, 0, 0.10);
+            border: 1px solid
+                rgba(255,174,0,0.25);
 
-            border: 1px solid rgba(255, 174, 0, 0.25);
+            background:
+                rgba(255,174,0,0.08);
 
             border-radius: 20px;
 
             color: #ffae00;
 
-            font-size: 10px;
+            font-size: 9px;
 
-            font-weight: bold;
+            font-weight: 900;
 
             letter-spacing: 1px;
         }
 
         .rank-description {
-            margin-top: 20px;
+            margin-top: 18px;
 
-            color: #777;
-
-            font-size: 13px;
-
-            line-height: 1.6;
-        }
-
-        .rank-button {
-            display: block;
-
-            margin-top: 25px;
-
-            padding: 12px;
-
-            color: #777;
-
-            background: #111;
-
-            border: 1px solid #222;
-
-            border-radius: 7px;
-
-            text-decoration: none;
+            color: #606772;
 
             font-size: 12px;
 
-            font-weight: bold;
+            line-height: 1.7;
+        }
 
-            cursor: default;
+        .rank-button {
+            margin-top: 22px;
+
+            padding: 11px;
+
+            background: #0d1015;
+
+            border: 1px solid #1b212a;
+
+            border-radius: 7px;
+
+            color: #555d68;
+
+            font-size: 10px;
+
+            font-weight: 900;
         }
 
         .support-box {
@@ -621,79 +1162,37 @@
 
             margin: 45px auto 0;
 
-            padding: 25px;
-
-            background: #0b0b0b;
-
-            border: 1px solid #1c1c1c;
-
-            border-radius: 10px;
+            padding: 27px;
 
             text-align: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(22,119,255,0.08),
+                    rgba(8,10,14,0.9)
+                );
+
+            border: 1px solid
+                rgba(22,119,255,0.15);
+
+            border-radius: 12px;
         }
 
         .support-box h3 {
-            margin-bottom: 10px;
-
             color: #1677ff;
+
+            margin-bottom: 10px;
         }
 
         .support-box p {
-            color: #777;
+            color: #666d78;
 
-            font-size: 14px;
+            font-size: 13px;
 
             line-height: 1.7;
         }
 
-        /* =========================
-           HOMES
-        ========================= */
-
-        .homes {
-            background: #080808;
-        }
-
-        .home-grid {
-            max-width: 850px;
-
-            margin: auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 18px;
-        }
-
-        .home-card {
-            padding: 25px;
-
-            background: #0d0d0d;
-
-            border: 1px solid #1c1c1c;
-
-            border-radius: 10px;
-        }
-
-        .home-card code {
-            color: #1677ff;
-
-            font-size: 16px;
-
-            font-weight: bold;
-        }
-
-        .home-card p {
-            color: #777;
-
-            margin-top: 8px;
-
-            font-size: 13px;
-
-            line-height: 1.5;
-        }
 
         /* =========================
            FAQ
@@ -706,108 +1205,217 @@
         }
 
         details {
-            padding: 20px;
+            margin-bottom: 10px;
 
-            margin-bottom: 12px;
+            padding: 20px 22px;
 
-            background: #0b0b0b;
+            background: #090c10;
 
-            border: 1px solid #1b1b1b;
+            border: 1px solid #171c23;
 
-            border-radius: 8px;
+            border-radius: 10px;
+
+            transition: 0.25s;
+        }
+
+        details:hover {
+            border-color:
+                rgba(22,119,255,0.25);
+        }
+
+        details[open] {
+            border-color:
+                rgba(22,119,255,0.35);
         }
 
         summary {
             cursor: pointer;
 
-            font-weight: bold;
+            font-size: 14px;
+
+            font-weight: 900;
+
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+
+            float: right;
+
+            color: #1677ff;
+
+            font-size: 18px;
+        }
+
+        details[open] summary::after {
+            content: "−";
         }
 
         details p {
-            color: #777;
-
             margin-top: 15px;
 
-            line-height: 1.6;
+            color: #666d78;
 
-            font-size: 14px;
+            font-size: 13px;
+
+            line-height: 1.7;
         }
+
 
         /* =========================
            DISCORD
         ========================= */
 
         .discord-section {
+            position: relative;
+
             text-align: center;
+
+            overflow: hidden;
 
             background:
                 radial-gradient(
                     circle at center,
-                    rgba(88, 101, 242, 0.15),
-                    transparent 60%
+                    rgba(88,101,242,0.13),
+                    transparent 55%
                 );
         }
 
         .discord-section h2 {
-            font-size: 42px;
+            font-size:
+                clamp(35px,6vw,55px);
+
+            font-weight: 1000;
         }
 
         .discord-section p {
-            color: #777;
+            max-width: 600px;
 
-            margin: 15px 0 25px;
+            margin:
+                15px auto 25px;
+
+            color: #666d78;
+
+            line-height: 1.7;
         }
 
         .discord-main {
             background: #5865F2;
+
+            box-shadow:
+                0 12px 35px rgba(88,101,242,0.20);
         }
 
         .discord-main:hover {
             background: #4752c4;
+
+            transform: translateY(-3px);
         }
+
 
         /* =========================
            FOOTER
         ========================= */
 
         footer {
-            padding: 35px 7%;
-
-            background: #030303;
-
-            border-top: 1px solid #151515;
-
             display: flex;
 
             justify-content: space-between;
 
             align-items: center;
+
+            padding: 35px 7%;
+
+            background: #020304;
+
+            border-top: 1px solid #101318;
         }
 
         footer p {
-            color: #555;
+            color: #454b54;
 
-            font-size: 13px;
+            font-size: 12px;
         }
 
         footer span {
             color: #1677ff;
+
+            font-weight: 900;
         }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes floating {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.45;
+                transform: scale(0.75);
+            }
+        }
+
+        @keyframes scan {
+
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes liveAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
 
         /* =========================
            MOBILE
         ========================= */
 
-        @media (max-width: 1050px) {
+        @media (max-width: 1100px) {
 
             .rank-grid {
                 grid-template-columns:
-                    repeat(3, 1fr);
+                    repeat(3,1fr);
             }
 
             .status-grid {
                 grid-template-columns:
-                    repeat(2, 1fr);
+                    repeat(2,1fr);
             }
         }
 
@@ -822,7 +1430,11 @@
             }
 
             .hero {
-                min-height: 650px;
+                min-height: auto;
+
+                padding-top: 75px;
+
+                padding-bottom: 90px;
             }
 
             .hero-logo {
@@ -830,16 +1442,44 @@
                 height: 140px;
             }
 
-            section {
-                padding: 70px 20px;
+            .hero h1 {
+                letter-spacing: -2px;
             }
 
-            .join-grid,
-            .command-grid,
-            .home-grid,
-            .rank-grid,
-            .status-grid {
-                grid-template-columns: 1fr;
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            .countdown-container {
+                padding: 20px 14px;
+            }
+
+            .countdown {
+                gap: 7px;
+            }
+
+            .time-box {
+                padding: 17px 5px;
+            }
+
+            .time-number {
+                font-size: 28px;
+            }
+
+            .time-label {
+                font-size: 8px;
+
+                letter-spacing: 1px;
+            }
+
+            .launch-time {
+                font-size: 10px;
+            }
+
+            .ip-box {
+                width: 100%;
+
+                justify-content: center;
             }
 
             .hero-buttons {
@@ -850,6 +1490,17 @@
                 width: 100%;
             }
 
+            section {
+                padding: 75px 20px;
+            }
+
+            .join-grid,
+            .command-grid,
+            .rank-grid,
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+
             footer {
                 flex-direction: column;
 
@@ -858,57 +1509,97 @@
                 text-align: center;
             }
         }
+
     </style>
 </head>
+
 
 <body>
 
 
-<!-- =========================
+<!-- =========================================================
+     LAUNCH BAR
+========================================================= -->
+
+<div class="launch-bar" id="launchBar">
+
+    <span class="launch-dot"></span>
+
+    SERVER LAUNCH:
+
+    <span>
+        12:00 PM EST
+    </span>
+
+    &nbsp; • &nbsp;
+
+    GET READY FOR DEVS ANARCHY
+
+</div>
+
+
+<!-- =========================================================
      NAVIGATION
-========================= -->
+========================================================= -->
 
 <nav>
 
     <a href="#home" class="nav-logo">
 
-        <img src="Devs Anarchy logo.png"
-             alt="Devs Anarchy Logo">
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy Logo"
+        >
 
-        <span>DEVS ANARCHY</span>
+        <span>
+            DEVS ANARCHY
+        </span>
 
     </a>
 
     <ul class="nav-links">
 
         <li>
-            <a href="#home">Home</a>
+            <a href="#home">
+                Home
+            </a>
         </li>
 
         <li>
-            <a href="#join">How To Join</a>
+            <a href="#join">
+                How To Join
+            </a>
         </li>
 
         <li>
-            <a href="#commands">Commands</a>
+            <a href="#commands">
+                Commands
+            </a>
         </li>
 
         <li>
-            <a href="#ranks">Ranks</a>
+            <a href="#ranks">
+                Ranks
+            </a>
         </li>
 
         <li>
-            <a href="#faq">FAQ</a>
+            <a href="#faq">
+                FAQ
+            </a>
         </li>
 
         <li>
+
             <a
                 class="discord-button"
                 href="https://discord.gg/VbrQCDNgmw"
                 target="_blank"
+                rel="noopener"
             >
                 Discord
             </a>
+
         </li>
 
     </ul>
@@ -916,9 +1607,9 @@
 </nav>
 
 
-<!-- =========================
+<!-- =========================================================
      HERO
-========================= -->
+========================================================= -->
 
 <section class="hero" id="home">
 
@@ -930,22 +1621,199 @@
             class="hero-logo"
         >
 
+
         <h1>
             DEVS <span>ANARCHY</span>
         </h1>
 
-        <p>
-            A Minecraft anarchy server where the only limit is
-            how far you're willing to go.
+
+        <p class="hero-subtitle">
+
+            No rules.
+            No limits.
+            No safety net.
+
+            <br>
+
+            Welcome to the next generation
+            of Minecraft anarchy.
+
         </p>
+
+
+        <!-- =================================================
+             COUNTDOWN
+        ================================================= -->
+
+        <div
+            class="countdown-container"
+            id="launchContainer"
+        >
+
+            <div
+                class="countdown-label"
+                id="countdownLabel"
+            >
+                SERVER LAUNCH COUNTDOWN
+            </div>
+
+
+            <div
+                class="countdown-title"
+                id="countdownTitle"
+            >
+
+                Server starts in
+
+                <span>
+                    12:00 PM EST
+                </span>
+
+            </div>
+
+
+            <div
+                class="countdown"
+                id="countdown"
+            >
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                        id="days"
+                    >
+                        00
+                    </span>
+
+                    <span class="time-label">
+                        DAYS
+                    </span>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                        id="hours"
+                    >
+                        00
+                    </span>
+
+                    <span class="time-label">
+                        HOURS
+                    </span>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                        id="minutes"
+                    >
+                        00
+                    </span>
+
+                    <span class="time-label">
+                        MINUTES
+                    </span>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <span
+                        class="time-number"
+                        id="seconds"
+                    >
+                        00
+                    </span>
+
+                    <span class="time-label">
+                        SECONDS
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 SERVER LIVE MESSAGE
+            ================================================= -->
+
+            <div
+                class="live-message"
+                id="liveMessage"
+            >
+
+                <div class="live-icon">
+                    ✓
+                </div>
+
+
+                <h3>
+                    SERVER IS LIVE!
+                </h3>
+
+
+                <p>
+                    The wait is over.
+                    Join Devs Anarchy now!
+                </p>
+
+
+                <button
+                    class="join-server-button"
+                    onclick="copyIPAndJoin()"
+                >
+                    JOIN DEVS ANARCHY →
+                </button>
+
+            </div>
+
+
+            <div
+                class="launch-time"
+                id="launchTime"
+            >
+
+                Launch time:
+
+                <strong>
+                    12:00 PM Eastern Time
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SERVER IP
+        ================================================= -->
 
         <div
             class="ip-box"
-            onclick="copyIP()"
             id="ipBox"
+            onclick="copyIP()"
         >
-            devsanarchy.xyz
+
+            <span>
+                devsanarchy.xyz
+            </span>
+
+            <span class="copy-icon">
+                ⧉
+            </span>
+
         </div>
+
 
         <div class="hero-buttons">
 
@@ -956,9 +1824,11 @@
                 HOW TO JOIN
             </a>
 
+
             <a
                 href="https://discord.gg/VbrQCDNgmw"
                 target="_blank"
+                rel="noopener"
                 class="button secondary"
             >
                 JOIN DISCORD
@@ -971,18 +1841,25 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      SERVER STATUS
-========================= -->
+========================================================= -->
 
-<section class="status-section">
+<section class="section-dark">
 
     <div class="section-title">
 
-        <h2>Server Information</h2>
+        <div class="section-kicker">
+            SERVER STATUS
+        </div>
+
+        <h2>
+            Built For Anarchy
+        </h2>
 
         <p>
-            Everything you need to know before joining.
+            Everything you need to know
+            before joining Devs Anarchy.
         </p>
 
     </div>
@@ -996,7 +1873,9 @@
                 💻
             </div>
 
-            <h3>Java Edition</h3>
+            <h3>
+                Java Edition
+            </h3>
 
             <p class="available">
                 AVAILABLE
@@ -1011,7 +1890,9 @@
                 📱
             </div>
 
-            <h3>Bedrock Edition</h3>
+            <h3>
+                Bedrock Edition
+            </h3>
 
             <p class="coming">
                 COMING SOON
@@ -1026,7 +1907,9 @@
                 🔓
             </div>
 
-            <h3>Cracked</h3>
+            <h3>
+                Cracked
+            </h3>
 
             <p class="coming">
                 COMING SOON
@@ -1041,10 +1924,12 @@
                 ⚡
             </div>
 
-            <h3>Version</h3>
+            <h3>
+                Version
+            </h3>
 
             <p>
-                26.2 • All Versions
+                26.2 • ALL VERSIONS
             </p>
 
         </div>
@@ -1054,18 +1939,25 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      HOW TO JOIN
-========================= -->
+========================================================= -->
 
 <section id="join">
 
     <div class="section-title">
 
-        <h2>How To Join</h2>
+        <div class="section-kicker">
+            GET STARTED
+        </div>
+
+        <h2>
+            How To Join
+        </h2>
 
         <p>
-            Getting started is easy.
+            Getting into the world
+            takes less than a minute.
         </p>
 
     </div>
@@ -1079,7 +1971,9 @@
                 1
             </div>
 
-            <h3>Open Minecraft</h3>
+            <h3>
+                Open Minecraft
+            </h3>
 
             <p>
                 Launch Minecraft Java Edition
@@ -1095,11 +1989,14 @@
                 2
             </div>
 
-            <h3>Add The Server</h3>
+            <h3>
+                Add The Server
+            </h3>
 
             <p>
-                Go to Multiplayer and add
-                Devs Anarchy as a server.
+                Open Multiplayer and add
+                <strong>devsanarchy.xyz</strong>
+                as a server.
             </p>
 
         </div>
@@ -1111,11 +2008,13 @@
                 3
             </div>
 
-            <h3>Start Playing</h3>
+            <h3>
+                Enter The Chaos
+            </h3>
 
             <p>
-                Connect and start your
-                journey on Devs Anarchy.
+                Connect to Devs Anarchy
+                and start your journey.
             </p>
 
         </div>
@@ -1142,18 +2041,28 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      COMMANDS
-========================= -->
+========================================================= -->
 
-<section class="commands" id="commands">
+<section
+    class="section-dark"
+    id="commands"
+>
 
     <div class="section-title">
 
-        <h2>Commands</h2>
+        <div class="section-kicker">
+            PLAYER COMMANDS
+        </div>
+
+        <h2>
+            Commands
+        </h2>
 
         <p>
-            Current player commands available on the server.
+            Useful commands available
+            to players.
         </p>
 
     </div>
@@ -1163,7 +2072,9 @@
 
         <div class="command">
 
-            <code>/sit</code>
+            <code>
+                /sit
+            </code>
 
             <span>
                 Sit anywhere
@@ -1174,7 +2085,9 @@
 
         <div class="command">
 
-            <code>/lay</code>
+            <code>
+                /lay
+            </code>
 
             <span>
                 Lay anywhere
@@ -1185,7 +2098,9 @@
 
         <div class="command">
 
-            <code>/sethome</code>
+            <code>
+                /sethome
+            </code>
 
             <span>
                 Set a home
@@ -1196,10 +2111,12 @@
 
         <div class="command">
 
-            <code>/home</code>
+            <code>
+                /home
+            </code>
 
             <span>
-                Teleport to a home
+                Teleport home
             </span>
 
         </div>
@@ -1207,7 +2124,9 @@
 
         <div class="command">
 
-            <code>/homes</code>
+            <code>
+                /homes
+            </code>
 
             <span>
                 View your homes
@@ -1218,7 +2137,9 @@
 
         <div class="command">
 
-            <code>/delhome</code>
+            <code>
+                /delhome
+            </code>
 
             <span>
                 Delete a home
@@ -1231,18 +2152,25 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      RANKS
-========================= -->
+========================================================= -->
 
 <section id="ranks">
 
     <div class="section-title">
 
-        <h2>Ranks</h2>
+        <div class="section-kicker">
+            SUPPORT THE SERVER
+        </div>
+
+        <h2>
+            Ranks
+        </h2>
 
         <p>
-            Support the server and unlock exclusive perks.
+            Optional ranks are planned
+            for future release.
         </p>
 
     </div>
@@ -1250,14 +2178,15 @@
 
     <div class="rank-grid">
 
-
         <div class="rank">
 
             <div class="rank-icon">
                 ⭐
             </div>
 
-            <h3>VIP</h3>
+            <h3>
+                VIP
+            </h3>
 
             <div class="rank-status">
                 COMING SOON
@@ -1281,15 +2210,17 @@
                 ⚡
             </div>
 
-            <h3>MVP</h3>
+            <h3>
+                MVP
+            </h3>
 
             <div class="rank-status">
                 COMING SOON
             </div>
 
             <p class="rank-description">
-                A higher supporter rank with
-                additional exclusive perks.
+                A higher supporter rank
+                with additional perks.
             </p>
 
             <div class="rank-button">
@@ -1305,15 +2236,17 @@
                 💎
             </div>
 
-            <h3>ELITE</h3>
+            <h3>
+                ELITE
+            </h3>
 
             <div class="rank-status">
                 COMING SOON
             </div>
 
             <p class="rank-description">
-                An elite supporter rank for
-                players who want more.
+                An elite supporter rank
+                for dedicated players.
             </p>
 
             <div class="rank-button">
@@ -1329,15 +2262,17 @@
                 👑
             </div>
 
-            <h3>LEGEND</h3>
+            <h3>
+                LEGEND
+            </h3>
 
             <div class="rank-status">
                 COMING SOON
             </div>
 
             <p class="rank-description">
-                A premium rank for some of
-                our biggest supporters.
+                A premium rank for some
+                of our biggest supporters.
             </p>
 
             <div class="rank-button">
@@ -1353,7 +2288,9 @@
                 🔥
             </div>
 
-            <h3>OVERLORD</h3>
+            <h3>
+                OVERLORD
+            </h3>
 
             <div class="rank-status">
                 COMING SOON
@@ -1375,13 +2312,15 @@
 
     <div class="support-box">
 
-        <h3>💙 Support Devs Anarchy</h3>
+        <h3>
+            💙 Support Devs Anarchy
+        </h3>
 
         <p>
-            Ranks are completely optional. When ranks become
-            available, purchases will help pay for the server's
-            hosting and operating costs, allowing us to keep
-            Devs Anarchy online and continue improving it.
+            Ranks are completely optional.
+            Future purchases will help pay for
+            server hosting, infrastructure,
+            development and operating costs.
         </p>
 
     </div>
@@ -1389,85 +2328,28 @@
 </section>
 
 
-<!-- =========================
-     HOMES
-========================= -->
-
-<section class="homes">
-
-    <div class="section-title">
-
-        <h2>Homes</h2>
-
-        <p>
-            Save important locations and return to them later.
-        </p>
-
-    </div>
-
-
-    <div class="home-grid">
-
-        <div class="home-card">
-
-            <code>/sethome</code>
-
-            <p>
-                Save your current location as a home.
-            </p>
-
-        </div>
-
-
-        <div class="home-card">
-
-            <code>/home</code>
-
-            <p>
-                Teleport to your saved home.
-            </p>
-
-        </div>
-
-
-        <div class="home-card">
-
-            <code>/homes</code>
-
-            <p>
-                View your available homes.
-            </p>
-
-        </div>
-
-
-        <div class="home-card">
-
-            <code>/delhome</code>
-
-            <p>
-                Delete a saved home.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
+<!-- =========================================================
      FAQ
-========================= -->
+========================================================= -->
 
-<section id="faq">
+<section
+    class="section-dark"
+    id="faq"
+>
 
     <div class="section-title">
 
-        <h2>FAQ</h2>
+        <div class="section-kicker">
+            QUESTIONS
+        </div>
+
+        <h2>
+            FAQ
+        </h2>
 
         <p>
-            Frequently asked questions about Devs Anarchy.
+            Answers to some of the
+            most common questions.
         </p>
 
     </div>
@@ -1483,7 +2365,21 @@
 
             <p>
                 The server currently runs on Minecraft 26.2,
-                but players on all versions can play.
+                with support for all versions that can connect.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                When does the server start?
+            </summary>
+
+            <p>
+                The server officially launches at
+                12:00 PM Eastern Time.
             </p>
 
         </details>
@@ -1522,8 +2418,8 @@
             </summary>
 
             <p>
-                Players currently have access to commands such
-                as /sit, /lay, and the home commands.
+                Players currently have access to commands
+                such as /sit, /lay and the home commands.
             </p>
 
         </details>
@@ -1537,22 +2433,8 @@
 
             <p>
                 Ranks are currently coming soon.
-                The planned ranks are VIP, MVP, ELITE,
+                Planned ranks include VIP, MVP, ELITE,
                 LEGEND and OVERLORD.
-            </p>
-
-        </details>
-
-
-        <details>
-
-            <summary>
-                What do rank purchases support?
-            </summary>
-
-            <p>
-                Rank purchases help pay for the server's
-                hosting and operating costs.
             </p>
 
         </details>
@@ -1562,40 +2444,48 @@
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      DISCORD
-========================= -->
+========================================================= -->
 
 <section class="discord-section">
 
+    <div class="section-kicker">
+        COMMUNITY
+    </div>
+
     <h2>
-        Join The Discord
+        Don't Miss The Launch.
     </h2>
 
     <p>
-        Get updates, announcements, support and chat
-        with the Devs Anarchy community.
+        Join the Devs Anarchy Discord for announcements,
+        updates, support and launch notifications.
     </p>
 
     <a
         href="https://discord.gg/VbrQCDNgmw"
         target="_blank"
+        rel="noopener"
         class="button discord-main"
     >
-        JOIN DISCORD
+        JOIN THE DISCORD
     </a>
 
 </section>
 
 
-<!-- =========================
+<!-- =========================================================
      FOOTER
-========================= -->
+========================================================= -->
 
 <footer>
 
     <p>
-        © 2026 <span>Devs Anarchy</span>.
+        © 2026
+        <span>
+            Devs Anarchy
+        </span>.
         All rights reserved.
     </p>
 
@@ -1608,23 +2498,583 @@
 
 <script>
 
-function copyIP() {
+    /* =========================================================
+       DEVS ANARCHY COUNTDOWN
+       
+       Launch:
+       12:00 PM Eastern Time
 
-    navigator.clipboard.writeText("devsanarchy.xyz");
+       The code automatically handles:
+       - EST
+       - EDT
+       - Daylight Saving Time
+       - Different visitor time zones
+    ========================================================= */
 
-    const box = document.getElementById("ipBox");
 
-    const oldText = box.innerText;
+    function getNextEasternNoon() {
 
-    box.innerText = "✓ IP COPIED!";
+        const now = new Date();
 
-    setTimeout(() => {
 
-        box.innerText = oldText;
+        const formatter =
+            new Intl.DateTimeFormat(
+                "en-US",
+                {
+                    timeZone:
+                        "America/New_York",
 
-    }, 1500);
+                    year: "numeric",
 
-}
+                    month: "2-digit",
+
+                    day: "2-digit",
+
+                    hour: "2-digit",
+
+                    minute: "2-digit",
+
+                    second: "2-digit",
+
+                    hour12: false
+                }
+            );
+
+
+        const parts =
+            formatter.formatToParts(now);
+
+
+        const values = {};
+
+
+        parts.forEach(part => {
+
+            if (part.type !== "literal") {
+
+                values[part.type] =
+                    part.value;
+
+            }
+
+        });
+
+
+        let year =
+            Number(values.year);
+
+        let month =
+            Number(values.month);
+
+        let day =
+            Number(values.day);
+
+
+        let target =
+            new Date(
+                Date.UTC(
+                    year,
+                    month - 1,
+                    day,
+                    12,
+                    0,
+                    0
+                )
+            );
+
+
+        /*
+            Correct UTC offset for
+            America/New_York.
+        */
+
+        for (let i = 0; i < 3; i++) {
+
+            const eastern =
+                new Intl.DateTimeFormat(
+                    "en-US",
+                    {
+                        timeZone:
+                            "America/New_York",
+
+                        year: "numeric",
+
+                        month: "2-digit",
+
+                        day: "2-digit",
+
+                        hour: "2-digit",
+
+                        minute: "2-digit",
+
+                        second: "2-digit",
+
+                        hour12: false
+                    }
+                ).formatToParts(target);
+
+
+            const current = {};
+
+
+            eastern.forEach(part => {
+
+                if (part.type !== "literal") {
+
+                    current[part.type] =
+                        part.value;
+
+                }
+
+            });
+
+
+            const actualEasternAsUTC =
+                Date.UTC(
+                    Number(current.year),
+                    Number(current.month) - 1,
+                    Number(current.day),
+                    Number(current.hour),
+                    Number(current.minute),
+                    Number(current.second)
+                );
+
+
+            const desiredEasternAsUTC =
+                Date.UTC(
+                    year,
+                    month - 1,
+                    day,
+                    12,
+                    0,
+                    0
+                );
+
+
+            target =
+                new Date(
+                    target.getTime() +
+                    (
+                        desiredEasternAsUTC -
+                        actualEasternAsUTC
+                    )
+                );
+
+        }
+
+
+        /*
+            If 12 PM already passed,
+            use tomorrow.
+        */
+
+        if (target <= now) {
+
+            day++;
+
+            target =
+                new Date(
+                    Date.UTC(
+                        year,
+                        month - 1,
+                        day,
+                        12,
+                        0,
+                        0
+                    )
+                );
+
+
+            for (let i = 0; i < 3; i++) {
+
+                const eastern =
+                    new Intl.DateTimeFormat(
+                        "en-US",
+                        {
+                            timeZone:
+                                "America/New_York",
+
+                            year: "numeric",
+
+                            month: "2-digit",
+
+                            day: "2-digit",
+
+                            hour: "2-digit",
+
+                            minute: "2-digit",
+
+                            second: "2-digit",
+
+                            hour12: false
+                        }
+                    ).formatToParts(target);
+
+
+                const current = {};
+
+
+                eastern.forEach(part => {
+
+                    if (part.type !== "literal") {
+
+                        current[part.type] =
+                            part.value;
+
+                    }
+
+                });
+
+
+                const actualEasternAsUTC =
+                    Date.UTC(
+                        Number(current.year),
+                        Number(current.month) - 1,
+                        Number(current.day),
+                        Number(current.hour),
+                        Number(current.minute),
+                        Number(current.second)
+                    );
+
+
+                const desiredEasternAsUTC =
+                    Date.UTC(
+                        year,
+                        month - 1,
+                        day,
+                        12,
+                        0,
+                        0
+                    );
+
+
+                target =
+                    new Date(
+                        target.getTime() +
+                        (
+                            desiredEasternAsUTC -
+                            actualEasternAsUTC
+                        )
+                    );
+
+            }
+
+        }
+
+
+        return target;
+
+    }
+
+
+    let launchTarget =
+        getNextEasternNoon();
+
+
+    let serverIsLive = false;
+
+
+    /* =========================================================
+       UPDATE COUNTDOWN
+    ========================================================= */
+
+    function updateCountdown() {
+
+        const now =
+            new Date();
+
+
+        const difference =
+            launchTarget.getTime() -
+            now.getTime();
+
+
+        /*
+            ==========================
+            SERVER IS LIVE
+            ==========================
+        */
+
+        if (
+            difference <= 0 &&
+            !serverIsLive
+        ) {
+
+            serverIsLive = true;
+
+
+            document
+                .getElementById(
+                    "countdownLabel"
+                )
+                .textContent =
+                "DEVS ANARCHY";
+
+
+            document
+                .getElementById(
+                    "countdownTitle"
+                )
+                .innerHTML =
+                '<span>SERVER IS LIVE!</span>';
+
+
+            document
+                .getElementById(
+                    "countdown"
+                )
+                .style.display =
+                "none";
+
+
+            document
+                .getElementById(
+                    "liveMessage"
+                )
+                .style.display =
+                "block";
+
+
+            document
+                .getElementById(
+                    "launchTime"
+                )
+                .innerHTML =
+                '<strong>🟢 NOW ONLINE</strong>';
+
+
+            /*
+                Change top launch bar.
+            */
+
+            const launchBar =
+                document.getElementById(
+                    "launchBar"
+                );
+
+
+            if (launchBar) {
+
+                launchBar.innerHTML =
+
+                    '<span ' +
+                    'class="launch-dot" ' +
+                    'style="' +
+                    'background:#3cff88;' +
+                    'box-shadow:0 0 12px #3cff88;' +
+                    '">' +
+                    '</span>' +
+
+                    'SERVER IS LIVE!' +
+
+                    '&nbsp; • &nbsp;' +
+
+                    '<span ' +
+                    'style="color:#3cff88;">' +
+                    'JOIN NOW' +
+                    '</span>';
+
+            }
+
+
+            return;
+
+        }
+
+
+        /*
+            ==========================
+            COUNTDOWN
+            ==========================
+        */
+
+        if (!serverIsLive) {
+
+            let remaining =
+                difference;
+
+
+            const days =
+                Math.floor(
+                    remaining /
+                    86400000
+                );
+
+
+            remaining %=
+                86400000;
+
+
+            const hours =
+                Math.floor(
+                    remaining /
+                    3600000
+                );
+
+
+            remaining %=
+                3600000;
+
+
+            const minutes =
+                Math.floor(
+                    remaining /
+                    60000
+                );
+
+
+            remaining %=
+                60000;
+
+
+            const seconds =
+                Math.floor(
+                    remaining /
+                    1000
+                );
+
+
+            document
+                .getElementById("days")
+                .textContent =
+                String(days)
+                .padStart(2, "0");
+
+
+            document
+                .getElementById("hours")
+                .textContent =
+                String(hours)
+                .padStart(2, "0");
+
+
+            document
+                .getElementById("minutes")
+                .textContent =
+                String(minutes)
+                .padStart(2, "0");
+
+
+            document
+                .getElementById("seconds")
+                .textContent =
+                String(seconds)
+                .padStart(2, "0");
+
+        }
+
+    }
+
+
+    /* =========================================================
+       COPY SERVER IP
+    ========================================================= */
+
+    function copyIP() {
+
+        navigator.clipboard.writeText(
+            "devsanarchy.xyz"
+        );
+
+
+        const box =
+            document.getElementById(
+                "ipBox"
+            );
+
+
+        const oldHTML =
+            box.innerHTML;
+
+
+        box.innerHTML =
+            "<span>✓ IP COPIED!</span>";
+
+
+        box.style.borderColor =
+            "#3cff88";
+
+
+        box.style.color =
+            "#3cff88";
+
+
+        setTimeout(() => {
+
+            box.innerHTML =
+                oldHTML;
+
+
+            box.style.borderColor =
+                "";
+
+
+            box.style.color =
+                "";
+
+        }, 1800);
+
+    }
+
+
+    /* =========================================================
+       JOIN SERVER BUTTON
+    ========================================================= */
+
+    function copyIPAndJoin() {
+
+        navigator.clipboard.writeText(
+            "devsanarchy.xyz"
+        );
+
+
+        const button =
+            document.querySelector(
+                ".join-server-button"
+            );
+
+
+        button.textContent =
+            "✓ IP COPIED — JOIN NOW!";
+
+
+        button.style.background =
+            "#3cff88";
+
+
+        button.style.color =
+            "#031006";
+
+
+        setTimeout(() => {
+
+            button.textContent =
+                "JOIN DEVS ANARCHY →";
+
+
+            button.style.background =
+                "";
+
+
+            button.style.color =
+                "";
+
+        }, 2000);
+
+    }
+
+
+    /* =========================================================
+       START COUNTDOWN
+    ========================================================= */
+
+    updateCountdown();
+
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
 
 </script>
 
