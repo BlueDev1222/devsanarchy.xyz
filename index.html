@@ -1,1 +1,1207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Devs Anarchy</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* ==============================
+           NAVBAR
+        ============================== */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            height: 75px;
+            padding: 0 7%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid #171717;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #1677ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #999;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1677ff;
+        }
+
+        .nav-discord {
+            background: #1677ff;
+            color: white !important;
+            padding: 10px 16px;
+            border-radius: 7px;
+        }
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            min-height: 700px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            padding: 80px 20px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(22,119,255,0.16),
+                    transparent 55%
+                );
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 9vw, 110px);
+            font-weight: 900;
+            letter-spacing: 5px;
+        }
+
+        .hero h1 span {
+            color: #1677ff;
+        }
+
+        .hero p {
+            color: #888;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .ip-box {
+            display: inline-flex;
+            margin-top: 35px;
+
+            background: #0c0c0c;
+            border: 1px solid #202020;
+
+            padding: 15px 25px;
+            border-radius: 8px;
+
+            color: #1677ff;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .ip-box:hover {
+            border-color: #1677ff;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .button {
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 7px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .primary {
+            background: #1677ff;
+            color: white;
+        }
+
+        .secondary {
+            background: #101010;
+            border: 1px solid #222;
+            color: white;
+        }
+
+        /* ==============================
+           GENERAL SECTIONS
+        ============================== */
+
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            font-weight: 900;
+        }
+
+        .section-title p {
+            color: #777;
+            margin-top: 10px;
+        }
+
+        /* ==============================
+           HOW TO JOIN
+        ============================== */
+
+        .join-grid {
+            max-width: 1100px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .join-card {
+            background: #0b0b0b;
+            border: 1px solid #1b1b1b;
+            border-radius: 12px;
+
+            padding: 30px;
+            text-align: center;
+
+            transition: 0.2s;
+        }
+
+        .join-card:hover {
+            transform: translateY(-5px);
+            border-color: #1677ff;
+        }
+
+        .join-number {
+            width: 50px;
+            height: 50px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #1677ff;
+            border-radius: 50%;
+
+            font-weight: 900;
+        }
+
+        .join-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .join-card p {
+            color: #777;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .server-info {
+            max-width: 700px;
+            margin: 45px auto 0;
+
+            padding: 25px;
+
+            background: #090909;
+            border: 1px solid #1b1b1b;
+            border-radius: 10px;
+
+            text-align: center;
+        }
+
+        .server-info small {
+            color: #666;
+        }
+
+        .server-ip {
+            margin-top: 10px;
+            color: #1677ff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* ==============================
+           COMMANDS
+        ============================== */
+
+        .commands {
+            background: #080808;
+        }
+
+        .command-grid {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .command {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 20px 25px;
+
+            background: #0d0d0d;
+            border: 1px solid #1d1d1d;
+            border-radius: 9px;
+        }
+
+        .command code {
+            color: #1677ff;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .command span {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* ==============================
+           RANKS
+        ============================== */
+
+        .rank-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        .rank {
+            background: #0b0b0b;
+            border: 1px solid #1c1c1c;
+
+            border-radius: 12px;
+            padding: 30px 22px;
+
+            text-align: center;
+
+            transition: 0.25s;
+        }
+
+        .rank:hover {
+            transform: translateY(-8px);
+            border-color: #1677ff;
+            box-shadow: 0 15px 35px rgba(22,119,255,0.10);
+        }
+
+        .rank-icon {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .rank h3 {
+            font-size: 23px;
+        }
+
+        .rank-price {
+            margin: 12px 0 22px;
+
+            font-size: 28px;
+            font-weight: 900;
+
+            color: #1677ff;
+        }
+
+        .rank ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .rank li {
+            color: #888;
+            font-size: 13px;
+            margin: 11px 0;
+        }
+
+        .rank li::before {
+            content: "✓";
+            color: #1677ff;
+            margin-right: 8px;
+        }
+
+        .rank-button {
+            display: block;
+            margin-top: 25px;
+
+            padding: 12px;
+
+            background: #1677ff;
+            color: white;
+
+            text-decoration: none;
+            border-radius: 7px;
+
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        /* ==============================
+           HOMES
+        ============================== */
+
+        .homes {
+            background: #080808;
+        }
+
+        .home-box {
+            max-width: 850px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .home-card {
+            padding: 25px;
+
+            background: #0d0d0d;
+            border: 1px solid #1c1c1c;
+            border-radius: 10px;
+        }
+
+        .home-card code {
+            color: #1677ff;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .home-card p {
+            color: #777;
+            margin-top: 8px;
+            font-size: 13px;
+        }
+
+        /* ==============================
+           FAQ
+        ============================== */
+
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        details {
+            background: #0b0b0b;
+            border: 1px solid #1b1b1b;
+
+            margin-bottom: 12px;
+            padding: 20px;
+
+            border-radius: 8px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        details p {
+            color: #777;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        /* ==============================
+           DISCORD
+        ============================== */
+
+        .discord-section {
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(22,119,255,0.12),
+                    transparent 60%
+                );
+        }
+
+        .discord-section h2 {
+            font-size: 42px;
+        }
+
+        .discord-section p {
+            color: #777;
+            margin: 15px 0 25px;
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            padding: 35px 7%;
+
+            background: #030303;
+            border-top: 1px solid #151515;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            color: #555;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: #1677ff;
+        }
+
+        /* ==============================
+           MOBILE
+        ============================== */
+
+        @media (max-width: 1000px) {
+
+            .rank-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 600px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .join-grid,
+            .command-grid,
+            .home-box,
+            .rank-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ==============================
+     NAVIGATION
+============================== -->
+
+<nav>
+
+    <div class="logo">
+        DEVS<span>ANARCHY</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#join">How To Join</a></li>
+        <li><a href="#commands">Commands</a></li>
+        <li><a href="#ranks">Ranks</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li>
+            <a class="nav-discord"
+               href="YOUR-DISCORD-LINK"
+               target="_blank">
+                Discord
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+
+<!-- ==============================
+     HERO
+============================== -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+            DEVS<span>ANARCHY</span>
+        </h1>
+
+        <p>
+            No rules. No limits. Just anarchy.
+        </p>
+
+        <div
+            class="ip-box"
+            onclick="copyIP()"
+            id="ipBox"
+        >
+            devsanarchy.xyz
+        </div>
+
+        <div class="hero-buttons">
+
+            <a href="#join" class="button primary">
+                HOW TO JOIN
+            </a>
+
+            <a
+                href="YOUR-DISCORD-LINK"
+                target="_blank"
+                class="button secondary"
+            >
+                JOIN DISCORD
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     HOW TO JOIN
+============================== -->
+
+<section id="join">
+
+    <div class="section-title">
+
+        <h2>How To Join</h2>
+
+        <p>
+            Get into Devs Anarchy in just a few steps.
+        </p>
+
+    </div>
+
+    <div class="join-grid">
+
+        <div class="join-card">
+
+            <div class="join-number">
+                1
+            </div>
+
+            <h3>Open Minecraft</h3>
+
+            <p>
+                Launch Minecraft Java Edition using
+                a supported version of Minecraft.
+            </p>
+
+        </div>
+
+
+        <div class="join-card">
+
+            <div class="join-number">
+                2
+            </div>
+
+            <h3>Add The Server</h3>
+
+            <p>
+                Open Multiplayer and add Devs Anarchy
+                using the server address below.
+            </p>
+
+        </div>
+
+
+        <div class="join-card">
+
+            <div class="join-number">
+                3
+            </div>
+
+            <h3>Join & Play</h3>
+
+            <p>
+                Connect to the server, survive,
+                build, fight and make your mark.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="server-info">
+
+        <small>SERVER ADDRESS</small>
+
+        <div class="server-ip">
+            devsanarchy.xyz
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     COMMANDS
+============================== -->
+
+<section class="commands" id="commands">
+
+    <div class="section-title">
+
+        <h2>Server Commands</h2>
+
+        <p>
+            The commands currently available to players.
+        </p>
+
+    </div>
+
+
+    <div class="command-grid">
+
+        <div class="command">
+
+            <code>/sit</code>
+
+            <span>
+                Sit down anywhere
+            </span>
+
+        </div>
+
+
+        <div class="command">
+
+            <code>/lay</code>
+
+            <span>
+                Lay down anywhere
+            </span>
+
+        </div>
+
+
+        <div class="command">
+
+            <code>/sethome</code>
+
+            <span>
+                Set your home
+            </span>
+
+        </div>
+
+
+        <div class="command">
+
+            <code>/home</code>
+
+            <span>
+                Teleport to your home
+            </span>
+
+        </div>
+
+
+        <div class="command">
+
+            <code>/delhome</code>
+
+            <span>
+                Delete a home
+            </span>
+
+        </div>
+
+
+        <div class="command">
+
+            <code>/homes</code>
+
+            <span>
+                View your homes
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     PAID RANKS
+============================== -->
+
+<section id="ranks">
+
+    <div class="section-title">
+
+        <h2>Ranks</h2>
+
+        <p>
+            Support Devs Anarchy and unlock additional perks.
+        </p>
+
+    </div>
+
+
+    <div class="rank-grid">
+
+
+        <!-- OUTLAW -->
+
+        <div class="rank">
+
+            <div class="rank-icon">
+                ☠️
+            </div>
+
+            <h3>OUTLAW</h3>
+
+            <div class="rank-price">
+                $4.99
+            </div>
+
+            <ul>
+
+                <li>Colored Rank</li>
+                <li>Extra Home</li>
+                <li>Special Prefix</li>
+
+            </ul>
+
+            <a
+                href="YOUR-STORE-LINK"
+                class="rank-button"
+            >
+                PURCHASE
+            </a>
+
+        </div>
+
+
+        <!-- RAIDER -->
+
+        <div class="rank">
+
+            <div class="rank-icon">
+                ⚔️
+            </div>
+
+            <h3>RAIDER</h3>
+
+            <div class="rank-price">
+                $9.99
+            </div>
+
+            <ul>
+
+                <li>Everything in Outlaw</li>
+                <li>More Homes</li>
+                <li>Special Prefix</li>
+                <li>Extra Cosmetics</li>
+
+            </ul>
+
+            <a
+                href="YOUR-STORE-LINK"
+                class="rank-button"
+            >
+                PURCHASE
+            </a>
+
+        </div>
+
+
+        <!-- WARLORD -->
+
+        <div class="rank">
+
+            <div class="rank-icon">
+                🔥
+            </div>
+
+            <h3>WARLORD</h3>
+
+            <div class="rank-price">
+                $19.99
+            </div>
+
+            <ul>
+
+                <li>Everything in Raider</li>
+                <li>More Homes</li>
+                <li>Exclusive Cosmetics</li>
+                <li>Special Chat Prefix</li>
+
+            </ul>
+
+            <a
+                href="YOUR-STORE-LINK"
+                class="rank-button"
+            >
+                PURCHASE
+            </a>
+
+        </div>
+
+
+        <!-- DREADLORD -->
+
+        <div class="rank">
+
+            <div class="rank-icon">
+                💀
+            </div>
+
+            <h3>DREADLORD</h3>
+
+            <div class="rank-price">
+                $29.99
+            </div>
+
+            <ul>
+
+                <li>Everything in Warlord</li>
+                <li>More Homes</li>
+                <li>Exclusive Prefix</li>
+                <li>Special Effects</li>
+
+            </ul>
+
+            <a
+                href="YOUR-STORE-LINK"
+                class="rank-button"
+            >
+                PURCHASE
+            </a>
+
+        </div>
+
+
+        <!-- ANARCH -->
+
+        <div class="rank">
+
+            <div class="rank-icon">
+                👑
+            </div>
+
+            <h3>ANARCH</h3>
+
+            <div class="rank-price">
+                $49.99
+            </div>
+
+            <ul>
+
+                <li>Everything in Dreadlord</li>
+                <li>Maximum Homes</li>
+                <li>Exclusive Prefix</li>
+                <li>Exclusive Cosmetics</li>
+                <li>Highest Supporter Rank</li>
+
+            </ul>
+
+            <a
+                href="YOUR-STORE-LINK"
+                class="rank-button"
+            >
+                PURCHASE
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     HOMES
+============================== -->
+
+<section class="homes">
+
+    <div class="section-title">
+
+        <h2>Homes</h2>
+
+        <p>
+            Save locations and teleport back whenever you need.
+        </p>
+
+    </div>
+
+
+    <div class="home-box">
+
+        <div class="home-card">
+
+            <code>/sethome</code>
+
+            <p>
+                Creates a home at your current location.
+            </p>
+
+        </div>
+
+
+        <div class="home-card">
+
+            <code>/home</code>
+
+            <p>
+                Teleports you to your saved home.
+            </p>
+
+        </div>
+
+
+        <div class="home-card">
+
+            <code>/homes</code>
+
+            <p>
+                Displays your currently saved homes.
+            </p>
+
+        </div>
+
+
+        <div class="home-card">
+
+            <code>/delhome</code>
+
+            <p>
+                Removes a home you no longer need.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     FAQ
+============================== -->
+
+<section id="faq">
+
+    <div class="section-title">
+
+        <h2>FAQ</h2>
+
+        <p>
+            Frequently asked questions.
+        </p>
+
+    </div>
+
+
+    <div class="faq">
+
+        <details>
+
+            <summary>
+                What version is Devs Anarchy?
+            </summary>
+
+            <p>
+                Add your supported Minecraft version here.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Is Devs Anarchy an anarchy server?
+            </summary>
+
+            <p>
+                Yes. Devs Anarchy is designed around an
+                anarchy-style experience.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Is the server cracked?
+            </summary>
+
+            <p>
+                Add your server's current account policy here.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Where can I get help?
+            </summary>
+
+            <p>
+                Join our Discord community for support,
+                announcements and community discussions.
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     DISCORD
+============================== -->
+
+<section class="discord-section">
+
+    <h2>Join The Community</h2>
+
+    <p>
+        Get announcements, updates and talk with other players.
+    </p>
+
+    <a
+        href="YOUR-DISCORD-LINK"
+        target="_blank"
+        class="button primary"
+    >
+        JOIN DISCORD
+    </a>
+
+</section>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+    <p>
+        © 2026 <span>Devs Anarchy</span>.
+        All rights reserved.
+    </p>
+
+    <p>
+        devsanarchy.xyz
+    </p>
+
+</footer>
+
+
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
+
+<script>
+
+function copyIP() {
+
+    navigator.clipboard.writeText("devsanarchy.xyz");
+
+    const box = document.getElementById("ipBox");
+
+    const oldText = box.innerText;
+
+    box.innerText = "IP COPIED!";
+
+    setTimeout(() => {
+        box.innerText = oldText;
+    }, 1500);
+
+}
+
+</script>
+
+</body>
+</html>
