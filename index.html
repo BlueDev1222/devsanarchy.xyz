@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Devs Anarchy</title>
+    <title>Devs Anarchy | Minecraft</title>
 
     <style>
         * {
@@ -20,84 +20,107 @@
 
         body {
             background: #050505;
-            color: white;
+            color: #fff;
             overflow-x: hidden;
         }
 
-        /* ==============================
+        /* =========================
            NAVBAR
-        ============================== */
+        ========================= */
 
         nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
             height: 75px;
-            padding: 0 7%;
+            width: 100%;
 
             display: flex;
             align-items: center;
             justify-content: space-between;
 
+            padding: 0 7%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
             background: rgba(5, 5, 5, 0.95);
-            border-bottom: 1px solid #171717;
-            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #191919;
+
+            backdrop-filter: blur(12px);
         }
 
-        .logo {
-            font-size: 24px;
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+        }
+
+        .nav-logo span {
+            font-size: 20px;
             font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: #1677ff;
+            letter-spacing: 1px;
         }
 
         .nav-links {
             display: flex;
+            align-items: center;
             gap: 28px;
             list-style: none;
         }
 
         .nav-links a {
-            text-decoration: none;
             color: #999;
+            text-decoration: none;
             font-size: 14px;
+
             transition: 0.2s;
         }
 
         .nav-links a:hover {
-            color: #1677ff;
+            color: #1680ff;
         }
 
-        .nav-discord {
-            background: #1677ff;
+        .discord-button {
+            padding: 10px 17px;
+
             color: white !important;
-            padding: 10px 16px;
+            background: #5865F2;
+
             border-radius: 7px;
         }
 
-        /* ==============================
+        .discord-button:hover {
+            background: #4752c4 !important;
+        }
+
+        /* =========================
            HERO
-        ============================== */
+        ========================= */
 
         .hero {
-            min-height: 700px;
+            min-height: 720px;
 
             display: flex;
             align-items: center;
             justify-content: center;
 
             text-align: center;
+
             padding: 80px 20px;
 
             background:
                 radial-gradient(
                     circle at center,
-                    rgba(22,119,255,0.16),
-                    transparent 55%
+                    rgba(20, 115, 255, 0.17),
+                    transparent 58%
                 );
         }
 
@@ -105,10 +128,24 @@
             max-width: 900px;
         }
 
+        .hero-logo {
+            width: 180px;
+            height: 180px;
+
+            object-fit: contain;
+
+            margin-bottom: 20px;
+
+            filter:
+                drop-shadow(0 0 25px rgba(22, 119, 255, 0.18));
+        }
+
         .hero h1 {
-            font-size: clamp(55px, 9vw, 110px);
+            font-size: clamp(55px, 9vw, 105px);
+
             font-weight: 900;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
+            line-height: 1;
         }
 
         .hero h1 span {
@@ -116,61 +153,92 @@
         }
 
         .hero p {
-            color: #888;
             margin-top: 20px;
+
+            color: #888;
+
             font-size: 18px;
+            line-height: 1.6;
         }
 
         .ip-box {
             display: inline-flex;
-            margin-top: 35px;
 
-            background: #0c0c0c;
-            border: 1px solid #202020;
+            margin-top: 30px;
 
             padding: 15px 25px;
+
+            background: #0b0b0b;
+            border: 1px solid #222;
+
             border-radius: 8px;
 
             color: #1677ff;
+
             font-weight: bold;
 
             cursor: pointer;
+
             transition: 0.2s;
         }
 
         .ip-box:hover {
             border-color: #1677ff;
+
+            box-shadow:
+                0 0 25px rgba(22, 119, 255, 0.10);
         }
 
         .hero-buttons {
-            margin-top: 30px;
             display: flex;
-            gap: 15px;
             justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 30px;
         }
 
         .button {
-            text-decoration: none;
+            display: inline-block;
+
             padding: 14px 25px;
+
             border-radius: 7px;
+
+            text-decoration: none;
+
             font-weight: bold;
             font-size: 14px;
+
+            transition: 0.2s;
         }
 
         .primary {
-            background: #1677ff;
             color: white;
+            background: #1677ff;
+        }
+
+        .primary:hover {
+            background: #0d63d8;
+            transform: translateY(-2px);
         }
 
         .secondary {
-            background: #101010;
-            border: 1px solid #222;
             color: white;
+
+            background: #101010;
+
+            border: 1px solid #252525;
         }
 
-        /* ==============================
-           GENERAL SECTIONS
-        ============================== */
+        .secondary:hover {
+            border-color: #1677ff;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
 
         section {
             padding: 100px 7%;
@@ -178,38 +246,121 @@
 
         .section-title {
             text-align: center;
+
             margin-bottom: 55px;
         }
 
         .section-title h2 {
             font-size: 40px;
+
             font-weight: 900;
         }
 
         .section-title p {
             color: #777;
+
             margin-top: 10px;
+
+            line-height: 1.6;
         }
 
-        /* ==============================
-           HOW TO JOIN
-        ============================== */
+        /* =========================
+           SERVER STATUS
+        ========================= */
 
-        .join-grid {
+        .status-section {
+            background: #080808;
+        }
+
+        .status-grid {
             max-width: 1100px;
+
             margin: auto;
 
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .status-card {
+            padding: 28px;
+
+            background: #0d0d0d;
+
+            border: 1px solid #1c1c1c;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            transition: 0.2s;
+        }
+
+        .status-card:hover {
+            border-color: #1677ff;
+
+            transform: translateY(-4px);
+        }
+
+        .status-icon {
+            font-size: 30px;
+
+            margin-bottom: 12px;
+        }
+
+        .status-card h3 {
+            font-size: 16px;
+
+            margin-bottom: 8px;
+        }
+
+        .status-card p {
+            color: #777;
+
+            font-size: 13px;
+        }
+
+        .coming {
+            color: #ffae00 !important;
+
+            font-weight: bold;
+        }
+
+        .available {
+            color: #3cff88 !important;
+
+            font-weight: bold;
+        }
+
+        /* =========================
+           HOW TO JOIN
+        ========================= */
+
+        .join-grid {
+            max-width: 1050px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
         }
 
         .join-card {
+            padding: 30px;
+
             background: #0b0b0b;
+
             border: 1px solid #1b1b1b;
+
             border-radius: 12px;
 
-            padding: 30px;
             text-align: center;
 
             transition: 0.2s;
@@ -217,6 +368,7 @@
 
         .join-card:hover {
             transform: translateY(-5px);
+
             border-color: #1677ff;
         }
 
@@ -224,13 +376,14 @@
             width: 50px;
             height: 50px;
 
-            margin: 0 auto 20px;
-
             display: flex;
             align-items: center;
             justify-content: center;
 
+            margin: 0 auto 20px;
+
             background: #1677ff;
+
             border-radius: 50%;
 
             font-weight: 900;
@@ -242,37 +395,53 @@
 
         .join-card p {
             color: #777;
-            line-height: 1.6;
+
             font-size: 14px;
+
+            line-height: 1.6;
         }
 
         .server-info {
             max-width: 700px;
+
             margin: 45px auto 0;
 
             padding: 25px;
 
             background: #090909;
+
             border: 1px solid #1b1b1b;
+
             border-radius: 10px;
 
             text-align: center;
         }
 
         .server-info small {
-            color: #666;
+            color: #555;
         }
 
         .server-ip {
             margin-top: 10px;
+
             color: #1677ff;
-            font-size: 20px;
+
+            font-size: 22px;
+
             font-weight: bold;
         }
 
-        /* ==============================
+        .version {
+            margin-top: 8px;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+        /* =========================
            COMMANDS
-        ============================== */
+        ========================= */
 
         .commands {
             background: #080808;
@@ -280,55 +449,75 @@
 
         .command-grid {
             max-width: 1000px;
+
             margin: auto;
 
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
             gap: 18px;
         }
 
         .command {
             display: flex;
-            align-items: center;
+
             justify-content: space-between;
+            align-items: center;
 
             padding: 20px 25px;
 
             background: #0d0d0d;
-            border: 1px solid #1d1d1d;
+
+            border: 1px solid #1c1c1c;
+
             border-radius: 9px;
         }
 
         .command code {
             color: #1677ff;
+
             font-size: 15px;
+
             font-weight: bold;
         }
 
         .command span {
             color: #777;
+
             font-size: 13px;
+
+            text-align: right;
         }
 
-        /* ==============================
+        /* =========================
            RANKS
-        ============================== */
+        ========================= */
 
         .rank-grid {
             max-width: 1200px;
+
             margin: auto;
 
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
             gap: 18px;
         }
 
         .rank {
+            position: relative;
+
+            padding: 30px 22px;
+
             background: #0b0b0b;
+
             border: 1px solid #1c1c1c;
 
             border-radius: 12px;
-            padding: 30px 22px;
 
             text-align: center;
 
@@ -337,131 +526,202 @@
 
         .rank:hover {
             transform: translateY(-8px);
+
             border-color: #1677ff;
-            box-shadow: 0 15px 35px rgba(22,119,255,0.10);
+
+            box-shadow:
+                0 15px 35px
+                rgba(22, 119, 255, 0.10);
         }
 
         .rank-icon {
             font-size: 38px;
+
             margin-bottom: 15px;
         }
 
         .rank h3 {
-            font-size: 23px;
+            font-size: 22px;
+
+            letter-spacing: 1px;
         }
 
-        .rank-price {
-            margin: 12px 0 22px;
+        .rank-status {
+            display: inline-block;
 
-            font-size: 28px;
-            font-weight: 900;
+            margin-top: 10px;
 
-            color: #1677ff;
+            padding: 5px 10px;
+
+            background: rgba(255, 174, 0, 0.10);
+
+            border: 1px solid rgba(255, 174, 0, 0.25);
+
+            border-radius: 20px;
+
+            color: #ffae00;
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
         }
 
-        .rank ul {
-            list-style: none;
-            text-align: left;
-        }
+        .rank-description {
+            margin-top: 20px;
 
-        .rank li {
-            color: #888;
+            color: #777;
+
             font-size: 13px;
-            margin: 11px 0;
-        }
 
-        .rank li::before {
-            content: "✓";
-            color: #1677ff;
-            margin-right: 8px;
+            line-height: 1.6;
         }
 
         .rank-button {
             display: block;
+
             margin-top: 25px;
 
             padding: 12px;
 
-            background: #1677ff;
-            color: white;
+            color: #777;
 
-            text-decoration: none;
+            background: #111;
+
+            border: 1px solid #222;
+
             border-radius: 7px;
 
+            text-decoration: none;
+
+            font-size: 12px;
+
             font-weight: bold;
-            font-size: 13px;
+
+            cursor: default;
         }
 
-        /* ==============================
+        .support-box {
+            max-width: 850px;
+
+            margin: 45px auto 0;
+
+            padding: 25px;
+
+            background: #0b0b0b;
+
+            border: 1px solid #1c1c1c;
+
+            border-radius: 10px;
+
+            text-align: center;
+        }
+
+        .support-box h3 {
+            margin-bottom: 10px;
+
+            color: #1677ff;
+        }
+
+        .support-box p {
+            color: #777;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        /* =========================
            HOMES
-        ============================== */
+        ========================= */
 
         .homes {
             background: #080808;
         }
 
-        .home-box {
+        .home-grid {
             max-width: 850px;
+
             margin: auto;
 
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
         }
 
         .home-card {
             padding: 25px;
 
             background: #0d0d0d;
+
             border: 1px solid #1c1c1c;
+
             border-radius: 10px;
         }
 
         .home-card code {
             color: #1677ff;
+
             font-size: 16px;
+
             font-weight: bold;
         }
 
         .home-card p {
             color: #777;
+
             margin-top: 8px;
+
             font-size: 13px;
+
+            line-height: 1.5;
         }
 
-        /* ==============================
+        /* =========================
            FAQ
-        ============================== */
+        ========================= */
 
         .faq {
             max-width: 850px;
+
             margin: auto;
         }
 
         details {
-            background: #0b0b0b;
-            border: 1px solid #1b1b1b;
+            padding: 20px;
 
             margin-bottom: 12px;
-            padding: 20px;
+
+            background: #0b0b0b;
+
+            border: 1px solid #1b1b1b;
 
             border-radius: 8px;
         }
 
         summary {
             cursor: pointer;
+
             font-weight: bold;
         }
 
         details p {
             color: #777;
+
             margin-top: 15px;
+
             line-height: 1.6;
+
+            font-size: 14px;
         }
 
-        /* ==============================
+        /* =========================
            DISCORD
-        ============================== */
+        ========================= */
 
         .discord-section {
             text-align: center;
@@ -469,7 +729,7 @@
             background:
                 radial-gradient(
                     circle at center,
-                    rgba(22,119,255,0.12),
+                    rgba(88, 101, 242, 0.15),
                     transparent 60%
                 );
         }
@@ -480,26 +740,39 @@
 
         .discord-section p {
             color: #777;
+
             margin: 15px 0 25px;
         }
 
-        /* ==============================
+        .discord-main {
+            background: #5865F2;
+        }
+
+        .discord-main:hover {
+            background: #4752c4;
+        }
+
+        /* =========================
            FOOTER
-        ============================== */
+        ========================= */
 
         footer {
             padding: 35px 7%;
 
             background: #030303;
+
             border-top: 1px solid #151515;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
         }
 
         footer p {
             color: #555;
+
             font-size: 13px;
         }
 
@@ -507,22 +780,24 @@
             color: #1677ff;
         }
 
-        /* ==============================
+        /* =========================
            MOBILE
-        ============================== */
+        ========================= */
 
-        @media (max-width: 1000px) {
+        @media (max-width: 1050px) {
 
             .rank-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(3, 1fr);
             }
 
-            .nav-links {
-                gap: 12px;
+            .status-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 700px) {
+        @media (max-width: 750px) {
 
             nav {
                 padding: 0 20px;
@@ -533,7 +808,12 @@
             }
 
             .hero {
-                min-height: 600px;
+                min-height: 650px;
+            }
+
+            .hero-logo {
+                width: 140px;
+                height: 140px;
             }
 
             section {
@@ -542,8 +822,9 @@
 
             .join-grid,
             .command-grid,
-            .home-box,
-            .rank-grid {
+            .home-grid,
+            .rank-grid,
+            .status-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -551,9 +832,15 @@
                 flex-direction: column;
             }
 
+            .hero-buttons .button {
+                width: 100%;
+            }
+
             footer {
                 flex-direction: column;
+
                 gap: 10px;
+
                 text-align: center;
             }
         }
@@ -562,48 +849,80 @@
 
 <body>
 
-<!-- ==============================
+
+<!-- =========================
      NAVIGATION
-============================== -->
+========================= -->
 
 <nav>
 
-    <div class="logo">
-        DEVS<span>ANARCHY</span>
-    </div>
+    <a href="#home" class="nav-logo">
+
+        <img src="Devs Anarchy logo.png"
+             alt="Devs Anarchy Logo">
+
+        <span>DEVS ANARCHY</span>
+
+    </a>
 
     <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#join">How To Join</a></li>
-        <li><a href="#commands">Commands</a></li>
-        <li><a href="#ranks">Ranks</a></li>
-        <li><a href="#faq">FAQ</a></li>
+
         <li>
-            <a class="nav-discord"
-               href="YOUR-DISCORD-LINK"
-               target="_blank">
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#join">How To Join</a>
+        </li>
+
+        <li>
+            <a href="#commands">Commands</a>
+        </li>
+
+        <li>
+            <a href="#ranks">Ranks</a>
+        </li>
+
+        <li>
+            <a href="#faq">FAQ</a>
+        </li>
+
+        <li>
+            <a
+                class="discord-button"
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+            >
                 Discord
             </a>
         </li>
+
     </ul>
 
 </nav>
 
 
-<!-- ==============================
+<!-- =========================
      HERO
-============================== -->
+========================= -->
 
 <section class="hero" id="home">
 
     <div class="hero-content">
 
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy"
+            class="hero-logo"
+        >
+
         <h1>
-            DEVS<span>ANARCHY</span>
+            DEVS <span>ANARCHY</span>
         </h1>
 
         <p>
-            No rules. No limits. Just anarchy.
+            A Minecraft anarchy server where the only limit is
+            how far you're willing to go.
         </p>
 
         <div
@@ -616,12 +935,15 @@
 
         <div class="hero-buttons">
 
-            <a href="#join" class="button primary">
+            <a
+                href="#join"
+                class="button primary"
+            >
                 HOW TO JOIN
             </a>
 
             <a
-                href="YOUR-DISCORD-LINK"
+                href="https://discord.gg/VbrQCDNgmw"
                 target="_blank"
                 class="button secondary"
             >
@@ -635,9 +957,92 @@
 </section>
 
 
-<!-- ==============================
+<!-- =========================
+     SERVER STATUS
+========================= -->
+
+<section class="status-section">
+
+    <div class="section-title">
+
+        <h2>Server Information</h2>
+
+        <p>
+            Everything you need to know before joining.
+        </p>
+
+    </div>
+
+
+    <div class="status-grid">
+
+        <div class="status-card">
+
+            <div class="status-icon">
+                💻
+            </div>
+
+            <h3>Java Edition</h3>
+
+            <p class="available">
+                AVAILABLE
+            </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-icon">
+                📱
+            </div>
+
+            <h3>Bedrock Edition</h3>
+
+            <p class="coming">
+                COMING SOON
+            </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-icon">
+                🔓
+            </div>
+
+            <h3>Cracked</h3>
+
+            <p class="coming">
+                COMING SOON
+            </p>
+
+        </div>
+
+
+        <div class="status-card">
+
+            <div class="status-icon">
+                ⚡
+            </div>
+
+            <h3>Version</h3>
+
+            <p>
+                26.2 • All Versions
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
      HOW TO JOIN
-============================== -->
+========================= -->
 
 <section id="join">
 
@@ -646,10 +1051,11 @@
         <h2>How To Join</h2>
 
         <p>
-            Get into Devs Anarchy in just a few steps.
+            Getting started is easy.
         </p>
 
     </div>
+
 
     <div class="join-grid">
 
@@ -662,8 +1068,8 @@
             <h3>Open Minecraft</h3>
 
             <p>
-                Launch Minecraft Java Edition using
-                a supported version of Minecraft.
+                Launch Minecraft Java Edition
+                on your computer.
             </p>
 
         </div>
@@ -678,8 +1084,8 @@
             <h3>Add The Server</h3>
 
             <p>
-                Open Multiplayer and add Devs Anarchy
-                using the server address below.
+                Go to Multiplayer and add
+                Devs Anarchy as a server.
             </p>
 
         </div>
@@ -691,11 +1097,11 @@
                 3
             </div>
 
-            <h3>Join & Play</h3>
+            <h3>Start Playing</h3>
 
             <p>
-                Connect to the server, survive,
-                build, fight and make your mark.
+                Connect and start your
+                journey on Devs Anarchy.
             </p>
 
         </div>
@@ -705,10 +1111,16 @@
 
     <div class="server-info">
 
-        <small>SERVER ADDRESS</small>
+        <small>
+            SERVER ADDRESS
+        </small>
 
         <div class="server-ip">
             devsanarchy.xyz
+        </div>
+
+        <div class="version">
+            Minecraft 26.2 • All Versions Supported
         </div>
 
     </div>
@@ -716,18 +1128,18 @@
 </section>
 
 
-<!-- ==============================
+<!-- =========================
      COMMANDS
-============================== -->
+========================= -->
 
 <section class="commands" id="commands">
 
     <div class="section-title">
 
-        <h2>Server Commands</h2>
+        <h2>Commands</h2>
 
         <p>
-            The commands currently available to players.
+            Current player commands available on the server.
         </p>
 
     </div>
@@ -740,7 +1152,7 @@
             <code>/sit</code>
 
             <span>
-                Sit down anywhere
+                Sit anywhere
             </span>
 
         </div>
@@ -751,7 +1163,7 @@
             <code>/lay</code>
 
             <span>
-                Lay down anywhere
+                Lay anywhere
             </span>
 
         </div>
@@ -762,7 +1174,7 @@
             <code>/sethome</code>
 
             <span>
-                Set your home
+                Set a home
             </span>
 
         </div>
@@ -773,18 +1185,7 @@
             <code>/home</code>
 
             <span>
-                Teleport to your home
-            </span>
-
-        </div>
-
-
-        <div class="command">
-
-            <code>/delhome</code>
-
-            <span>
-                Delete a home
+                Teleport to a home
             </span>
 
         </div>
@@ -800,14 +1201,25 @@
 
         </div>
 
+
+        <div class="command">
+
+            <code>/delhome</code>
+
+            <span>
+                Delete a home
+            </span>
+
+        </div>
+
     </div>
 
 </section>
 
 
-<!-- ==============================
-     PAID RANKS
-============================== -->
+<!-- =========================
+     RANKS
+========================= -->
 
 <section id="ranks">
 
@@ -816,7 +1228,7 @@
         <h2>Ranks</h2>
 
         <p>
-            Support Devs Anarchy and unlock additional perks.
+            Support the server and unlock exclusive perks.
         </p>
 
     </div>
@@ -825,138 +1237,77 @@
     <div class="rank-grid">
 
 
-        <!-- OUTLAW -->
-
         <div class="rank">
 
             <div class="rank-icon">
-                ☠️
+                ⭐
             </div>
 
-            <h3>OUTLAW</h3>
+            <h3>VIP</h3>
 
-            <div class="rank-price">
-                $4.99
+            <div class="rank-status">
+                COMING SOON
             </div>
 
-            <ul>
+            <p class="rank-description">
+                Our entry-level supporter rank
+                with exclusive perks.
+            </p>
 
-                <li>Colored Rank</li>
-                <li>Extra Home</li>
-                <li>Special Prefix</li>
-
-            </ul>
-
-            <a
-                href="YOUR-STORE-LINK"
-                class="rank-button"
-            >
-                PURCHASE
-            </a>
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
 
         </div>
 
 
-        <!-- RAIDER -->
-
         <div class="rank">
 
             <div class="rank-icon">
-                ⚔️
+                ⚡
             </div>
 
-            <h3>RAIDER</h3>
+            <h3>MVP</h3>
 
-            <div class="rank-price">
-                $9.99
+            <div class="rank-status">
+                COMING SOON
             </div>
 
-            <ul>
+            <p class="rank-description">
+                A higher supporter rank with
+                additional exclusive perks.
+            </p>
 
-                <li>Everything in Outlaw</li>
-                <li>More Homes</li>
-                <li>Special Prefix</li>
-                <li>Extra Cosmetics</li>
-
-            </ul>
-
-            <a
-                href="YOUR-STORE-LINK"
-                class="rank-button"
-            >
-                PURCHASE
-            </a>
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
 
         </div>
 
 
-        <!-- WARLORD -->
-
         <div class="rank">
 
             <div class="rank-icon">
-                🔥
+                💎
             </div>
 
-            <h3>WARLORD</h3>
+            <h3>ELITE</h3>
 
-            <div class="rank-price">
-                $19.99
+            <div class="rank-status">
+                COMING SOON
             </div>
 
-            <ul>
+            <p class="rank-description">
+                An elite supporter rank for
+                players who want more.
+            </p>
 
-                <li>Everything in Raider</li>
-                <li>More Homes</li>
-                <li>Exclusive Cosmetics</li>
-                <li>Special Chat Prefix</li>
-
-            </ul>
-
-            <a
-                href="YOUR-STORE-LINK"
-                class="rank-button"
-            >
-                PURCHASE
-            </a>
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
 
         </div>
 
-
-        <!-- DREADLORD -->
-
-        <div class="rank">
-
-            <div class="rank-icon">
-                💀
-            </div>
-
-            <h3>DREADLORD</h3>
-
-            <div class="rank-price">
-                $29.99
-            </div>
-
-            <ul>
-
-                <li>Everything in Warlord</li>
-                <li>More Homes</li>
-                <li>Exclusive Prefix</li>
-                <li>Special Effects</li>
-
-            </ul>
-
-            <a
-                href="YOUR-STORE-LINK"
-                class="rank-button"
-            >
-                PURCHASE
-            </a>
-
-        </div>
-
-
-        <!-- ANARCH -->
 
         <div class="rank">
 
@@ -964,39 +1315,69 @@
                 👑
             </div>
 
-            <h3>ANARCH</h3>
+            <h3>LEGEND</h3>
 
-            <div class="rank-price">
-                $49.99
+            <div class="rank-status">
+                COMING SOON
             </div>
 
-            <ul>
+            <p class="rank-description">
+                A premium rank for some of
+                our biggest supporters.
+            </p>
 
-                <li>Everything in Dreadlord</li>
-                <li>Maximum Homes</li>
-                <li>Exclusive Prefix</li>
-                <li>Exclusive Cosmetics</li>
-                <li>Highest Supporter Rank</li>
-
-            </ul>
-
-            <a
-                href="YOUR-STORE-LINK"
-                class="rank-button"
-            >
-                PURCHASE
-            </a>
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
 
         </div>
+
+
+        <div class="rank">
+
+            <div class="rank-icon">
+                🔥
+            </div>
+
+            <h3>OVERLORD</h3>
+
+            <div class="rank-status">
+                COMING SOON
+            </div>
+
+            <p class="rank-description">
+                The ultimate Devs Anarchy
+                supporter rank.
+            </p>
+
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="support-box">
+
+        <h3>💙 Support Devs Anarchy</h3>
+
+        <p>
+            Ranks are completely optional. When ranks become
+            available, purchases will help pay for the server's
+            hosting and operating costs, allowing us to keep
+            Devs Anarchy online and continue improving it.
+        </p>
 
     </div>
 
 </section>
 
 
-<!-- ==============================
+<!-- =========================
      HOMES
-============================== -->
+========================= -->
 
 <section class="homes">
 
@@ -1005,20 +1386,20 @@
         <h2>Homes</h2>
 
         <p>
-            Save locations and teleport back whenever you need.
+            Save important locations and return to them later.
         </p>
 
     </div>
 
 
-    <div class="home-box">
+    <div class="home-grid">
 
         <div class="home-card">
 
             <code>/sethome</code>
 
             <p>
-                Creates a home at your current location.
+                Save your current location as a home.
             </p>
 
         </div>
@@ -1029,7 +1410,7 @@
             <code>/home</code>
 
             <p>
-                Teleports you to your saved home.
+                Teleport to your saved home.
             </p>
 
         </div>
@@ -1040,7 +1421,7 @@
             <code>/homes</code>
 
             <p>
-                Displays your currently saved homes.
+                View your available homes.
             </p>
 
         </div>
@@ -1051,7 +1432,7 @@
             <code>/delhome</code>
 
             <p>
-                Removes a home you no longer need.
+                Delete a saved home.
             </p>
 
         </div>
@@ -1061,9 +1442,9 @@
 </section>
 
 
-<!-- ==============================
+<!-- =========================
      FAQ
-============================== -->
+========================= -->
 
 <section id="faq">
 
@@ -1072,7 +1453,7 @@
         <h2>FAQ</h2>
 
         <p>
-            Frequently asked questions.
+            Frequently asked questions about Devs Anarchy.
         </p>
 
     </div>
@@ -1083,11 +1464,12 @@
         <details>
 
             <summary>
-                What version is Devs Anarchy?
+                What version does Devs Anarchy use?
             </summary>
 
             <p>
-                Add your supported Minecraft version here.
+                The server currently runs on Minecraft 26.2,
+                but players on all versions can play.
             </p>
 
         </details>
@@ -1096,12 +1478,11 @@
         <details>
 
             <summary>
-                Is Devs Anarchy an anarchy server?
+                Can I play on Bedrock?
             </summary>
 
             <p>
-                Yes. Devs Anarchy is designed around an
-                anarchy-style experience.
+                Bedrock support is currently coming soon.
             </p>
 
         </details>
@@ -1110,11 +1491,11 @@
         <details>
 
             <summary>
-                Is the server cracked?
+                Can cracked players join?
             </summary>
 
             <p>
-                Add your server's current account policy here.
+                Cracked support is currently coming soon.
             </p>
 
         </details>
@@ -1123,12 +1504,41 @@
         <details>
 
             <summary>
-                Where can I get help?
+                What commands are available?
             </summary>
 
             <p>
-                Join our Discord community for support,
-                announcements and community discussions.
+                Players currently have access to commands such
+                as /sit, /lay, and the home commands.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Are ranks available?
+            </summary>
+
+            <p>
+                Ranks are currently coming soon.
+                The planned ranks are VIP, MVP, ELITE,
+                LEGEND and OVERLORD.
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                What do rank purchases support?
+            </summary>
+
+            <p>
+                Rank purchases help pay for the server's
+                hosting and operating costs.
             </p>
 
         </details>
@@ -1138,22 +1548,25 @@
 </section>
 
 
-<!-- ==============================
+<!-- =========================
      DISCORD
-============================== -->
+========================= -->
 
 <section class="discord-section">
 
-    <h2>Join The Community</h2>
+    <h2>
+        Join The Discord
+    </h2>
 
     <p>
-        Get announcements, updates and talk with other players.
+        Get updates, announcements, support and chat
+        with the Devs Anarchy community.
     </p>
 
     <a
-        href="YOUR-DISCORD-LINK"
+        href="https://discord.gg/VbrQCDNgmw"
         target="_blank"
-        class="button primary"
+        class="button discord-main"
     >
         JOIN DISCORD
     </a>
@@ -1161,9 +1574,9 @@
 </section>
 
 
-<!-- ==============================
+<!-- =========================
      FOOTER
-============================== -->
+========================= -->
 
 <footer>
 
@@ -1179,10 +1592,6 @@
 </footer>
 
 
-<!-- ==============================
-     JAVASCRIPT
-============================== -->
-
 <script>
 
 function copyIP() {
@@ -1193,10 +1602,12 @@ function copyIP() {
 
     const oldText = box.innerText;
 
-    box.innerText = "IP COPIED!";
+    box.innerText = "✓ IP COPIED!";
 
     setTimeout(() => {
+
         box.innerText = oldText;
+
     }, 1500);
 
 }
