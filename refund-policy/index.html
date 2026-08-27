@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Refund Policy | Devs Anarchy</title>
+
+    <meta name="description" content="Devs Anarchy Refund Policy. Learn about refunds, digital purchases, subscriptions, chargebacks, and store purchases.">
+    <meta name="theme-color" content="#1677ff">
+
+    <meta property="og:title" content="Refund Policy | Devs Anarchy">
+    <meta property="og:description" content="Official Devs Anarchy Refund Policy for digital purchases and subscriptions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsanarchy.xyz/refund-policy">
+    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+
+    <link rel="icon" type="image/png" href="Devs Anarchy logo.png">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --blue: #1677ff;
+            --bright-blue: #00c8ff;
+            --green: #3cff88;
+            --orange: #ffae00;
+            --red: #ff315c;
+            --background: #030407;
+            --card: #090c10;
+            --muted: #737b87;
+        }
+
+        body {
+            background: var(--background);
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================
+           CYBER BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(22,119,255,.24),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 100% 45%,
+                    rgba(0,200,255,.07),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 0% 80%,
+                    rgba(22,119,255,.06),
+                    transparent 30%
+                );
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            opacity: .16;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 50px 50px;
+        }
+
+        #codeRain {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .12;
+            overflow: hidden;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100%;
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 13px;
+            line-height: 16px;
+            white-space: pre;
+            animation: codeFall linear infinite;
+            text-shadow: 0 0 8px var(--blue);
+        }
+
+        @keyframes codeFall {
+            from {
+                transform: translateY(-20vh);
+            }
+
+            to {
+                transform: translateY(150vh);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030407;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 20px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+
+            width: 100%;
+            height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            background: rgba(3,4,7,.82);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+
+            filter:
+                drop-shadow(
+                    0 0 14px rgba(22,119,255,.4)
+                );
+        }
+
+        .nav-logo span {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-logo span::after {
+            content: ".";
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            color: #8d9199;
+            text-decoration: none;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition: .25s;
+        }
+
+        .nav-links a:not(.discord-button)::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--blue);
+
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .discord-button {
+            padding: 10px 17px;
+
+            color: #fff !important;
+            background: #5865F2;
+
+            border-radius: 7px;
+
+            box-shadow:
+                0 5px 20px rgba(88,101,242,.2);
+        }
+
+        .discord-button:hover {
+            background: #4752c4 !important;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        .top-bar {
+            position: relative;
+            overflow: hidden;
+
+            width: 100%;
+            padding: 13px 20px;
+
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(22,119,255,.05),
+                    rgba(22,119,255,.20),
+                    rgba(22,119,255,.05)
+                );
+
+            border-bottom:
+                1px solid rgba(22,119,255,.22);
+
+            color: #8d96a3;
+
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .8px;
+        }
+
+        .top-bar::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,.08),
+                    transparent
+                );
+
+            animation: barScan 4s linear infinite;
+        }
+
+        @keyframes barScan {
+
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(100%);
+            }
+
+        }
+
+        .top-dot {
+            display: inline-block;
+
+            width: 8px;
+            height: 8px;
+
+            margin-right: 8px;
+
+            background: var(--green);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 12px var(--green);
+
+            animation: pulse 1.5s infinite;
+        }
+
+        .top-bar span:last-child {
+            color: var(--bright-blue);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+
+            padding:
+                125px
+                20px
+                95px;
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 750px;
+            height: 750px;
+
+            top: -400px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: var(--blue);
+
+            opacity: .1;
+
+            filter: blur(150px);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 950px;
+
+            margin: auto;
+        }
+
+        .classified {
+            display: inline-block;
+
+            margin-bottom: 22px;
+
+            padding:
+                8px
+                16px;
+
+            border:
+                1px solid rgba(22,119,255,.45);
+
+            color: var(--bright-blue);
+
+            background:
+                rgba(22,119,255,.06);
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            animation:
+                warningPulse 2s infinite;
+        }
+
+        @keyframes warningPulse {
+
+            50% {
+                box-shadow:
+                    0 0 24px rgba(22,119,255,.22);
+            }
+
+        }
+
+        .hero-logo {
+            width: 145px;
+            height: 145px;
+
+            object-fit: contain;
+
+            margin-bottom: 20px;
+
+            filter:
+                drop-shadow(
+                    0 0 20px rgba(22,119,255,.3)
+                )
+                drop-shadow(
+                    0 0 60px rgba(22,119,255,.12)
+                );
+
+            animation:
+                floating 5s ease-in-out infinite;
+        }
+
+        .hero-kicker {
+            color: var(--bright-blue);
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .glitch-title {
+            position: relative;
+
+            font-size:
+                clamp(
+                    52px,
+                    10vw,
+                    105px
+                );
+
+            line-height: .9;
+
+            font-weight: 1000;
+
+            letter-spacing: -4px;
+
+            text-transform: uppercase;
+
+            text-shadow:
+                4px 0 rgba(0,200,255,.5),
+                -3px 0 rgba(255,49,92,.35),
+                0 0 45px rgba(22,119,255,.2);
+
+            animation:
+                titleGlitch 7s infinite;
+        }
+
+        .glitch-title span {
+            color: var(--blue);
+        }
+
+        @keyframes titleGlitch {
+
+            0%,
+            93%,
+            100% {
+                transform: translate(0);
+            }
+
+            94% {
+                transform:
+                    translate(-3px,1px);
+            }
+
+            95% {
+                transform:
+                    translate(4px,-1px);
+            }
+
+            96% {
+                transform:
+                    translate(-2px,2px);
+            }
+
+            97% {
+                transform: translate(0);
+            }
+
+        }
+
+        .hero-subtitle {
+            max-width: 720px;
+
+            margin:
+                25px
+                auto
+                0;
+
+            color: #9299a5;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .hero-subtitle strong {
+            color: #fff;
+        }
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .updated {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-top: 28px;
+
+            padding:
+                10px
+                16px;
+
+            background:
+                rgba(8,10,14,.9);
+
+            border:
+                1px solid #171c23;
+
+            border-radius: 8px;
+
+            color: #656d78;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 11px;
+        }
+
+        .updated strong {
+            color: var(--bright-blue);
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content-section {
+            padding:
+                40px
+                7%
+                110px;
+        }
+
+        .policy-layout {
+            max-width: 1150px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                250px
+                1fr;
+
+            gap: 25px;
+
+            align-items: start;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+
+            padding: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0b0e13,
+                    #07090c
+                );
+
+            border:
+                1px solid #171c23;
+
+            border-radius: 14px;
+        }
+
+        .sidebar-title {
+            color: var(--bright-blue);
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            display: block;
+
+            padding:
+                9px
+                10px;
+
+            margin-bottom: 3px;
+
+            color: #666e79;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            border-radius: 6px;
+
+            transition: .2s;
+        }
+
+        .sidebar a:hover {
+            color: #fff;
+
+            background:
+                rgba(22,119,255,.09);
+
+            padding-left: 14px;
+        }
+
+        /* =========================
+           POLICY CARDS
+        ========================= */
+
+        .policy {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 14px;
+        }
+
+        .policy-card {
+            padding: 32px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0b0e13,
+                    #07090c
+                );
+
+            border:
+                1px solid #171c23;
+
+            border-radius: 14px;
+
+            transition: .25s;
+        }
+
+        .policy-card:hover {
+            border-color:
+                rgba(22,119,255,.32);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,.2);
+        }
+
+        .policy-number {
+            color: var(--bright-blue);
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: 10px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+        }
+
+        .policy-card h2 {
+            margin-bottom: 14px;
+
+            color: #fff;
+
+            font-size: 23px;
+
+            font-weight: 1000;
+        }
+
+        .policy-card h3 {
+            margin-top: 20px;
+
+            margin-bottom: 8px;
+
+            color: #fff;
+
+            font-size: 15px;
+        }
+
+        .policy-card p {
+            color: #747c87;
+
+            font-size: 13px;
+
+            line-height: 1.8;
+        }
+
+        .policy-card ul {
+            margin:
+                12px
+                0
+                0
+                20px;
+
+            color: #747c87;
+
+            font-size: 13px;
+        }
+
+        .policy-card li {
+            margin-bottom: 8px;
+
+            padding-left: 4px;
+        }
+
+        .policy-card strong {
+            color: #d9dee5;
+        }
+
+        /* =========================
+           NOTICE BOXES
+        ========================= */
+
+        .notice {
+            margin-top: 18px;
+
+            padding:
+                16px
+                18px;
+
+            background:
+                rgba(22,119,255,.06);
+
+            border-left:
+                3px solid var(--blue);
+
+            border-radius: 7px;
+
+            color: #747c87;
+
+            font-size: 12px;
+        }
+
+        .warning {
+            border-left-color:
+                var(--orange);
+
+            background:
+                rgba(255,174,0,.05);
+        }
+
+        .danger {
+            border-left-color:
+                var(--red);
+
+            background:
+                rgba(255,49,92,.05);
+        }
+
+        .success {
+            border-left-color:
+                var(--green);
+
+            background:
+                rgba(60,255,136,.05);
+        }
+
+        /* =========================
+           REFUND STATUS
+        ========================= */
+
+        .refund-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 12px;
+
+            margin-top: 20px;
+        }
+
+        .refund-box {
+            padding: 22px;
+
+            background:
+                #080a0e;
+
+            border:
+                1px solid #171c23;
+
+            border-radius: 10px;
+
+            text-align: center;
+        }
+
+        .refund-icon {
+            font-size: 27px;
+
+            margin-bottom: 9px;
+        }
+
+        .refund-box h3 {
+            margin: 0 0 7px;
+
+            font-size: 14px;
+        }
+
+        .refund-box p {
+            font-size: 11px;
+
+            color: #626a75;
+
+            line-height: 1.6;
+        }
+
+        .approved {
+            color: var(--green) !important;
+        }
+
+        .review {
+            color: var(--orange) !important;
+        }
+
+        .denied {
+            color: var(--red) !important;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            padding:
+                100px
+                7%;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(22,119,255,.12),
+                    transparent 55%
+                );
+
+            border-top:
+                1px solid rgba(255,255,255,.035);
+        }
+
+        .contact-section h2 {
+            font-size:
+                clamp(
+                    35px,
+                    6vw,
+                    55px
+                );
+
+            font-weight: 1000;
+        }
+
+        .contact-section p {
+            max-width: 600px;
+
+            margin:
+                15px
+                auto
+                25px;
+
+            color: #666d78;
+
+            line-height: 1.7;
+
+            font-size: 14px;
+        }
+
+        .button {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 48px;
+
+            padding:
+                0
+                24px;
+
+            border-radius: 8px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            transition: .25s;
+        }
+
+        .discord-main {
+            background: #5865F2;
+
+            color: #fff;
+
+            box-shadow:
+                0 12px 35px
+                rgba(88,101,242,.2);
+        }
+
+        .discord-main:hover {
+            background: #4752c4;
+
+            transform:
+                translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding:
+                35px
+                7%;
+
+            background: #020304;
+
+            border-top:
+                1px solid #101318;
+        }
+
+        footer p {
+            color: #454b54;
+
+            font-size: 12px;
+        }
+
+        footer span {
+            color: var(--blue);
+
+            font-weight: 900;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-10px);
+            }
+
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform:
+                    scale(1);
+            }
+
+            50% {
+                opacity: .45;
+                transform:
+                    scale(.75);
+            }
+
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                padding:
+                    0
+                    20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero-logo {
+                width: 125px;
+                height: 125px;
+            }
+
+            .glitch-title {
+                letter-spacing: -2px;
+            }
+
+            .policy-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .sidebar a {
+                display: inline-block;
+
+                margin-right: 4px;
+            }
+
+            .refund-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .content-section {
+                padding:
+                    25px
+                    20px
+                    80px;
+            }
+
+            .policy-card {
+                padding:
+                    24px
+                    20px;
+            }
+
+            .policy-card h2 {
+                font-size: 20px;
+            }
+
+            .contact-section {
+                padding:
+                    75px
+                    20px;
+            }
+
+            footer {
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- Decorative digital background -->
+<div id="codeRain" aria-hidden="true"></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+
+    <span class="top-dot"></span>
+
+    DEVS ANARCHY:
+    <span>REFUND POLICY</span>
+
+    &nbsp; • &nbsp;
+
+    STORE &amp; DIGITAL PURCHASE INFORMATION
+
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+
+    <a href="/" class="nav-logo">
+
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy Logo">
+
+        <span>DEVS ANARCHY</span>
+
+    </a>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="/">Home</a>
+        </li>
+
+        <li>
+            <a href="/#join">How To Join</a>
+        </li>
+
+        <li>
+            <a href="/#commands">Commands</a>
+        </li>
+
+        <li>
+            <a href="/#ranks">Ranks</a>
+        </li>
+
+        <li>
+            <a href="/terms-of-service">
+                Terms
+            </a>
+        </li>
+
+        <li>
+            <a
+                class="discord-button"
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener">
+                Discord
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="classified">
+            ⚠ OFFICIAL STORE DOCUMENT ⚠
+        </div>
+
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy"
+            class="hero-logo">
+
+        <div class="hero-kicker">
+            DEVS ANARCHY // STORE
+        </div>
+
+        <h1 class="glitch-title">
+            REFUND <span>POLICY</span>
+        </h1>
+
+        <p class="hero-subtitle">
+
+            This policy explains how refunds,
+            cancellations, subscriptions,
+            digital ranks, and other purchases
+            made through the Devs Anarchy store
+            are handled.
+
+        </p>
+
+        <div class="updated">
+
+            LAST UPDATED:
+            <strong>August 27, 2026</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- POLICY CONTENT -->
+<section class="content-section">
+
+    <div class="policy-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-title">
+                POLICY INDEX
+            </div>
+
+            <a href="#overview">
+                01. Overview
+            </a>
+
+            <a href="#eligibility">
+                02. Refund Eligibility
+            </a>
+
+            <a href="#digital">
+                03. Digital Products
+            </a>
+
+            <a href="#subscriptions">
+                04. Subscriptions
+            </a>
+
+            <a href="#duplicate">
+                05. Duplicate Purchases
+            </a>
+
+            <a href="#technical">
+                06. Technical Issues
+            </a>
+
+            <a href="#chargebacks">
+                07. Chargebacks
+            </a>
+
+            <a href="#fraud">
+                08. Fraud
+            </a>
+
+            <a href="#processing">
+                09. Processing
+            </a>
+
+            <a href="#changes">
+                10. Policy Changes
+            </a>
+
+            <a href="#contact">
+                11. Contact
+            </a>
+
+        </aside>
+
+        <!-- POLICY -->
+        <main class="policy">
+
+            <!-- 01 -->
+            <article
+                class="policy-card"
+                id="overview">
+
+                <div class="policy-number">
+                    [ REFUND_01 ]
+                </div>
+
+                <h2>
+                    Refund Policy Overview
+                </h2>
+
+                <p>
+
+                    Devs Anarchy may offer digital
+                    products including ranks,
+                    subscriptions, perks, cosmetics,
+                    and other digital entitlements.
+
+                </p>
+
+                <p style="margin-top:12px;">
+
+                    Because these products are digital
+                    and may be delivered immediately,
+                    refunds are generally handled on
+                    a case-by-case basis.
+
+                </p>
+
+                <div class="notice">
+
+                    Please review the product description
+                    and purchase details carefully before
+                    completing a transaction.
+
+                </div>
+
+            </article>
+
+            <!-- 02 -->
+            <article
+                class="policy-card"
+                id="eligibility">
+
+                <div class="policy-number">
+                    [ REFUND_02 ]
+                </div>
+
+                <h2>
+                    Refund Eligibility
+                </h2>
+
+                <p>
+
+                    Refund requests may be considered
+                    when there is a legitimate issue with
+                    a purchase.
+
+                </p>
+
+                <div class="refund-grid">
+
+                    <div class="refund-box">
+
+                        <div class="refund-icon">
+                            ✓
+                        </div>
+
+                        <h3 class="approved">
+                            MAY QUALIFY
+                        </h3>
+
+                        <p>
+                            Duplicate purchases or
+                            certain technical delivery
+                            problems may be reviewed.
+                        </p>
+
+                    </div>
+
+                    <div class="refund-box">
+
+                        <div class="refund-icon">
+                            ⚠
+                        </div>
+
+                        <h3 class="review">
+                            CASE BY CASE
+                        </h3>
+
+                        <p>
+                            Some disputes may require
+                            additional information
+                            before a decision is made.
+                        </p>
+
+                    </div>
+
+                    <div class="refund-box">
+
+                        <div class="refund-icon">
+                            ✕
+                        </div>
+
+                        <h3 class="denied">
+                            GENERALLY NOT
+                        </h3>
+
+                        <p>
+                            Used digital products or
+                            voluntary purchases generally
+                            may not qualify.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="notice warning">
+
+                    A refund is not guaranteed simply
+                    because a player changes their mind
+                    after purchasing a digital product.
+
+                </div>
+
+            </article>
+
+            <!-- 03 -->
+            <article
+                class="policy-card"
+                id="digital">
+
+                <div class="policy-number">
+                    [ REFUND_03 ]
+                </div>
+
+                <h2>
+                    Digital Products
+                </h2>
+
+                <p>
+
+                    Devs Anarchy store products are
+                    digital services or digital
+                    entitlements.
+
+                </p>
+
+                <h3>
+                    Ranks
+                </h3>
+
+                <p>
+
+                    Rank purchases may provide access
+                    to specific in-game permissions,
+                    commands, homes, cosmetics, or
+                    other advertised features.
+
+                </p>
+
+                <h3>
+                    Digital Delivery
+                </h3>
+
+                <p>
+
+                    Digital purchases may be delivered
+                    automatically or manually after
+                    payment is confirmed.
+
+                </p>
+
+                <div class="notice">
+
+                    If you paid for a product but did not
+                    receive it, contact Devs Anarchy
+                    support before opening a payment
+                    dispute.
+
+                </div>
+
+            </article>
+
+            <!-- 04 -->
+            <article
+                class="policy-card"
+                id="subscriptions">
+
+                <div class="policy-number">
+                    [ REFUND_04 ]
+                </div>
+
+                <h2>
+                    Subscriptions
+                </h2>
+
+                <p>
+
+                    Certain Devs Anarchy products may
+                    be offered as recurring subscriptions.
+
+                </p>
+
+                <h3>
+                    Cancellation
+                </h3>
+
+                <p>
+
+                    If a subscription is offered,
+                    cancellation should be completed
+                    through the payment provider or
+                    subscription management system
+                    associated with the purchase.
+
+                </p>
+
+                <h3>
+                    Recurring Payments
+                </h3>
+
+                <p>
+
+                    By starting a subscription, you
+                    authorize recurring charges according
+                    to the terms displayed at checkout.
+
+                </p>
+
+                <div class="notice warning">
+
+                    Canceling a subscription does not
+                    necessarily create an automatic refund
+                    for a previous completed billing period.
+
+                </div>
+
+            </article>
+
+            <!-- 05 -->
+            <article
+                class="policy-card"
+                id="duplicate">
+
+                <div class="policy-number">
+                    [ REFUND_05 ]
+                </div>
+
+                <h2>
+                    Duplicate Purchases
+                </h2>
+
+                <p>
+
+                    If you accidentally purchase the
+                    same digital product multiple times,
+                    contact support as soon as possible.
+
+                </p>
+
+                <p style="margin-top:12px;">
+
+                    We may review duplicate transactions
+                    and, where appropriate, issue a refund
+                    or otherwise correct the duplicated
+                    purchase.
+
+                </p>
+
+                <div class="notice success">
+
+                    When contacting support, provide the
+                    transaction information necessary to
+                    identify the duplicate purchase.
+
+                </div>
+
+            </article>
+
+            <!-- 06 -->
+            <article
+                class="policy-card"
+                id="technical">
+
+                <div class="policy-number">
+                    [ REFUND_06 ]
+                </div>
+
+                <h2>
+                    Technical Problems
+                </h2>
+
+                <p>
+
+                    If you experience a problem receiving
+                    a purchased product, please contact
+                    Devs Anarchy support.
+
+                </p>
+
+                <h3>
+                    Examples
+                </h3>
+
+                <ul>
+
+                    <li>
+                        A purchased rank does not appear
+                        on the intended Minecraft account.
+                    </li>
+
+                    <li>
+                        A purchased digital entitlement
+                        was not delivered.
+                    </li>
+
+                    <li>
+                        A transaction was completed but
+                        the store did not properly process
+                        the purchase.
+                    </li>
+
+                </ul>
+
+                <div class="notice">
+
+                    We may attempt to correct technical
+                    delivery problems before processing
+                    a refund.
+
+                </div>
+
+            </article>
+
+            <!-- 07 -->
+            <article
+                class="policy-card"
+                id="chargebacks">
+
+                <div class="policy-number">
+                    [ REFUND_07 ]
+                </div>
+
+                <h2>
+                    Chargebacks &amp; Payment Disputes
+                </h2>
+
+                <p>
+
+                    If you believe a transaction was
+                    incorrect, please contact Devs
+                    Anarchy support before initiating a
+                    chargeback whenever possible.
+
+                </p>
+
+                <p style="margin-top:12px;">
+
+                    Unauthorized or fraudulent payment
+                    disputes may result in temporary or
+                    permanent restriction of associated
+                    accounts while the transaction is
+                    investigated.
+
+                </p>
+
+                <div class="notice danger">
+
+                    Abuse of chargebacks or intentionally
+                    fraudulent payment disputes may result
+                    in loss of access to purchased digital
+                    products and Devs Anarchy services.
+
+                </div>
+
+            </article>
+
+            <!-- 08 -->
+            <article
+                class="policy-card"
+                id="fraud">
+
+                <div class="policy-number">
+                    [ REFUND_08 ]
+                </div>
+
+                <h2>
+                    Fraud &amp; Unauthorized Purchases
+                </h2>
+
+                <p>
+
+                    If you believe someone used your
+                    payment method without authorization,
+                    contact your payment provider
+                    immediately and notify Devs Anarchy
+                    support.
+
+                </p>
+
+                <p style="margin-top:12px;">
+
+                    Devs Anarchy may investigate suspicious
+                    transactions and may temporarily
+                    restrict related accounts while an
+                    investigation is conducted.
+
+                </p>
+
+            </article>
+
+            <!-- 09 -->
+            <article
+                class="policy-card"
+                id="processing">
+
+                <div class="policy-number">
+                    [ REFUND_09 ]
+                </div>
+
+                <h2>
+                    Refund Processing
+                </h2>
+
+                <p>
+
+                    Approved refunds are processed through
+                    the applicable payment provider used
+                    for the original transaction whenever
+                    possible.
+
+                </p>
+
+                <p style="margin-top:12px;">
+
+                    The time required for a refund to appear
+                    in your account depends on the payment
+                    provider, bank, card issuer, or other
+                    financial institution.
+
+                </p>
+
+                <div class="notice">
+
+                    Devs Anarchy cannot control the exact
+                    processing time of a third-party
+                    payment provider.
+
+                </div>
+
+            </article>
+
+            <!-- 10 -->
+            <article
+                class="policy-card"
+                id="changes">
+
+                <div class="policy-number">
+                    [ REFUND_10 ]
+                </div>
+
+                <h2>
+                    Changes to This Policy
+                </h2>
+
+                <p>
+
+                    Devs Anarchy may update this Refund
+                    Policy when necessary to reflect
+                    changes to our store, payment systems,
+                    products, or operating practices.
+
+                </p>
+
+                <p style="margin-top:12px;">
+
+                    Updates will be published on this page
+                    and the "Last Updated" date will be
+                    changed accordingly.
+
+                </p>
+
+            </article>
+
+            <!-- 11 -->
+            <article
+                class="policy-card"
+                id="contact">
+
+                <div class="policy-number">
+                    [ REFUND_11 ]
+                </div>
+
+                <h2>
+                    Contact Support
+                </h2>
+
+                <p>
+
+                    If you believe you are eligible for a
+                    refund or are experiencing an issue
+                    with a purchase, contact the Devs
+                    Anarchy support team.
+
+                </p>
+
+                <p style="margin-top:12px;">
+
+                    When contacting support, include as much
+                    relevant information as possible, such
+                    as your Minecraft username, transaction
+                    information, purchase date, and a
+                    description of the issue.
+
+                </p>
+
+                <div class="notice">
+
+                    Do not send your payment card number,
+                    password, or other sensitive credentials
+                    through Discord or Minecraft chat.
+
+                </div>
+
+            </article>
+
+        </main>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+
+    <div class="hero-kicker">
+        NEED HELP WITH A PURCHASE?
+    </div>
+
+    <h2>
+        CONTACT DEVS ANARCHY.
+    </h2>
+
+    <p>
+
+        Having an issue with a purchase, rank,
+        subscription, or digital product?
+
+        Contact the Devs Anarchy community
+        and support team through Discord.
+
+    </p>
+
+    <a
+        href="https://discord.gg/VbrQCDNgmw"
+        target="_blank"
+        rel="noopener"
+        class="button discord-main">
+
+        CONTACT SUPPORT
+
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026
+        <span>Devs Anarchy</span>.
+        All rights reserved.
+    </p>
+
+    <p>
+        Refund Policy • devsanarchy.xyz
+    </p>
+
+</footer>
+
+<script>
+
+    /* =========================
+       DECORATIVE DIGITAL RAIN
+    ========================= */
+
+    function createCodeRain() {
+
+        const rain =
+            document.getElementById("codeRain");
+
+        const characters =
+            "01{}<>[]/\\\\$#*";
+
+        for (let i = 0; i < 20; i++) {
+
+            const column =
+                document.createElement("div");
+
+            column.className =
+                "code-column";
+
+            let text = "";
+
+            for (let j = 0; j < 35; j++) {
+
+                text +=
+                    characters[
+                        Math.floor(
+                            Math.random() *
+                            characters.length
+                        )
+                    ] + "\n";
+
+            }
+
+            column.textContent = text;
+
+            column.style.left =
+                Math.random() * 100 + "%";
+
+            column.style.animationDuration =
+                (10 + Math.random() * 15) + "s";
+
+            column.style.animationDelay =
+                (-Math.random() * 20) + "s";
+
+            rain.appendChild(column);
+        }
+    }
+
+    createCodeRain();
+
+</script>
+
+</body>
+</html>
