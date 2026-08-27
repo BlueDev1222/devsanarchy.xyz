@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | Devs Anarchy</title>
+
+    <meta name="description" content="Contact Devs Anarchy for support, questions, reports, and other inquiries.">
+    <meta name="theme-color" content="#1677ff">
+
+    <meta property="og:title" content="Contact | Devs Anarchy">
+    <meta property="og:description" content="Get in touch with the Devs Anarchy team.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsanarchy.xyz/contact">
+    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+
+    <link rel="icon" type="image/png" href="Devs Anarchy logo.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --blue: #1677ff;
+            --bright-blue: #00c8ff;
+            --green: #3cff88;
+            --orange: #ffae00;
+            --red: #ff315c;
+            --background: #030407;
+            --card: #090c10;
+            --muted: #737b87;
+        }
+
+        body {
+            background: var(--background);
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 50% -10%, rgba(22,119,255,.24), transparent 35%),
+                radial-gradient(circle at 100% 45%, rgba(0,200,255,.07), transparent 30%),
+                radial-gradient(circle at 0% 80%, rgba(22,119,255,.06), transparent 30%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            opacity: .16;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        #codeRain {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .12;
+            overflow: hidden;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100%;
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 13px;
+            line-height: 16px;
+            white-space: pre;
+            animation: codeFall linear infinite;
+            text-shadow: 0 0 8px var(--blue);
+        }
+
+        @keyframes codeFall {
+            from {
+                transform: translateY(-20vh);
+            }
+
+            to {
+                transform: translateY(150vh);
+            }
+        }
+
+        /* =========================
+           SCROLLBAR
+        ========================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030407;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 20px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: rgba(3,4,7,.82);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
+        }
+
+        .nav-logo span {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-logo span::after {
+            content: ".";
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #8d9199;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .nav-links a:not(.discord-button)::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: var(--blue);
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .discord-button {
+            padding: 10px 17px;
+            color: #fff !important;
+            background: #5865F2;
+            border-radius: 7px;
+            box-shadow: 0 5px 20px rgba(88,101,242,.2);
+        }
+
+        .discord-button:hover {
+            background: #4752c4 !important;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            top: -400px;
+            background: var(--blue);
+            opacity: .1;
+            filter: blur(150px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .classified {
+            display: inline-block;
+            margin-bottom: 25px;
+            padding: 8px 16px;
+            border: 1px solid rgba(22,119,255,.45);
+            color: var(--bright-blue);
+            background: rgba(22,119,255,.06);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .hero-logo {
+            width: 130px;
+            height: 130px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter:
+                drop-shadow(0 0 20px rgba(22,119,255,.3))
+                drop-shadow(0 0 60px rgba(22,119,255,.12));
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .page-name {
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .glitch-title {
+            font-size: clamp(55px, 10vw, 100px);
+            line-height: .9;
+            font-weight: 1000;
+            letter-spacing: -4px;
+            text-transform: uppercase;
+            text-shadow:
+                4px 0 rgba(0,200,255,.5),
+                -3px 0 rgba(255,49,92,.25),
+                0 0 45px rgba(22,119,255,.2);
+        }
+
+        .glitch-title span {
+            color: var(--blue);
+        }
+
+        .hero-subtitle {
+            max-width: 650px;
+            margin: 25px auto 0;
+            color: #858d98;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-dark {
+            background: rgba(5,7,10,.78);
+            border-top: 1px solid rgba(255,255,255,.035);
+            border-bottom: 1px solid rgba(255,255,255,.035);
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-kicker {
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(32px,5vw,46px);
+            font-weight: 1000;
+            letter-spacing: -1px;
+        }
+
+        .section-title p {
+            margin-top: 12px;
+            color: #707784;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .contact-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .contact-card {
+            padding: 35px 25px;
+            text-align: center;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #161b23;
+            border-radius: 14px;
+            transition: .3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(22,119,255,.45);
+            box-shadow: 0 20px 45px rgba(0,0,0,.3);
+        }
+
+        .contact-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: rgba(22,119,255,.08);
+            border: 1px solid rgba(22,119,255,.25);
+            color: var(--bright-blue);
+            font-size: 27px;
+        }
+
+        .contact-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #69717d;
+            font-size: 13px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 11px 18px;
+            border-radius: 7px;
+            background: #0d1015;
+            border: 1px solid #202631;
+            color: #fff;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 900;
+            transition: .25s;
+        }
+
+        .contact-button:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           CONTACT FORM
+        ========================= */
+
+        .form-container {
+            max-width: 850px;
+            margin: auto;
+            padding: 35px;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #161b23;
+            border-radius: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #a2a8b1;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 15px;
+            background: #07090d;
+            border: 1px solid #1a2029;
+            border-radius: 8px;
+            outline: none;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            transition: .25s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 20px rgba(22,119,255,.08);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-group select option {
+            background: #07090d;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: var(--blue);
+            color: #fff;
+            font-size: 13px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: .25s;
+            box-shadow: 0 10px 30px rgba(22,119,255,.2);
+        }
+
+        .submit-button:hover {
+            background: #0d63d8;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px rgba(22,119,255,.3);
+        }
+
+        .form-note {
+            margin-top: 15px;
+            text-align: center;
+            color: #505762;
+            font-size: 11px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           DISCORD
+        ========================= */
+
+        .discord-section {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(88,101,242,.13),
+                    transparent 55%
+                );
+        }
+
+        .discord-section h2 {
+            font-size: clamp(35px,6vw,55px);
+            font-weight: 1000;
+        }
+
+        .discord-section p {
+            max-width: 600px;
+            margin: 15px auto 25px;
+            color: #666d78;
+            line-height: 1.7;
+        }
+
+        .discord-main {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 25px;
+            background: #5865F2;
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 900;
+            box-shadow: 0 12px 35px rgba(88,101,242,.2);
+            transition: .25s;
+        }
+
+        .discord-main:hover {
+            background: #4752c4;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 7%;
+            background: #020304;
+            border-top: 1px solid #101318;
+        }
+
+        footer p {
+            color: #454b54;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: var(--blue);
+            font-weight: 900;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 20px 90px;
+            }
+
+            .hero-logo {
+                width: 110px;
+                height: 110px;
+            }
+
+            .glitch-title {
+                letter-spacing: -2px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 22px;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="codeRain" aria-hidden="true"></div>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <a href="/" class="nav-logo">
+        <img src="Devs Anarchy logo.png" alt="Devs Anarchy Logo">
+        <span>DEVS ANARCHY</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#join">How To Join</a></li>
+        <li><a href="/#commands">Commands</a></li>
+        <li><a href="/#ranks">Ranks</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+
+        <li>
+            <a
+                class="discord-button"
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener">
+                Discord
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="classified">
+            SECURE COMMUNICATION CHANNEL
+        </div>
+
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy"
+            class="hero-logo">
+
+        <div class="page-name">
+            DEVS ANARCHY
+        </div>
+
+        <h1 class="glitch-title">
+            CONTACT <span>US</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Need help, have a question, or want to report an issue?
+            Contact the Devs Anarchy team through one of the channels below.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT OPTIONS
+========================= -->
+
+<section class="section-dark">
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            COMMUNICATION
+        </div>
+
+        <h2>
+            Get In Touch
+        </h2>
+
+        <p>
+            Choose the contact method that best fits your request.
+        </p>
+
+    </div>
+
+    <div class="contact-grid">
+
+        <!-- DISCORD -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                💬
+            </div>
+
+            <h3>
+                Discord
+            </h3>
+
+            <p>
+                Join our Discord community for support, announcements,
+                reports, and direct communication with the community.
+            </p>
+
+            <a
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener"
+                class="contact-button">
+                JOIN DISCORD →
+            </a>
+
+        </div>
+
+        <!-- SUPPORT -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                🛠️
+            </div>
+
+            <h3>
+                Support
+            </h3>
+
+            <p>
+                Having trouble with the server, website, purchases,
+                or your account? Our support team can help.
+            </p>
+
+            <a
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener"
+                class="contact-button">
+                GET SUPPORT →
+            </a>
+
+        </div>
+
+        <!-- REPORT -->
+
+        <div class="contact-card">
+
+            <div class="contact-icon">
+                🚨
+            </div>
+
+            <h3>
+                Report An Issue
+            </h3>
+
+            <p>
+                Found a bug, exploit, security issue, or other problem?
+                Please report it to the Devs Anarchy team.
+            </p>
+
+            <a
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener"
+                class="contact-button">
+                MAKE A REPORT →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT FORM
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            DIRECT MESSAGE
+        </div>
+
+        <h2>
+            Send A Message
+        </h2>
+
+        <p>
+            Fill out the form below and provide as much information
+            as possible.
+        </p>
+
+    </div>
+
+    <div class="form-container">
+
+        <!--
+            This form currently opens the user's email client.
+            Replace the mailto address with your real support email.
+        -->
+
+        <form
+            action="mailto:support@devsanarchy.xyz"
+            method="POST"
+            enctype="text/plain">
+
+            <div class="form-group">
+
+                <label for="name">
+                    Minecraft Username
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="Minecraft Username"
+                    placeholder="Your Minecraft username"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="Email"
+                    placeholder="you@example.com"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="reason">
+                    Reason
+                </label>
+
+                <select
+                    id="reason"
+                    name="Reason"
+                    required>
+
+                    <option value="">
+                        Select a reason
+                    </option>
+
+                    <option value="General Question">
+                        General Question
+                    </option>
+
+                    <option value="Server Support">
+                        Server Support
+                    </option>
+
+                    <option value="Purchase Support">
+                        Purchase Support
+                    </option>
+
+                    <option value="Bug Report">
+                        Bug Report
+                    </option>
+
+                    <option value="Player Report">
+                        Player Report
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="Message"
+                    placeholder="Tell us how we can help..."
+                    required></textarea>
+
+            </div>
+
+            <button
+                type="submit"
+                class="submit-button">
+                SEND MESSAGE →
+            </button>
+
+            <p class="form-note">
+                Please do not include passwords, payment information,
+                or other sensitive information in your message.
+            </p>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     DISCORD
+========================= -->
+
+<section class="discord-section">
+
+    <div class="section-kicker">
+        COMMUNITY
+    </div>
+
+    <h2>
+        NEED HELP FAST?
+    </h2>
+
+    <p>
+        The fastest way to reach the Devs Anarchy community and
+        support team is through Discord.
+    </p>
+
+    <a
+        href="https://discord.gg/VbrQCDNgmw"
+        target="_blank"
+        rel="noopener"
+        class="discord-main">
+        JOIN THE DISCORD
+    </a>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 <span>Devs Anarchy</span>.
+        All rights reserved.
+    </p>
+
+    <p>
+        CONTACT • devsanarchy.xyz
+    </p>
+
+</footer>
+
+<!-- =========================
+     DIGITAL RAIN
+========================= -->
+
+<script>
+
+function createCodeRain() {
+
+    const rain = document.getElementById("codeRain");
+
+    const characters = "01{}<>[]/\\\\$#*";
+
+    for (let i = 0; i < 20; i++) {
+
+        const column = document.createElement("div");
+
+        column.className = "code-column";
+
+        let text = "";
+
+        for (let j = 0; j < 35; j++) {
+
+            text +=
+                characters[
+                    Math.floor(
+                        Math.random() * characters.length
+                    )
+                ] + "\n";
+
+        }
+
+        column.textContent = text;
+
+        column.style.left =
+            Math.random() * 100 + "%";
+
+        column.style.animationDuration =
+            (10 + Math.random() * 15) + "s";
+
+        column.style.animationDelay =
+            (-Math.random() * 20) + "s";
+
+        rain.appendChild(column);
+
+    }
+
+}
+
+createCodeRain();
+
+</script>
+
+</body>
+</html>
