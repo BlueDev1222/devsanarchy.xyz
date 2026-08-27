@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Terms of Service | Devs Anarchy</title>
+
+    <meta name="description" content="Devs Anarchy Terms of Service. Read the rules, conditions, and policies that apply when using Devs Anarchy services.">
+    <meta name="theme-color" content="#1677ff">
+
+    <meta property="og:title" content="Terms of Service | Devs Anarchy">
+    <meta property="og:description" content="Official Devs Anarchy Terms of Service.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsanarchy.xyz/terms-of-service">
+    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+
+    <link rel="icon" type="image/png" href="Devs Anarchy logo.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --blue: #1677ff;
+            --bright-blue: #00c8ff;
+            --green: #3cff88;
+            --orange: #ffae00;
+            --red: #ff315c;
+            --background: #030407;
+            --card: #090c10;
+            --muted: #737b87;
+        }
+
+        body {
+            background: var(--background);
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================
+           CYBER BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 50% -10%, rgba(22,119,255,.24), transparent 35%),
+                radial-gradient(circle at 100% 45%, rgba(0,200,255,.07), transparent 30%),
+                radial-gradient(circle at 0% 80%, rgba(22,119,255,.06), transparent 30%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            opacity: .16;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        #codeRain {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .12;
+            overflow: hidden;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100%;
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 13px;
+            line-height: 16px;
+            white-space: pre;
+            animation: codeFall linear infinite;
+            text-shadow: 0 0 8px var(--blue);
+        }
+
+        @keyframes codeFall {
+            from {
+                transform: translateY(-20vh);
+            }
+
+            to {
+                transform: translateY(150vh);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030407;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 20px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: rgba(3,4,7,.82);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
+        }
+
+        .nav-logo span {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-logo span::after {
+            content: ".";
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #8d9199;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .nav-links a:not(.discord-button)::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: var(--blue);
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .discord-button {
+            padding: 10px 17px;
+            color: #fff !important;
+            background: #5865F2;
+            border-radius: 7px;
+            box-shadow: 0 5px 20px rgba(88,101,242,.2);
+        }
+
+        .discord-button:hover {
+            background: #4752c4 !important;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           TOP BAR
+        ========================= */
+
+        .top-bar {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding: 13px 20px;
+            text-align: center;
+            background: linear-gradient(
+                90deg,
+                rgba(22,119,255,.05),
+                rgba(22,119,255,.20),
+                rgba(22,119,255,.05)
+            );
+            border-bottom: 1px solid rgba(22,119,255,.22);
+            color: #8d96a3;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .8px;
+        }
+
+        .top-bar::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.08),
+                transparent
+            );
+            animation: barScan 4s linear infinite;
+        }
+
+        @keyframes barScan {
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(100%);
+            }
+        }
+
+        .top-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--green);
+            animation: pulse 1.5s infinite;
+        }
+
+        .top-bar span:last-child {
+            color: var(--bright-blue);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            padding: 125px 20px 95px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 750px;
+            height: 750px;
+            top: -400px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--blue);
+            opacity: .1;
+            filter: blur(150px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .classified {
+            display: inline-block;
+            margin-bottom: 22px;
+            padding: 8px 16px;
+            border: 1px solid rgba(22,119,255,.45);
+            color: var(--bright-blue);
+            background: rgba(22,119,255,.06);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            animation: warningPulse 2s infinite;
+        }
+
+        @keyframes warningPulse {
+            50% {
+                box-shadow: 0 0 24px rgba(22,119,255,.22);
+            }
+        }
+
+        .hero-logo {
+            width: 145px;
+            height: 145px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter:
+                drop-shadow(0 0 20px rgba(22,119,255,.3))
+                drop-shadow(0 0 60px rgba(22,119,255,.12));
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        .hero-kicker {
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .glitch-title {
+            position: relative;
+            font-size: clamp(52px, 10vw, 105px);
+            line-height: .9;
+            font-weight: 1000;
+            letter-spacing: -4px;
+            text-transform: uppercase;
+            text-shadow:
+                4px 0 rgba(0,200,255,.5),
+                -3px 0 rgba(255,49,92,.35),
+                0 0 45px rgba(22,119,255,.2);
+            animation: titleGlitch 7s infinite;
+        }
+
+        .glitch-title span {
+            color: var(--blue);
+        }
+
+        @keyframes titleGlitch {
+            0%, 93%, 100% {
+                transform: translate(0);
+            }
+
+            94% {
+                transform: translate(-3px, 1px);
+            }
+
+            95% {
+                transform: translate(4px, -1px);
+            }
+
+            96% {
+                transform: translate(-2px, 2px);
+            }
+
+            97% {
+                transform: translate(0);
+            }
+        }
+
+        .hero-subtitle {
+            max-width: 720px;
+            margin: 25px auto 0;
+            color: #9299a5;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .hero-subtitle strong {
+            color: #fff;
+        }
+
+        /* =========================
+           LAST UPDATED
+        ========================= */
+
+        .updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 28px;
+            padding: 10px 16px;
+            background: rgba(8,10,14,.9);
+            border: 1px solid #171c23;
+            border-radius: 8px;
+            color: #656d78;
+            font-family: "Courier New", monospace;
+            font-size: 11px;
+        }
+
+        .updated strong {
+            color: var(--bright-blue);
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .content-section {
+            padding: 40px 7% 110px;
+        }
+
+        .terms-layout {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            padding: 22px;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #171c23;
+            border-radius: 14px;
+        }
+
+        .sidebar-title {
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 9px 10px;
+            margin-bottom: 3px;
+            color: #666e79;
+            text-decoration: none;
+            font-size: 12px;
+            border-radius: 6px;
+            transition: .2s;
+        }
+
+        .sidebar a:hover {
+            color: #fff;
+            background: rgba(22,119,255,.09);
+            padding-left: 14px;
+        }
+
+        /* =========================
+           TERMS CARDS
+        ========================= */
+
+        .terms {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .terms-card {
+            padding: 32px;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #171c23;
+            border-radius: 14px;
+            transition: .25s;
+        }
+
+        .terms-card:hover {
+            border-color: rgba(22,119,255,.32);
+            box-shadow: 0 15px 40px rgba(0,0,0,.2);
+        }
+
+        .terms-number {
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .terms-card h2 {
+            margin-bottom: 14px;
+            color: #fff;
+            font-size: 23px;
+            font-weight: 1000;
+        }
+
+        .terms-card h3 {
+            margin-top: 20px;
+            margin-bottom: 8px;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .terms-card p {
+            color: #747c87;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .terms-card ul {
+            margin: 12px 0 0 20px;
+            color: #747c87;
+            font-size: 13px;
+        }
+
+        .terms-card li {
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+
+        .terms-card strong {
+            color: #d9dee5;
+        }
+
+        .notice {
+            margin-top: 18px;
+            padding: 16px 18px;
+            background: rgba(22,119,255,.06);
+            border-left: 3px solid var(--blue);
+            border-radius: 7px;
+            color: #747c87;
+            font-size: 12px;
+        }
+
+        .warning {
+            border-left-color: var(--orange);
+            background: rgba(255,174,0,.05);
+        }
+
+        .danger {
+            border-left-color: var(--red);
+            background: rgba(255,49,92,.05);
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            padding: 100px 7%;
+            text-align: center;
+            background: radial-gradient(
+                circle at center,
+                rgba(22,119,255,.12),
+                transparent 55%
+            );
+            border-top: 1px solid rgba(255,255,255,.035);
+        }
+
+        .contact-section h2 {
+            font-size: clamp(35px,6vw,55px);
+            font-weight: 1000;
+        }
+
+        .contact-section p {
+            max-width: 600px;
+            margin: 15px auto 25px;
+            color: #666d78;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 900;
+            transition: .25s;
+        }
+
+        .discord-main {
+            background: #5865F2;
+            color: #fff;
+            box-shadow: 0 12px 35px rgba(88,101,242,.2);
+        }
+
+        .discord-main:hover {
+            background: #4752c4;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 7%;
+            background: #020304;
+            border-top: 1px solid #101318;
+        }
+
+        footer p {
+            color: #454b54;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: var(--blue);
+            font-weight: 900;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .45;
+                transform: scale(.75);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 80px;
+            }
+
+            .hero-logo {
+                width: 125px;
+                height: 125px;
+            }
+
+            .glitch-title {
+                letter-spacing: -2px;
+            }
+
+            .terms-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .sidebar a {
+                display: inline-block;
+                margin-right: 4px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .content-section {
+                padding: 25px 20px 80px;
+            }
+
+            .terms-card {
+                padding: 24px 20px;
+            }
+
+            .terms-card h2 {
+                font-size: 20px;
+            }
+
+            .contact-section {
+                padding: 75px 20px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Decorative digital background -->
+<div id="codeRain" aria-hidden="true"></div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <span class="top-dot"></span>
+    DEVS ANARCHY:
+    <span>TERMS OF SERVICE</span>
+    &nbsp; • &nbsp;
+    PLEASE READ BEFORE USING OUR SERVICES
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="/" class="nav-logo">
+        <img src="Devs Anarchy logo.png" alt="Devs Anarchy Logo">
+        <span>DEVS ANARCHY</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#join">How To Join</a></li>
+        <li><a href="/#commands">Commands</a></li>
+        <li><a href="/#ranks">Ranks</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+
+        <li>
+            <a
+                class="discord-button"
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener">
+                Discord
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="classified">
+            ⚠ OFFICIAL SERVER DOCUMENT ⚠
+        </div>
+
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy"
+            class="hero-logo">
+
+        <div class="hero-kicker">
+            DEVS ANARCHY // LEGAL
+        </div>
+
+        <h1 class="glitch-title">
+            TERMS OF <span>SERVICE</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            These Terms of Service explain the rules and conditions
+            that apply when using <strong>Devs Anarchy</strong>,
+            including our Minecraft server, website, Discord community,
+            and related services.
+        </p>
+
+        <div class="updated">
+            LAST UPDATED:
+            <strong>August 27, 2026</strong>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TERMS CONTENT -->
+<section class="content-section">
+
+    <div class="terms-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="sidebar-title">
+                DOCUMENT INDEX
+            </div>
+
+            <a href="#acceptance">01. Acceptance</a>
+            <a href="#eligibility">02. Eligibility</a>
+            <a href="#server">03. Server Usage</a>
+            <a href="#accounts">04. Accounts</a>
+            <a href="#conduct">05. Player Conduct</a>
+            <a href="#content">06. Content</a>
+            <a href="#purchases">07. Purchases</a>
+            <a href="#availability">08. Availability</a>
+            <a href="#enforcement">09. Enforcement</a>
+            <a href="#termination">10. Termination</a>
+            <a href="#liability">11. Liability</a>
+            <a href="#changes">12. Changes</a>
+            <a href="#contact">13. Contact</a>
+
+        </aside>
+
+        <!-- TERMS -->
+        <main class="terms">
+
+            <!-- 01 -->
+            <article class="terms-card" id="acceptance">
+
+                <div class="terms-number">
+                    [ TOS_01 ]
+                </div>
+
+                <h2>Acceptance of Terms</h2>
+
+                <p>
+                    By accessing or using Devs Anarchy, you acknowledge
+                    that you have read, understood, and agree to be bound
+                    by these Terms of Service.
+                </p>
+
+                <p style="margin-top:12px;">
+                    If you do not agree with these Terms, you should not
+                    use the Devs Anarchy website, Minecraft server,
+                    Discord community, store, or related services.
+                </p>
+
+                <div class="notice">
+                    By connecting to Devs Anarchy, you are agreeing to
+                    follow these Terms of Service as well as any
+                    applicable server and community rules.
+                </div>
+
+            </article>
+
+            <!-- 02 -->
+            <article class="terms-card" id="eligibility">
+
+                <div class="terms-number">
+                    [ TOS_02 ]
+                </div>
+
+                <h2>Eligibility</h2>
+
+                <p>
+                    You are responsible for ensuring that your use of
+                    Devs Anarchy is permitted under the laws and rules
+                    applicable to you.
+                </p>
+
+                <p style="margin-top:12px;">
+                    If you are under the applicable age of digital
+                    consent in your jurisdiction, you should use our
+                    services only with appropriate permission from a
+                    parent or legal guardian.
+                </p>
+
+            </article>
+
+            <!-- 03 -->
+            <article class="terms-card" id="server">
+
+                <div class="terms-number">
+                    [ TOS_03 ]
+                </div>
+
+                <h2>Server Usage</h2>
+
+                <p>
+                    Devs Anarchy is an anarchy-style Minecraft server.
+                    The server may contain gameplay mechanics, player
+                    interactions, destruction, combat, raiding, and
+                    other forms of unrestricted gameplay.
+                </p>
+
+                <h3>Server Access</h3>
+
+                <p>
+                    We may restrict, suspend, modify, or discontinue
+                    access to the server or any portion of the service
+                    at any time.
+                </p>
+
+                <h3>Server Rules</h3>
+
+                <p>
+                    Although Devs Anarchy is designed around anarchy
+                    gameplay, certain rules may still apply to protect
+                    the server, its infrastructure, its community, and
+                    its users.
+                </p>
+
+                <div class="notice warning">
+                    Anarchy gameplay does not mean that every action
+                    against the server, website, Discord, infrastructure,
+                    or other services is permitted.
+                </div>
+
+            </article>
+
+            <!-- 04 -->
+            <article class="terms-card" id="accounts">
+
+                <div class="terms-number">
+                    [ TOS_04 ]
+                </div>
+
+                <h2>Accounts</h2>
+
+                <p>
+                    You are responsible for activity performed through
+                    your Minecraft account, Discord account, or any
+                    other account used to access Devs Anarchy services.
+                </p>
+
+                <ul>
+                    <li>Do not intentionally share account credentials.</li>
+                    <li>Do not impersonate another player or staff member.</li>
+                    <li>Do not attempt to gain unauthorized access to another account.</li>
+                    <li>Keep your account credentials secure.</li>
+                </ul>
+
+                <div class="notice">
+                    Devs Anarchy staff will never require you to provide
+                    your Minecraft or Discord password.
+                </div>
+
+            </article>
+
+            <!-- 05 -->
+            <article class="terms-card" id="conduct">
+
+                <div class="terms-number">
+                    [ TOS_05 ]
+                </div>
+
+                <h2>Player Conduct</h2>
+
+                <p>
+                    Players are expected to avoid behavior that
+                    threatens the security, operation, or integrity
+                    of Devs Anarchy.
+                </p>
+
+                <h3>Prohibited Activities</h3>
+
+                <ul>
+                    <li>DDoS attacks or attempts to disrupt server infrastructure.</li>
+                    <li>Doxing, publishing private personal information, or threatening to do so.</li>
+                    <li>Unauthorized access to server systems or accounts.</li>
+                    <li>Malware, phishing, credential theft, or malicious links.</li>
+                    <li>Exploiting vulnerabilities against the website or infrastructure.</li>
+                    <li>Attempting to compromise staff accounts or administrative systems.</li>
+                    <li>Using the service to distribute illegal content.</li>
+                </ul>
+
+                <div class="notice danger">
+                    Security-related abuse may result in immediate
+                    removal from the server and may be reported to
+                    the appropriate service provider or authorities
+                    when necessary.
+                </div>
+
+            </article>
+
+            <!-- 06 -->
+            <article class="terms-card" id="content">
+
+                <div class="terms-number">
+                    [ TOS_06 ]
+                </div>
+
+                <h2>User Content</h2>
+
+                <p>
+                    Players may create, upload, transmit, or otherwise
+                    share content through Devs Anarchy services.
+                </p>
+
+                <p style="margin-top:12px;">
+                    You are responsible for content you submit or
+                    distribute. You agree not to use Devs Anarchy
+                    services to distribute unlawful, malicious, or
+                    harmful material.
+                </p>
+
+                <h3>Content Moderation</h3>
+
+                <p>
+                    Devs Anarchy may remove content that violates these
+                    Terms, applicable rules, or threatens the safety
+                    and operation of the community.
+                </p>
+
+            </article>
+
+            <!-- 07 -->
+            <article class="terms-card" id="purchases">
+
+                <div class="terms-number">
+                    [ TOS_07 ]
+                </div>
+
+                <h2>Purchases &amp; Ranks</h2>
+
+                <p>
+                    Devs Anarchy may offer optional ranks, subscriptions,
+                    cosmetics, perks, or other digital products through
+                    its store.
+                </p>
+
+                <h3>Digital Products</h3>
+
+                <p>
+                    Purchased products are digital services or
+                    digital entitlements and generally do not represent
+                    ownership of the Devs Anarchy server or its
+                    infrastructure.
+                </p>
+
+                <h3>Changes to Perks</h3>
+
+                <p>
+                    Server features and rank perks may change over time
+                    due to balancing, technical limitations, updates,
+                    or other operational requirements.
+                </p>
+
+                <div class="notice warning">
+                    Purchases should only be made with the permission
+                    of the account holder and, where applicable,
+                    a parent or legal guardian.
+                </div>
+
+            </article>
+
+            <!-- 08 -->
+            <article class="terms-card" id="availability">
+
+                <div class="terms-number">
+                    [ TOS_08 ]
+                </div>
+
+                <h2>Service Availability</h2>
+
+                <p>
+                    We aim to keep Devs Anarchy available and operational,
+                    but we do not guarantee uninterrupted access.
+                </p>
+
+                <p style="margin-top:12px;">
+                    The server may experience downtime because of
+                    maintenance, updates, technical problems, attacks,
+                    hosting issues, or other circumstances outside our
+                    control.
+                </p>
+
+                <p style="margin-top:12px;">
+                    Features may be added, removed, changed, or
+                    temporarily disabled without prior notice.
+                </p>
+
+            </article>
+
+            <!-- 09 -->
+            <article class="terms-card" id="enforcement">
+
+                <div class="terms-number">
+                    [ TOS_09 ]
+                </div>
+
+                <h2>Moderation &amp; Enforcement</h2>
+
+                <p>
+                    Devs Anarchy staff may take action when a player
+                    violates these Terms, server rules, Discord rules,
+                    or otherwise threatens the community or service.
+                </p>
+
+                <h3>Possible Actions</h3>
+
+                <ul>
+                    <li>Warnings</li>
+                    <li>Temporary restrictions</li>
+                    <li>Mute or chat restrictions</li>
+                    <li>Kick</li>
+                    <li>Temporary bans</li>
+                    <li>Permanent bans</li>
+                    <li>Removal of digital perks</li>
+                    <li>Restriction from community services</li>
+                </ul>
+
+                <p style="margin-top:12px;">
+                    Enforcement decisions may depend on the severity
+                    and circumstances of the violation.
+                </p>
+
+            </article>
+
+            <!-- 10 -->
+            <article class="terms-card" id="termination">
+
+                <div class="terms-number">
+                    [ TOS_10 ]
+                </div>
+
+                <h2>Termination</h2>
+
+                <p>
+                    Devs Anarchy may suspend or terminate your access
+                    to its services if you violate these Terms or if
+                    your activity presents a risk to the server,
+                    community, infrastructure, or other users.
+                </p>
+
+                <p style="margin-top:12px;">
+                    You may stop using Devs Anarchy services at any
+                    time.
+                </p>
+
+            </article>
+
+            <!-- 11 -->
+            <article class="terms-card" id="liability">
+
+                <div class="terms-number">
+                    [ TOS_11 ]
+                </div>
+
+                <h2>Disclaimer &amp; Limitation of Liability</h2>
+
+                <p>
+                    Devs Anarchy services are provided on an
+                    "as available" basis. To the extent permitted by
+                    applicable law, Devs Anarchy does not guarantee
+                    that the service will always be available,
+                    error-free, or secure.
+                </p>
+
+                <p style="margin-top:12px;">
+                    To the extent permitted by applicable law, Devs
+                    Anarchy and its operators are not responsible for
+                    losses resulting from interruptions, player actions,
+                    lost in-game items, deleted builds, server resets,
+                    data loss, or changes to the service.
+                </p>
+
+                <div class="notice warning">
+                    Minecraft gameplay progress and digital items may
+                    be lost or changed at any time due to resets,
+                    maintenance, technical problems, exploits, or
+                    other circumstances.
+                </div>
+
+            </article>
+
+            <!-- 12 -->
+            <article class="terms-card" id="changes">
+
+                <div class="terms-number">
+                    [ TOS_12 ]
+                </div>
+
+                <h2>Changes to These Terms</h2>
+
+                <p>
+                    We may update these Terms of Service when necessary
+                    to reflect changes to Devs Anarchy, our services,
+                    policies, or applicable requirements.
+                </p>
+
+                <p style="margin-top:12px;">
+                    When changes are made, the updated version will be
+                    published on this page with a revised "Last Updated"
+                    date.
+                </p>
+
+                <div class="notice">
+                    Continued use of Devs Anarchy services after changes
+                    are published constitutes acceptance of the updated
+                    Terms, to the extent permitted by applicable law.
+                </div>
+
+            </article>
+
+            <!-- 13 -->
+            <article class="terms-card" id="contact">
+
+                <div class="terms-number">
+                    [ TOS_13 ]
+                </div>
+
+                <h2>Contact</h2>
+
+                <p>
+                    If you have questions about these Terms of Service,
+                    server policies, purchases, moderation, or other
+                    Devs Anarchy services, you can contact the Devs
+                    Anarchy community through our official Discord.
+                </p>
+
+            </article>
+
+        </main>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section">
+
+    <div class="hero-kicker">
+        NEED HELP?
+    </div>
+
+    <h2>CONTACT DEVS ANARCHY.</h2>
+
+    <p>
+        Have a question about the Terms of Service, server rules,
+        purchases, or your account? Join the official Devs Anarchy
+        Discord and contact the community or support team.
+    </p>
+
+    <a
+        href="https://discord.gg/VbrQCDNgmw"
+        target="_blank"
+        rel="noopener"
+        class="button discord-main">
+        JOIN THE DISCORD
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <p>
+        © 2026 <span>Devs Anarchy</span>. All rights reserved.
+    </p>
+
+    <p>
+        Terms of Service • devsanarchy.xyz
+    </p>
+
+</footer>
+
+<script>
+
+    /* =========================
+       DECORATIVE DIGITAL RAIN
+    ========================= */
+
+    function createCodeRain() {
+
+        const rain = document.getElementById("codeRain");
+
+        const characters = "01{}<>[]/\\\\$#*";
+
+        for (let i = 0; i < 20; i++) {
+
+            const column = document.createElement("div");
+
+            column.className = "code-column";
+
+            let text = "";
+
+            for (let j = 0; j < 35; j++) {
+
+                text +=
+                    characters[
+                        Math.floor(Math.random() * characters.length)
+                    ] + "\n";
+
+            }
+
+            column.textContent = text;
+
+            column.style.left =
+                Math.random() * 100 + "%";
+
+            column.style.animationDuration =
+                (10 + Math.random() * 15) + "s";
+
+            column.style.animationDelay =
+                (-Math.random() * 20) + "s";
+
+            rain.appendChild(column);
+        }
+    }
+
+    createCodeRain();
+
+</script>
+
+</body>
+</html>
