@@ -1,1 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>History | Devs Anarchy</title>
+
+    <meta name="description" content="Explore the official history and archives of Devs Anarchy. Discover the events, stories, and moments that shaped the server.">
+    <meta name="theme-color" content="#1677ff">
+
+    <meta property="og:title" content="History | Devs Anarchy">
+    <meta property="og:description" content="Explore the stories, events, and moments that shaped Devs Anarchy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsanarchy.xyz/history/">
+    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+
+    <link rel="icon" type="image/png" href="../Devs Anarchy logo.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --blue: #1677ff;
+            --bright-blue: #00c8ff;
+            --green: #3cff88;
+            --orange: #ffae00;
+            --red: #ff315c;
+            --purple: #9b6cff;
+            --background: #030407;
+            --card: #090c10;
+            --muted: #737b87;
+        }
+
+        body {
+            background: var(--background);
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 50% -10%, rgba(22,119,255,.25), transparent 35%),
+                radial-gradient(circle at 0% 70%, rgba(155,108,255,.06), transparent 30%),
+                radial-gradient(circle at 100% 50%, rgba(0,200,255,.06), transparent 30%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            opacity: .16;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        #codeRain {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .10;
+            overflow: hidden;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100%;
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 13px;
+            line-height: 16px;
+            white-space: pre;
+            animation: codeFall linear infinite;
+            text-shadow: 0 0 8px var(--blue);
+        }
+
+        @keyframes codeFall {
+            from { transform: translateY(-20vh); }
+            to { transform: translateY(150vh); }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030407;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 20px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: rgba(3,4,7,.84);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
+        }
+
+        .nav-logo span {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-logo span::after {
+            content: ".";
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #8d9199;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .discord-button {
+            padding: 10px 17px;
+            color: #fff !important;
+            background: #5865F2;
+            border-radius: 7px;
+        }
+
+        .discord-button:hover {
+            background: #4752c4 !important;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           ARCHIVE BAR
+        ========================= */
+
+        .archive-bar {
+            padding: 13px 20px;
+            text-align: center;
+            background: linear-gradient(
+                90deg,
+                rgba(22,119,255,.04),
+                rgba(22,119,255,.18),
+                rgba(22,119,255,.04)
+            );
+            border-bottom: 1px solid rgba(22,119,255,.22);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .archive-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--green);
+            animation: pulse 1.5s infinite;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 720px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .archive-label {
+            display: inline-block;
+            padding: 9px 16px;
+            margin-bottom: 24px;
+            color: var(--bright-blue);
+            background: rgba(22,119,255,.08);
+            border: 1px solid rgba(22,119,255,.25);
+            font-family: monospace;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .hero-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 35px rgba(22,119,255,.25));
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: clamp(58px, 10vw, 120px);
+            line-height: .9;
+            font-weight: 1000;
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            text-shadow: 0 0 45px rgba(22,119,255,.2);
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero p {
+            max-width: 720px;
+            margin: 28px auto 0;
+            color: #89919d;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .hero p strong {
+            color: #fff;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 13px;
+            margin-top: 32px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 900;
+            transition: .25s;
+        }
+
+        .primary {
+            color: #fff;
+            background: var(--blue);
+            box-shadow: 0 10px 30px rgba(22,119,255,.2);
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+            background: #0d63d8;
+        }
+
+        .secondary {
+            color: #fff;
+            background: #0c0e12;
+            border: 1px solid #202631;
+        }
+
+        .secondary:hover {
+            transform: translateY(-3px);
+            border-color: var(--blue);
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-dark {
+            background: rgba(5,7,10,.78);
+            border-top: 1px solid rgba(255,255,255,.035);
+            border-bottom: 1px solid rgba(255,255,255,.035);
+        }
+
+        .section-title {
+            max-width: 720px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .section-kicker {
+            margin-bottom: 10px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 1000;
+        }
+
+        .section-title p {
+            margin-top: 12px;
+            color: #707784;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           HISTORY ENTRIES
+        ========================= */
+
+        .history-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .history-card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 330px;
+            padding: 32px;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(145deg, #0c1016, #07090c);
+            border: 1px solid #171c23;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: .3s;
+        }
+
+        .history-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--bright-blue),
+                transparent
+            );
+            opacity: 0;
+            transition: .3s;
+        }
+
+        .history-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(22,119,255,.45);
+            box-shadow: 0 25px 55px rgba(0,0,0,.3);
+        }
+
+        .history-card:hover::before {
+            opacity: 1;
+        }
+
+        .chapter {
+            color: var(--bright-blue);
+            font-family: monospace;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .history-icon {
+            margin: 25px 0 18px;
+            font-size: 40px;
+        }
+
+        .history-card h3 {
+            font-size: 22px;
+        }
+
+        .history-card p {
+            margin-top: 12px;
+            color: #6f7783;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .read-more {
+            margin-top: auto;
+            padding-top: 25px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* Locked entries */
+
+        .locked {
+            opacity: .55;
+            cursor: default;
+        }
+
+        .locked:hover {
+            transform: none;
+            border-color: #171c23;
+            box-shadow: none;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            margin-top: auto;
+            padding: 6px 10px;
+            width: fit-content;
+            color: var(--orange);
+            background: rgba(255,174,0,.07);
+            border: 1px solid rgba(255,174,0,.18);
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
+           ARCHIVE MESSAGE
+        ========================= */
+
+        .archive-message {
+            max-width: 900px;
+            margin: auto;
+            padding: 45px;
+            text-align: center;
+            background:
+                linear-gradient(145deg, rgba(22,119,255,.08), rgba(7,9,12,.96));
+            border: 1px solid rgba(22,119,255,.2);
+            border-radius: 18px;
+        }
+
+        .archive-message h2 {
+            font-size: 32px;
+            font-weight: 1000;
+        }
+
+        .archive-message h2 span {
+            color: var(--bright-blue);
+        }
+
+        .archive-message p {
+            max-width: 700px;
+            margin: 18px auto 0;
+            color: #747c88;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           DISCORD
+        ========================= */
+
+        .discord-section {
+            text-align: center;
+            background: radial-gradient(
+                circle at center,
+                rgba(88,101,242,.13),
+                transparent 55%
+            );
+        }
+
+        .discord-section h2 {
+            font-size: clamp(35px,6vw,55px);
+            font-weight: 1000;
+        }
+
+        .discord-section p {
+            max-width: 600px;
+            margin: 15px auto 25px;
+            color: #666d78;
+            line-height: 1.7;
+        }
+
+        .discord-main {
+            color: #fff;
+            background: #5865F2;
+        }
+
+        .discord-main:hover {
+            background: #4752c4;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 35px 7%;
+            background: #020304;
+            border-top: 1px solid #101318;
+        }
+
+        .footer-left p {
+            color: #454b54;
+            font-size: 12px;
+        }
+
+        .footer-left p + p {
+            margin-top: 8px;
+        }
+
+        footer span {
+            color: var(--blue);
+            font-weight: 900;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: #666d78;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--bright-blue);
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: .45;
+                transform: scale(.75);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1000px) {
+            .history-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 750px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 20px;
+            }
+
+            .hero-logo {
+                width: 125px;
+                height: 125px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .button {
+                width: 100%;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .history-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .archive-message {
+                padding: 32px 22px;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="codeRain" aria-hidden="true"></div>
+
+<!-- ARCHIVE BAR -->
+<div class="archive-bar">
+    <span class="archive-dot"></span>
+    DEVS ANARCHY HISTORY • OFFICIAL SERVER ARCHIVES
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="https://devsanarchy.xyz/" class="nav-logo">
+        <img src="../Devs Anarchy logo.png" alt="Devs Anarchy Logo">
+        <span>DEVS ANARCHY</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="https://devsanarchy.xyz/">Home</a></li>
+        <li><a href="#archives">Archives</a></li>
+        <li><a href="#about">About History</a></li>
+        <li>
+            <a class="discord-button"
+               href="https://discord.gg/VbrQCDNgmw"
+               target="_blank"
+               rel="noopener">
+                Discord
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="archive-label">
+            OFFICIAL SERVER ARCHIVES
+        </div>
+
+        <img src="../Devs Anarchy logo.png"
+             alt="Devs Anarchy"
+             class="hero-logo">
+
+        <h1>
+            DEVS <span>HISTORY</span>
+        </h1>
+
+        <p>
+            Every server has a beginning. Every player leaves a mark.
+            Explore the <strong>events, stories, and moments</strong>
+            that have become part of the history of Devs Anarchy.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#archives" class="button primary">
+                EXPLORE THE ARCHIVES
+            </a>
+
+            <a href="https://devsanarchy.xyz/"
+               class="button secondary">
+                RETURN HOME
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HISTORY ARCHIVES -->
+<section class="section-dark" id="archives">
+
+    <div class="section-title">
+        <div class="section-kicker">THE ARCHIVES</div>
+        <h2>Chapters Of Devs Anarchy</h2>
+        <p>
+            Important moments from the past are preserved here.
+            New chapters will be added as the story continues.
+        </p>
+    </div>
+
+    <div class="history-grid">
+
+        <!-- FIRST ILLEGALS -->
+        <a href="/history/illegals"
+           class="history-card">
+
+            <div class="chapter">
+                CHAPTER 01
+            </div>
+
+            <div class="history-icon">⚠</div>
+
+            <h3>The First Illegals</h3>
+
+            <p>
+                The story of the first illegal items to become part of
+                Devs Anarchy history and the moment they arrived on
+                the server.
+            </p>
+
+            <div class="read-more">
+                OPEN ARCHIVE →
+            </div>
+
+        </a>
+
+        <!-- FUTURE ENTRY -->
+        <div class="history-card locked">
+
+            <div class="chapter">
+                CHAPTER 02
+            </div>
+
+            <div class="history-icon">🔒</div>
+
+            <h3>Unknown Chapter</h3>
+
+            <p>
+                The next major chapter in Devs Anarchy history has yet
+                to be written.
+            </p>
+
+            <div class="coming-soon">
+                COMING IN THE FUTURE
+            </div>
+
+        </div>
+
+        <!-- FUTURE ENTRY -->
+        <div class="history-card locked">
+
+            <div class="chapter">
+                CHAPTER 03
+            </div>
+
+            <div class="history-icon">📁</div>
+
+            <h3>Classified Archive</h3>
+
+            <p>
+                Some stories remain hidden until the time is right for
+                them to become part of the public archives.
+            </p>
+
+            <div class="coming-soon">
+                ARCHIVE LOCKED
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT HISTORY -->
+<section id="about">
+
+    <div class="archive-message">
+
+        <div class="section-kicker">
+            PRESERVING THE STORY
+        </div>
+
+        <h2>
+            The Server Is Still <span>Writing Its History.</span>
+        </h2>
+
+        <p>
+            Devs Anarchy is more than just a world. Every event,
+            discovery, battle, and memorable moment has the potential
+            to become part of the server's story. These archives exist
+            to preserve the chapters that helped shape the community.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- DISCORD -->
+<section class="discord-section">
+
+    <div class="section-kicker">COMMUNITY</div>
+
+    <h2>BE PART OF HISTORY.</h2>
+
+    <p>
+        Join Devs Anarchy today. The next chapter could be written by
+        you.
+    </p>
+
+    <a href="https://discord.gg/VbrQCDNgmw"
+       target="_blank"
+       rel="noopener"
+       class="button discord-main">
+        JOIN THE DISCORD
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-left">
+        <p>
+            © 2026 <span>Devs Anarchy</span>. All rights reserved.
+        </p>
+
+        <p>
+            DEVS ANARCHY HISTORY • OFFICIAL SERVER ARCHIVES
+        </p>
+    </div>
+
+    <div class="footer-links">
+        <a href="https://devsanarchy.xyz/">Home</a>
+        <a href="https://devsanarchy.xyz/history/">History</a>
+        <a href="https://devsanarchy.xyz/terms-of-service/">Terms of Service</a>
+        <a href="https://devsanarchy.xyz/rules/">Rules</a>
+        <a href="https://devsanarchy.xyz/contact/">Contact</a>
+    </div>
+
+</footer>
+
+<script>
+    function createCodeRain() {
+        const rain = document.getElementById("codeRain");
+        const characters = "01{}<>[]/\\\\$#*";
+
+        for (let i = 0; i < 20; i++) {
+            const column = document.createElement("div");
+            column.className = "code-column";
+
+            let text = "";
+
+            for (let j = 0; j < 35; j++) {
+                text += characters[
+                    Math.floor(Math.random() * characters.length)
+                ] + "\n";
+            }
+
+            column.textContent = text;
+            column.style.left = Math.random() * 100 + "%";
+            column.style.animationDuration =
+                (10 + Math.random() * 15) + "s";
+            column.style.animationDelay =
+                (-Math.random() * 20) + "s";
+
+            rain.appendChild(column);
+        }
+    }
+
+    createCodeRain();
+</script>
+
+</body>
+</html>
