@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Privacy Policy | Devs Anarchy</title>
+
+    <meta name="description" content="Privacy Policy for Devs Anarchy. Learn how we collect, use, and protect your information.">
+    <meta name="theme-color" content="#1677ff">
+
+    <meta property="og:title" content="Privacy Policy | Devs Anarchy">
+    <meta property="og:description" content="Learn how Devs Anarchy handles your information and privacy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsanarchy.xyz/privacy-policy">
+    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+
+    <link rel="icon" type="image/png" href="Devs Anarchy logo.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --blue: #1677ff;
+            --bright-blue: #00c8ff;
+            --background: #030407;
+            --card: #090c10;
+        }
+
+        body {
+            background: var(--background);
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 50% -10%, rgba(22,119,255,.24), transparent 35%),
+                radial-gradient(circle at 100% 45%, rgba(0,200,255,.07), transparent 30%),
+                radial-gradient(circle at 0% 80%, rgba(22,119,255,.06), transparent 30%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            opacity: .16;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        #codeRain {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .12;
+            overflow: hidden;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100%;
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 13px;
+            line-height: 16px;
+            white-space: pre;
+            animation: codeFall linear infinite;
+            text-shadow: 0 0 8px var(--blue);
+        }
+
+        @keyframes codeFall {
+            from {
+                transform: translateY(-20vh);
+            }
+
+            to {
+                transform: translateY(150vh);
+            }
+        }
+
+        /* =========================
+           SCROLLBAR
+        ========================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030407;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 20px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: rgba(3,4,7,.82);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
+        }
+
+        .nav-logo span {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-logo span::after {
+            content: ".";
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #8d9199;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .nav-links a:not(.discord-button)::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: var(--blue);
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .discord-button {
+            padding: 10px 17px;
+            color: #fff !important;
+            background: #5865F2;
+            border-radius: 7px;
+            box-shadow: 0 5px 20px rgba(88,101,242,.2);
+        }
+
+        .discord-button:hover {
+            background: #4752c4 !important;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            top: -400px;
+            background: var(--blue);
+            opacity: .1;
+            filter: blur(150px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .classified {
+            display: inline-block;
+            margin-bottom: 25px;
+            padding: 8px 16px;
+            border: 1px solid rgba(22,119,255,.45);
+            color: var(--bright-blue);
+            background: rgba(22,119,255,.06);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .hero-logo {
+            width: 115px;
+            height: 115px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter:
+                drop-shadow(0 0 20px rgba(22,119,255,.3))
+                drop-shadow(0 0 60px rgba(22,119,255,.12));
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .page-name {
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .glitch-title {
+            font-size: clamp(48px, 9vw, 90px);
+            line-height: .9;
+            font-weight: 1000;
+            letter-spacing: -4px;
+            text-transform: uppercase;
+            text-shadow:
+                4px 0 rgba(0,200,255,.5),
+                -3px 0 rgba(255,49,92,.25),
+                0 0 45px rgba(22,119,255,.2);
+        }
+
+        .glitch-title span {
+            color: var(--blue);
+        }
+
+        .hero-subtitle {
+            max-width: 700px;
+            margin: 25px auto 0;
+            color: #858d98;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           PRIVACY POLICY
+        ========================= */
+
+        .policy-section {
+            padding: 90px 20px;
+            background: rgba(5,7,10,.78);
+            border-top: 1px solid rgba(255,255,255,.035);
+            border-bottom: 1px solid rgba(255,255,255,.035);
+        }
+
+        .policy-container {
+            max-width: 900px;
+            margin: auto;
+            padding: 45px;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #161b23;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.25);
+        }
+
+        .last-updated {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 7px 12px;
+            border: 1px solid rgba(22,119,255,.25);
+            border-radius: 5px;
+            color: var(--bright-blue);
+            background: rgba(22,119,255,.05);
+            font-family: "Courier New", monospace;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .policy-section h2 {
+            margin-top: 35px;
+            margin-bottom: 12px;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .policy-section h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .policy-section h3 {
+            margin-top: 25px;
+            margin-bottom: 8px;
+            color: var(--bright-blue);
+            font-size: 17px;
+        }
+
+        .policy-section p {
+            margin-bottom: 15px;
+            color: #858d98;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .policy-section ul {
+            margin: 10px 0 20px 22px;
+        }
+
+        .policy-section li {
+            margin-bottom: 9px;
+            color: #858d98;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .policy-section strong {
+            color: #fff;
+        }
+
+        .policy-section a {
+            color: var(--bright-blue);
+            text-decoration: none;
+        }
+
+        .policy-section a:hover {
+            text-decoration: underline;
+        }
+
+        .info-box {
+            margin: 25px 0;
+            padding: 20px;
+            border-left: 3px solid var(--blue);
+            background: rgba(22,119,255,.06);
+            border-radius: 6px;
+        }
+
+        .info-box p {
+            margin: 0;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 7%;
+            background: #020304;
+            border-top: 1px solid #101318;
+        }
+
+        footer p {
+            color: #454b54;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: var(--blue);
+            font-weight: 900;
+        }
+
+        footer a {
+            color: var(--bright-blue);
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 20px 90px;
+            }
+
+            .hero-logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .glitch-title {
+                letter-spacing: -2px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            .policy-section {
+                padding: 60px 20px;
+            }
+
+            .policy-container {
+                padding: 25px 20px;
+            }
+
+            .policy-section h2 {
+                font-size: 21px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="codeRain" aria-hidden="true"></div>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <a href="/" class="nav-logo">
+        <img src="Devs Anarchy logo.png" alt="Devs Anarchy Logo">
+        <span>DEVS ANARCHY</span>
+    </a>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="/">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="/#join">
+                How To Join
+            </a>
+        </li>
+
+        <li>
+            <a href="/#commands">
+                Commands
+            </a>
+        </li>
+
+        <li>
+            <a href="/#ranks">
+                Ranks
+            </a>
+        </li>
+
+        <li>
+            <a href="/#faq">
+                FAQ
+            </a>
+        </li>
+
+        <li>
+            <a
+                class="discord-button"
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener">
+                Discord
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="classified">
+            PRIVACY & DATA PROTECTION
+        </div>
+
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy"
+            class="hero-logo">
+
+        <div class="page-name">
+            DEVS ANARCHY
+        </div>
+
+        <h1 class="glitch-title">
+            PRIVACY <span>POLICY</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            This Privacy Policy explains how Devs Anarchy may collect,
+            use, store, and protect information when you use our website,
+            Minecraft server, Discord community, and related services.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     PRIVACY POLICY
+========================= -->
+
+<section class="policy-section">
+
+    <div class="policy-container">
+
+        <div class="last-updated">
+            LAST UPDATED: AUGUST 27, 2026
+        </div>
+
+        <h2>
+            1. Introduction
+        </h2>
+
+        <p>
+            Welcome to Devs Anarchy. We respect your privacy and are
+            committed to protecting the information associated with
+            your use of our services.
+        </p>
+
+        <p>
+            This Privacy Policy describes the types of information that
+            may be collected when you visit
+            <strong>devsanarchy.xyz</strong>, play on the Devs Anarchy
+            Minecraft server, interact with our Discord community,
+            purchase products or ranks, or contact our support team.
+        </p>
+
+        <h2>
+            2. Information We May Collect
+        </h2>
+
+        <p>
+            Depending on how you interact with Devs Anarchy, we may
+            collect or receive the following information:
+        </p>
+
+        <ul>
+            <li>
+                <strong>Minecraft information:</strong> Minecraft
+                username, UUID, rank information, server activity,
+                and related gameplay information.
+            </li>
+
+            <li>
+                <strong>Discord information:</strong> Discord username,
+                user ID, messages, and information you choose to provide
+                when interacting with our Discord server or staff.
+            </li>
+
+            <li>
+                <strong>Contact information:</strong> Email address and
+                other information you provide when contacting support.
+            </li>
+
+            <li>
+                <strong>Purchase information:</strong> Information
+                necessary to process purchases, such as transaction
+                details or order information. Payment card information
+                may be processed by third-party payment providers rather
+                than stored directly by Devs Anarchy.
+            </li>
+
+            <li>
+                <strong>Technical information:</strong> IP address,
+                browser information, device information, approximate
+                location, and website usage information may be collected
+                automatically.
+            </li>
+        </ul>
+
+        <h2>
+            3. How We Use Information
+        </h2>
+
+        <p>
+            Information may be used for legitimate operational purposes,
+            including:
+        </p>
+
+        <ul>
+            <li>Providing and maintaining the Devs Anarchy website and server.</li>
+            <li>Managing player accounts, ranks, purchases, and permissions.</li>
+            <li>Providing customer and technical support.</li>
+            <li>Preventing cheating, abuse, fraud, exploits, and other harmful activity.</li>
+            <li>Investigating security incidents and server issues.</li>
+            <li>Communicating important service announcements.</li>
+            <li>Improving website and server performance.</li>
+            <li>Complying with applicable legal obligations.</li>
+        </ul>
+
+        <h2>
+            4. Minecraft Server Information
+        </h2>
+
+        <p>
+            When you connect to the Devs Anarchy Minecraft server,
+            certain information may be logged as part of normal server
+            operation.
+        </p>
+
+        <p>
+            This can include your Minecraft username, UUID, IP address,
+            connection information, gameplay activity, commands,
+            punishments, and other information necessary to operate,
+            secure, and moderate the server.
+        </p>
+
+        <p>
+            Server logs may be retained for security, moderation,
+            troubleshooting, and administrative purposes.
+        </p>
+
+        <h2>
+            5. Discord
+        </h2>
+
+        <p>
+            Devs Anarchy uses Discord as a community and communication
+            platform. If you join or interact with our Discord server,
+            information may be processed by both Devs Anarchy and Discord
+            according to their respective policies.
+        </p>
+
+        <p>
+            Please avoid sharing passwords, payment information,
+            addresses, or other sensitive personal information in public
+            Discord channels.
+        </p>
+
+        <h2>
+            6. Payments and Purchases
+        </h2>
+
+        <p>
+            Devs Anarchy may offer ranks, subscriptions, digital
+            products, or other services through third-party payment
+            providers.
+        </p>
+
+        <p>
+            Payment providers may collect and process payment information
+            according to their own privacy policies and terms. Devs
+            Anarchy does not intentionally store complete payment card
+            numbers or security codes.
+        </p>
+
+        <div class="info-box">
+
+            <p>
+                <strong>Important:</strong>
+                Never send your full credit card number, password,
+                authentication code, or other sensitive payment
+                information to Devs Anarchy through email, Discord,
+                Minecraft, or our website.
+            </p>
+
+        </div>
+
+        <h2>
+            7. Cookies and Website Technologies
+        </h2>
+
+        <p>
+            Our website may use cookies, local storage, analytics,
+            or similar technologies to provide functionality, improve
+            performance, maintain security, or understand how visitors
+            use the website.
+        </p>
+
+        <p>
+            You can control or disable cookies through your browser
+            settings. Disabling certain technologies may affect some
+            website functionality.
+        </p>
+
+        <h2>
+            8. Third-Party Services
+        </h2>
+
+        <p>
+            Devs Anarchy may rely on third-party services to operate
+            certain parts of the website, server, community, or store.
+            These services may process information according to their
+            own privacy policies.
+        </p>
+
+        <p>
+            Examples may include hosting providers, payment processors,
+            Discord, analytics providers, security services, and other
+            infrastructure providers.
+        </p>
+
+        <h2>
+            9. Data Security
+        </h2>
+
+        <p>
+            We take reasonable measures to protect information from
+            unauthorized access, disclosure, alteration, or destruction.
+            However, no online service can guarantee complete security.
+        </p>
+
+        <h2>
+            10. Data Retention
+        </h2>
+
+        <p>
+            Information may be retained for as long as reasonably
+            necessary to provide services, maintain security, resolve
+            disputes, enforce our policies, maintain server records,
+            or comply with legal requirements.
+        </p>
+
+        <p>
+            Different types of information may be retained for different
+            periods depending on their purpose.
+        </p>
+
+        <h2>
+            11. Your Choices
+        </h2>
+
+        <p>
+            Depending on applicable law, you may have rights concerning
+            personal information associated with you, including the
+            ability to request access, correction, or deletion of certain
+            information.
+        </p>
+
+        <p>
+            Requests may be submitted to:
+        </p>
+
+        <p>
+            <a href="mailto:support@devsanarchy.xyz">
+                support@devsanarchy.xyz
+            </a>
+        </p>
+
+        <h2>
+            12. Children's Privacy
+        </h2>
+
+        <p>
+            Devs Anarchy does not knowingly request or intentionally
+            collect unnecessary personal information from children.
+            Parents or guardians who believe that information relating
+            to a child has been provided to us may contact our support
+            team.
+        </p>
+
+        <h2>
+            13. Changes to This Privacy Policy
+        </h2>
+
+        <p>
+            We may update this Privacy Policy from time to time to
+            reflect changes to our services, practices, or legal
+            requirements.
+        </p>
+
+        <p>
+            When changes are made, the updated policy will be published
+            on this page and the "Last Updated" date will be changed.
+        </p>
+
+        <h2>
+            14. Contact Us
+        </h2>
+
+        <p>
+            If you have questions, concerns, or requests regarding this
+            Privacy Policy or your information, contact the Devs Anarchy
+            support team.
+        </p>
+
+        <p>
+            <strong>Email:</strong>
+            <a href="mailto:support@devsanarchy.xyz">
+                support@devsanarchy.xyz
+            </a>
+        </p>
+
+        <p>
+            <strong>Website:</strong>
+            devsanarchy.xyz
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 <span>Devs Anarchy</span>.
+        All rights reserved.
+    </p>
+
+    <p>
+        <a href="mailto:support@devsanarchy.xyz">
+            support@devsanarchy.xyz
+        </a>
+    </p>
+
+</footer>
+
+<!-- =========================
+     DIGITAL RAIN
+========================= -->
+
+<script>
+
+function createCodeRain() {
+
+    const rain = document.getElementById("codeRain");
+
+    const characters = "01{}<>[]/\\\\$#*";
+
+    for (let i = 0; i < 20; i++) {
+
+        const column = document.createElement("div");
+
+        column.className = "code-column";
+
+        let text = "";
+
+        for (let j = 0; j < 35; j++) {
+
+            text +=
+                characters[
+                    Math.floor(
+                        Math.random() * characters.length
+                    )
+                ] + "\n";
+
+        }
+
+        column.textContent = text;
+
+        column.style.left =
+            Math.random() * 100 + "%";
+
+        column.style.animationDuration =
+            (10 + Math.random() * 15) + "s";
+
+        column.style.animationDelay =
+            (-Math.random() * 20) + "s";
+
+        rain.appendChild(column);
+
+    }
+
+}
+
+createCodeRain();
+
+</script>
+
+</body>
+</html>
