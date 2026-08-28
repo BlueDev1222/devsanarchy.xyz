@@ -55,10 +55,6 @@
             color: inherit;
         }
 
-        /* =========================
-           BACKGROUND
-        ========================= */
-
         body::before {
             content: "";
             position: fixed;
@@ -115,10 +111,6 @@
             }
         }
 
-        /* =========================
-           SCROLLBAR
-        ========================= */
-
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -132,9 +124,7 @@
             border-radius: 20px;
         }
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* NAVIGATION */
 
         nav {
             position: sticky;
@@ -224,9 +214,7 @@
             transform: translateY(-2px);
         }
 
-        /* =========================
-           HERO
-        ========================= */
+        /* HERO */
 
         .hero {
             min-height: 620px;
@@ -326,9 +314,7 @@
             line-height: 1.7;
         }
 
-        /* =========================
-           CONTACT SECTION
-        ========================= */
+        /* CONTACT */
 
         section {
             padding: 90px 7%;
@@ -437,9 +423,23 @@
             transform: translateY(-2px);
         }
 
-        /* =========================
-           CONTACT FORM
-        ========================= */
+        /* EMAIL */
+
+        .support-email {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--bright-blue);
+            font-weight: 900;
+            text-decoration: none;
+            word-break: break-word;
+        }
+
+        .support-email:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* FORM */
 
         .form-container {
             max-width: 850px;
@@ -523,9 +523,7 @@
             line-height: 1.6;
         }
 
-        /* =========================
-           DISCORD
-        ========================= */
+        /* DISCORD */
 
         .discord-section {
             position: relative;
@@ -571,9 +569,7 @@
             transform: translateY(-3px);
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         footer {
             display: flex;
@@ -594,9 +590,18 @@
             font-weight: 900;
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        footer a {
+            color: var(--bright-blue);
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* MOBILE */
 
         @media (max-width: 750px) {
 
@@ -651,9 +656,7 @@
 
 <div id="codeRain" aria-hidden="true"></div>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAVIGATION -->
 
 <nav>
 
@@ -682,9 +685,7 @@
 
 </nav>
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -716,9 +717,7 @@
 
 </section>
 
-<!-- =========================
-     CONTACT OPTIONS
-========================= -->
+<!-- CONTACT OPTIONS -->
 
 <section class="section-dark">
 
@@ -781,15 +780,21 @@
 
             <p>
                 Having trouble with the server, website, purchases,
-                or your account? Our support team can help.
+                or your account? Contact our support team directly.
             </p>
 
             <a
-                href="https://discord.gg/VbrQCDNgmw"
-                target="_blank"
-                rel="noopener"
+                href="mailto:support@devsanarchy.xyz"
                 class="contact-button">
-                GET SUPPORT →
+                EMAIL SUPPORT →
+            </a>
+
+            <br>
+
+            <a
+                href="mailto:support@devsanarchy.xyz"
+                class="support-email">
+                support@devsanarchy.xyz
             </a>
 
         </div>
@@ -812,9 +817,7 @@
             </p>
 
             <a
-                href="https://discord.gg/VbrQCDNgmw"
-                target="_blank"
-                rel="noopener"
+                href="mailto:support@devsanarchy.xyz?subject=Devs%20Anarchy%20Issue%20Report"
                 class="contact-button">
                 MAKE A REPORT →
             </a>
@@ -825,9 +828,7 @@
 
 </section>
 
-<!-- =========================
-     CONTACT FORM
-========================= -->
+<!-- CONTACT FORM -->
 
 <section>
 
@@ -849,11 +850,6 @@
     </div>
 
     <div class="form-container">
-
-        <!--
-            This form currently opens the user's email client.
-            Replace the mailto address with your real support email.
-        -->
 
         <form
             action="mailto:support@devsanarchy.xyz"
@@ -954,8 +950,10 @@
             </button>
 
             <p class="form-note">
+                Your message will be sent to
+                <strong>support@devsanarchy.xyz</strong>.
                 Please do not include passwords, payment information,
-                or other sensitive information in your message.
+                or other sensitive information.
             </p>
 
         </form>
@@ -964,9 +962,7 @@
 
 </section>
 
-<!-- =========================
-     DISCORD
-========================= -->
+<!-- DISCORD -->
 
 <section class="discord-section">
 
@@ -993,9 +989,7 @@
 
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
@@ -1005,14 +999,14 @@
     </p>
 
     <p>
-        CONTACT • devsanarchy.xyz
+        <a href="mailto:support@devsanarchy.xyz">
+            support@devsanarchy.xyz
+        </a>
     </p>
 
 </footer>
 
-<!-- =========================
-     DIGITAL RAIN
-========================= -->
+<!-- DIGITAL RAIN -->
 
 <script>
 
