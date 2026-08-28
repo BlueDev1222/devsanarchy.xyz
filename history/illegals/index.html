@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The First Illegals | Devs Anarchy Archives</title>
+
+    <meta name="description" content="Explore the history of the first illegal items to appear on Devs Anarchy and the story behind their arrival.">
+
+    <meta name="theme-color" content="#1677ff">
+
+    <meta property="og:title" content="The First Illegals | Devs Anarchy">
+    <meta property="og:description" content="Enter the archives and discover the story of the first illegals on Devs Anarchy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsanarchy.xyz/first-illegals/">
+    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+
+    <link rel="icon" type="image/png" href="Devs Anarchy logo.png">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --blue: #1677ff;
+        --bright-blue: #00c8ff;
+        --green: #3cff88;
+        --orange: #ffae00;
+        --red: #ff315c;
+        --purple: #9b6cff;
+        --background: #030407;
+        --card: #090c10;
+        --muted: #737b87;
+    }
+
+    body {
+        background: var(--background);
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
+    }
+
+    ::selection {
+        background: var(--blue);
+        color: #fff;
+    }
+
+    a {
+        color: inherit;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -3;
+        background:
+            radial-gradient(circle at 50% -10%, rgba(22,119,255,.25), transparent 35%),
+            radial-gradient(circle at 0% 60%, rgba(155,108,255,.07), transparent 30%),
+            radial-gradient(circle at 100% 75%, rgba(0,200,255,.06), transparent 30%);
+    }
+
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -2;
+        opacity: .16;
+        background-image:
+            linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+        background-size: 50px 50px;
+    }
+
+    #codeRain {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        opacity: .10;
+        overflow: hidden;
+    }
+
+    .code-column {
+        position: absolute;
+        top: -100%;
+        color: var(--bright-blue);
+        font-family: "Courier New", monospace;
+        font-size: 13px;
+        line-height: 16px;
+        white-space: pre;
+        animation: codeFall linear infinite;
+        text-shadow: 0 0 8px var(--blue);
+    }
+
+    @keyframes codeFall {
+        from {
+            transform: translateY(-20vh);
+        }
+        to {
+            transform: translateY(150vh);
+        }
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #030407;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--blue);
+        border-radius: 20px;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6%;
+        background: rgba(3,4,7,.84);
+        border-bottom: 1px solid rgba(255,255,255,.07);
+        backdrop-filter: blur(18px);
+    }
+
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+    }
+
+    .nav-logo img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
+    }
+
+    .nav-logo span {
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 1.5px;
+    }
+
+    .nav-logo span::after {
+        content: ".";
+        color: var(--blue);
+    }
+
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        position: relative;
+        color: #8d9199;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        transition: .25s;
+    }
+
+    .nav-links a:not(.discord-button)::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 2px;
+        background: var(--blue);
+        transition: .25s;
+    }
+
+    .nav-links a:hover {
+        color: #fff;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .discord-button {
+        padding: 10px 17px;
+        color: #fff !important;
+        background: #5865F2;
+        border-radius: 7px;
+        box-shadow: 0 5px 20px rgba(88,101,242,.2);
+    }
+
+    .discord-button:hover {
+        background: #4752c4 !important;
+        transform: translateY(-2px);
+    }
+
+    /* =========================
+       ARCHIVE BAR
+    ========================= */
+
+    .archive-bar {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding: 13px 20px;
+        text-align: center;
+        background: linear-gradient(
+            90deg,
+            rgba(22,119,255,.04),
+            rgba(22,119,255,.18),
+            rgba(22,119,255,.04)
+        );
+        border-bottom: 1px solid rgba(22,119,255,.22);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 1.5px;
+    }
+
+    .archive-bar::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.08),
+            transparent
+        );
+        animation: barScan 4s linear infinite;
+    }
+
+    @keyframes barScan {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(100%); }
+    }
+
+    .archive-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 8px;
+        background: var(--orange);
+        border-radius: 50%;
+        box-shadow: 0 0 12px var(--orange);
+        animation: pulse 1.5s infinite;
+    }
+
+    .archive-bar span:not(.archive-dot) {
+        color: var(--bright-blue);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+        position: relative;
+        min-height: 850px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 20px 130px;
+        overflow: hidden;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        width: 750px;
+        height: 750px;
+        top: -400px;
+        background: var(--blue);
+        opacity: .11;
+        filter: blur(150px);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1100px;
+    }
+
+    .classified {
+        display: inline-block;
+        margin-bottom: 22px;
+        padding: 8px 16px;
+        border: 1px solid rgba(255,174,0,.45);
+        color: #ffc34d;
+        background: rgba(255,174,0,.06);
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 3px;
+        animation: warningPulse 2s infinite;
+    }
+
+    @keyframes warningPulse {
+        50% {
+            box-shadow: 0 0 24px rgba(255,174,0,.16);
+        }
+    }
+
+    .hero-logo {
+        width: 165px;
+        height: 165px;
+        object-fit: contain;
+        margin-bottom: 20px;
+        filter:
+            drop-shadow(0 0 20px rgba(22,119,255,.3))
+            drop-shadow(0 0 60px rgba(22,119,255,.12));
+        animation: floating 5s ease-in-out infinite;
+    }
+
+    .event-name {
+        margin-bottom: 15px;
+        color: var(--bright-blue);
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+
+    .glitch-title {
+        position: relative;
+        font-size: clamp(48px, 9vw, 105px);
+        line-height: .9;
+        font-weight: 1000;
+        letter-spacing: -4px;
+        text-transform: uppercase;
+        text-shadow:
+            4px 0 rgba(0,200,255,.5),
+            -3px 0 rgba(255,49,92,.3),
+            0 0 45px rgba(22,119,255,.2);
+        animation: titleGlitch 7s infinite;
+    }
+
+    .glitch-title span {
+        color: var(--blue);
+    }
+
+    @keyframes titleGlitch {
+        0%, 93%, 100% { transform: translate(0); }
+        94% { transform: translate(-3px, 1px); }
+        95% { transform: translate(4px, -1px); }
+        96% { transform: translate(-2px, 2px); }
+        97% { transform: translate(0); }
+    }
+
+    .hero-subtitle {
+        max-width: 760px;
+        margin: 25px auto 0;
+        color: #9299a5;
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .hero-subtitle strong {
+        color: #fff;
+    }
+
+    /* =========================
+       TERMINAL
+    ========================= */
+
+    .terminal {
+        max-width: 760px;
+        margin: 35px auto 0;
+        overflow: hidden;
+        text-align: left;
+        background: rgba(5,9,14,.9);
+        border: 1px solid rgba(22,119,255,.25);
+        border-radius: 12px;
+        box-shadow: 0 20px 70px rgba(0,0,0,.35);
+    }
+
+    .terminal-header {
+        padding: 11px 16px;
+        background: rgba(22,119,255,.08);
+        border-bottom: 1px solid rgba(22,119,255,.15);
+        color: var(--bright-blue);
+        font-family: monospace;
+        font-size: 11px;
+    }
+
+    .terminal-body {
+        min-height: 125px;
+        padding: 17px;
+        color: var(--green);
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        line-height: 1.8;
+    }
+
+    .terminal-cursor {
+        animation: blink .8s infinite;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 13px;
+        margin-top: 30px;
+    }
+
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 900;
+        transition: .25s;
+    }
+
+    .primary {
+        background: var(--blue);
+        color: #fff;
+        box-shadow: 0 10px 30px rgba(22,119,255,.2);
+    }
+
+    .primary:hover {
+        background: #0d63d8;
+        transform: translateY(-3px);
+    }
+
+    .secondary {
+        background: #0c0e12;
+        border: 1px solid #202631;
+        color: #fff;
+    }
+
+    .secondary:hover {
+        border-color: var(--blue);
+        transform: translateY(-3px);
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================= */
+
+    section {
+        padding: 110px 7%;
+    }
+
+    .section-dark {
+        background: rgba(5,7,10,.78);
+        border-top: 1px solid rgba(255,255,255,.035);
+        border-bottom: 1px solid rgba(255,255,255,.035);
+    }
+
+    .section-title {
+        text-align: center;
+        max-width: 750px;
+        margin: 0 auto 55px;
+    }
+
+    .section-kicker {
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+    }
+
+    .section-title h2 {
+        font-size: clamp(32px,5vw,46px);
+        font-weight: 1000;
+        letter-spacing: -1px;
+    }
+
+    .section-title p {
+        margin-top: 12px;
+        color: #707784;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* =========================
+       HISTORY TIMELINE
+    ========================= */
+
+    .timeline {
+        position: relative;
+        max-width: 950px;
+        margin: auto;
+        padding-left: 45px;
+        border-left: 1px solid rgba(22,119,255,.3);
+    }
+
+    .timeline-item {
+        position: relative;
+        padding: 0 0 45px 30px;
+    }
+
+    .timeline-item:last-child {
+        padding-bottom: 0;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: -52px;
+        top: 5px;
+        width: 14px;
+        height: 14px;
+        background: var(--blue);
+        border: 3px solid #030407;
+        border-radius: 50%;
+        box-shadow: 0 0 18px rgba(22,119,255,.7);
+    }
+
+    .timeline-card {
+        padding: 30px;
+        background: linear-gradient(145deg, #0b0e13, #07090c);
+        border: 1px solid #161b23;
+        border-radius: 14px;
+        transition: .3s;
+    }
+
+    .timeline-card:hover {
+        transform: translateX(6px);
+        border-color: rgba(22,119,255,.45);
+        box-shadow: 0 20px 45px rgba(0,0,0,.25);
+    }
+
+    .timeline-number {
+        color: var(--bright-blue);
+        font-family: monospace;
+        font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+    }
+
+    .timeline-card h3 {
+        font-size: 21px;
+        margin-bottom: 12px;
+    }
+
+    .timeline-card p {
+        color: #717985;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    /* =========================
+       FEATURE CARDS
+    ========================= */
+
+    .intel-grid {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .intel-card {
+        padding: 30px;
+        background: linear-gradient(145deg, #0b0e13, #07090c);
+        border: 1px solid #161b23;
+        border-radius: 14px;
+        transition: .3s;
+    }
+
+    .intel-card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(22,119,255,.4);
+        box-shadow: 0 20px 45px rgba(0,0,0,.25);
+    }
+
+    .intel-number {
+        color: var(--bright-blue);
+        font-family: monospace;
+        font-size: 11px;
+        font-weight: bold;
+        margin-bottom: 18px;
+    }
+
+    .intel-card h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    .intel-card p {
+        color: #6d7580;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    /* =========================
+       ARCHIVE RECORD
+    ========================= */
+
+    .archive-record {
+        max-width: 950px;
+        margin: auto;
+        padding: 45px;
+        background:
+            linear-gradient(145deg, rgba(22,119,255,.08), rgba(7,9,12,.96));
+        border: 1px solid rgba(22,119,255,.22);
+        border-radius: 18px;
+        box-shadow: 0 25px 80px rgba(0,0,0,.35);
+    }
+
+    .record-label {
+        color: var(--bright-blue);
+        font-family: monospace;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+
+    .archive-record h2 {
+        margin-top: 12px;
+        font-size: clamp(30px,5vw,48px);
+        font-weight: 1000;
+    }
+
+    .archive-record p {
+        max-width: 800px;
+        margin-top: 18px;
+        color: #8a919c;
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .record-name {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 13px 20px;
+        background: rgba(22,119,255,.09);
+        border: 1px solid rgba(22,119,255,.25);
+        border-radius: 8px;
+        color: var(--bright-blue);
+        font-family: "Courier New", monospace;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+
+    /* =========================
+       SERVER INFO
+    ========================= */
+
+    .server-info {
+        max-width: 700px;
+        margin: 40px auto 0;
+        padding: 25px;
+        text-align: center;
+        background: #080a0e;
+        border: 1px solid #171c23;
+        border-radius: 12px;
+    }
+
+    .server-info small {
+        color: #4e5661;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+
+    .server-ip {
+        margin-top: 10px;
+        color: var(--bright-blue);
+        font-size: 22px;
+        font-weight: 1000;
+    }
+
+    /* =========================
+       FAQ
+    ========================= */
+
+    .faq {
+        max-width: 850px;
+        margin: auto;
+    }
+
+    details {
+        margin-bottom: 10px;
+        padding: 20px 22px;
+        background: #090c10;
+        border: 1px solid #171c23;
+        border-radius: 10px;
+    }
+
+    summary {
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 900;
+        list-style: none;
+    }
+
+    summary::-webkit-details-marker {
+        display: none;
+    }
+
+    summary::after {
+        content: "+";
+        float: right;
+        color: var(--bright-blue);
+        font-size: 18px;
+    }
+
+    details[open] summary::after {
+        content: "−";
+    }
+
+    details p {
+        margin-top: 15px;
+        color: #666d78;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+
+    /* =========================
+       DISCORD
+    ========================= */
+
+    .discord-section {
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+        background: radial-gradient(circle at center, rgba(88,101,242,.13), transparent 55%);
+    }
+
+    .discord-section h2 {
+        font-size: clamp(35px,6vw,55px);
+        font-weight: 1000;
+    }
+
+    .discord-section p {
+        max-width: 600px;
+        margin: 15px auto 25px;
+        color: #666d78;
+        line-height: 1.7;
+    }
+
+    .discord-main {
+        background: #5865F2;
+    }
+
+    .discord-main:hover {
+        background: #4752c4;
+        transform: translateY(-3px);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        padding: 35px 7%;
+        background: #020304;
+        border-top: 1px solid #101318;
+    }
+
+    .footer-left p {
+        color: #454b54;
+        font-size: 12px;
+    }
+
+    .footer-left p + p {
+        margin-top: 8px;
+    }
+
+    footer span {
+        color: var(--blue);
+        font-weight: 900;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 18px;
+    }
+
+    .footer-links a {
+        color: #666d78;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .footer-links a:hover {
+        color: var(--bright-blue);
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes floating {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: .45;
+            transform: scale(.75);
+        }
+    }
+
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+        .intel-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .nav-links {
+            gap: 14px;
+        }
+    }
+
+    @media (max-width: 750px) {
+        nav {
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        .hero {
+            min-height: auto;
+            padding-top: 75px;
+            padding-bottom: 90px;
+        }
+
+        .hero-logo {
+            width: 130px;
+            height: 130px;
+        }
+
+        .glitch-title {
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+        }
+
+        .hero-buttons .button {
+            width: 100%;
+        }
+
+        section {
+            padding: 75px 20px;
+        }
+
+        .timeline {
+            padding-left: 25px;
+        }
+
+        .timeline-item {
+            padding-left: 20px;
+        }
+
+        .timeline-dot {
+            left: -32px;
+        }
+
+        .archive-record {
+            padding: 30px 22px;
+        }
+
+        footer {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .footer-links {
+            justify-content: center;
+        }
+
+        .archive-bar {
+            font-size: 9px;
+            padding: 12px 10px;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div id="codeRain" aria-hidden="true"></div>
+
+<!-- ARCHIVE BAR -->
+<div class="archive-bar">
+    <span class="archive-dot"></span>
+    DEVS ANARCHY HISTORICAL ARCHIVES
+    <span>• RECORD PRESERVED •</span>
+    THE STORY OF THE FIRST ILLEGALS
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="#home" class="nav-logo">
+        <img src="Devs Anarchy logo.png" alt="Devs Anarchy Logo">
+        <span>DEVS ANARCHY</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="#home">Archive</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#record">The Record</a></li>
+        <li><a href="#legacy">Legacy</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li>
+            <a class="discord-button"
+               href="https://discord.gg/VbrQCDNgmw"
+               target="_blank"
+               rel="noopener">
+                Discord
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+
+        <div class="classified">
+            ⚠ HISTORICAL SERVER RECORD ⚠
+        </div>
+
+        <img src="Devs Anarchy logo.png"
+             alt="Devs Anarchy"
+             class="hero-logo">
+
+        <div class="event-name">
+            DEVS ANARCHY ARCHIVES PRESENT
+        </div>
+
+        <h1 class="glitch-title">
+            THE FIRST<br>
+            <span>ILLEGALS</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Every anarchy server has a history.
+            <br>
+            This is the story of the items that became part of
+            <strong>Devs Anarchy's earliest history.</strong>
+        </p>
+
+        <div class="terminal">
+            <div class="terminal-header">
+                devs@anarchy:~/archives/first_illegals
+            </div>
+            <div class="terminal-body">
+                <span id="terminalText"></span>
+                <span class="terminal-cursor">█</span>
+            </div>
+        </div>
+
+        <div class="hero-buttons">
+            <a href="#history" class="button primary">
+                EXPLORE THE HISTORY
+            </a>
+
+            <a href="#record" class="button secondary">
+                VIEW THE RECORD
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- HISTORY -->
+<section class="section-dark" id="history">
+
+    <div class="section-title">
+        <div class="section-kicker">SERVER HISTORY</div>
+        <h2>How The Story Began</h2>
+        <p>
+            The first illegals became a memorable part of the early
+            history of Devs Anarchy. This archive preserves the story
+            of how they first appeared on the server.
+        </p>
+    </div>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <div class="timeline-number">[ ARCHIVE_ENTRY_01 ]</div>
+                <h3>The Early Days</h3>
+                <p>
+                    In the early days of Devs Anarchy, the server was
+                    still building its own history. Every player,
+                    discovery, and unusual item had the potential to
+                    become part of the server's growing story.
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <div class="timeline-number">[ ARCHIVE_ENTRY_02 ]</div>
+                <h3>The First Appearance</h3>
+                <p>
+                    The server's first illegal items eventually made
+                    their appearance, marking a new chapter in the
+                    history of Devs Anarchy and creating a moment that
+                    players would remember.
+                </p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-card">
+                <div class="timeline-number">[ ARCHIVE_ENTRY_03 ]</div>
+                <h3>A Piece Of Server History</h3>
+                <p>
+                    From that point forward, the first illegals became
+                    more than just unusual items. They became artifacts
+                    connected to the history and lore of Devs Anarchy.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- THE RECORD -->
+<section id="record">
+
+    <div class="section-title">
+        <div class="section-kicker">PRIMARY ARCHIVE RECORD</div>
+        <h2>The Origin</h2>
+        <p>
+            The following record documents the story currently preserved
+            in the Devs Anarchy archives.
+        </p>
+    </div>
+
+    <div class="archive-record">
+        <div class="record-label">
+            [ RECORD_STATUS: PRESERVED ]
+        </div>
+
+        <h2>The First Illegals Arrive</h2>
+
+        <p>
+            According to the history of Devs Anarchy, the first illegal
+            items on the server were spawned in by
+            <strong>melonpopbob</strong>. Their arrival marked an
+            important moment in the server's early history and became
+            part of the story that players would remember.
+        </p>
+
+        <p>
+            Today, these first illegals are remembered as historical
+            artifacts of Devs Anarchy—a reminder of the early days and
+            the unpredictable nature of an anarchy server. This page
+            exists to preserve that moment as part of the server's lore
+            and history.
+        </p>
+
+        <div class="record-name">
+            ARCHIVE SUBJECT: melonpopbob
+        </div>
+    </div>
+
+</section>
+
+<!-- LEGACY -->
+<section class="section-dark" id="legacy">
+
+    <div class="section-title">
+        <div class="section-kicker">THE LEGACY</div>
+        <h2>More Than Just Items</h2>
+        <p>
+            The history of an anarchy server is written by the moments
+            its community creates.
+        </p>
+    </div>
+
+    <div class="intel-grid">
+
+        <div class="intel-card">
+            <div class="intel-number">[ LEGACY_01 ]</div>
+            <h3>HISTORICAL ARTIFACTS</h3>
+            <p>
+                The first illegals are remembered as artifacts connected
+                to a specific moment in Devs Anarchy's history.
+            </p>
+        </div>
+
+        <div class="intel-card">
+            <div class="intel-number">[ LEGACY_02 ]</div>
+            <h3>SERVER LORE</h3>
+            <p>
+                Stories like these help create the lore and identity of
+                the server as its community continues to grow.
+            </p>
+        </div>
+
+        <div class="intel-card">
+            <div class="intel-number">[ LEGACY_03 ]</div>
+            <h3>THE ARCHIVES CONTINUE</h3>
+            <p>
+                This is only one chapter. More moments, events, players,
+                and stories will continue to become part of Devs
+                Anarchy history.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="server-info">
+        <small>ENTER THE SERVER</small>
+        <div class="server-ip">devsanarchy.xyz</div>
+    </div>
+
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+
+    <div class="section-title">
+        <div class="section-kicker">ARCHIVE QUESTIONS</div>
+        <h2>FAQ</h2>
+        <p>
+            Information about this historical Devs Anarchy archive.
+        </p>
+    </div>
+
+    <div class="faq">
+
+        <details>
+            <summary>What is this page about?</summary>
+            <p>
+                This page is a historical archive documenting the story
+                of the first illegal items to become part of Devs
+                Anarchy's server history.
+            </p>
+        </details>
+
+        <details>
+            <summary>Who spawned in the first illegals?</summary>
+            <p>
+                According to the Devs Anarchy historical record, the
+                first illegals were spawned in by melonpopbob.
+            </p>
+        </details>
+
+        <details>
+            <summary>Are the items still considered part of server history?</summary>
+            <p>
+                Yes. Their significance is preserved here as part of the
+                history and lore surrounding the early days of Devs
+                Anarchy.
+            </p>
+        </details>
+
+        <details>
+            <summary>Will there be more historical archive pages?</summary>
+            <p>
+                As Devs Anarchy continues to grow, more memorable events
+                and moments may be added to the server's historical
+                archives.
+            </p>
+        </details>
+
+    </div>
+
+</section>
+
+<!-- DISCORD -->
+<section class="discord-section">
+
+    <div class="section-kicker">COMMUNITY</div>
+
+    <h2>WRITE THE NEXT CHAPTER.</h2>
+
+    <p>
+        Join Devs Anarchy and become part of the server's continuing
+        history. Every journey has the potential to become a story.
+    </p>
+
+    <a href="https://discord.gg/VbrQCDNgmw"
+       target="_blank"
+       rel="noopener"
+       class="button discord-main">
+        JOIN THE DISCORD
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-left">
+        <p>
+            © 2026 <span>Devs Anarchy</span>. All rights reserved.
+        </p>
+
+        <p>
+            DEVS ANARCHY HISTORICAL ARCHIVES • FIRST ILLEGALS
+        </p>
+    </div>
+
+    <div class="footer-links">
+        <a href="https://devsanarchy.xyz/">Home</a>
+        <a href="https://devsanarchy.xyz/terms-of-service/">Terms of Service</a>
+        <a href="https://devsanarchy.xyz/rules/">Rules</a>
+        <a href="https://devsanarchy.xyz/contact/">Contact</a>
+    </div>
+
+</footer>
+
+<script>
+    /* =========================================================
+       ARCHIVE TERMINAL
+    ========================================================= */
+
+    const terminalLines = [
+        "ACCESSING DEVS ANARCHY ARCHIVES...",
+        "SEARCH QUERY: FIRST_ILLEGALS",
+        "RECORD FOUND.",
+        "ORIGIN SUBJECT: melonpopbob",
+        "STATUS: HISTORICAL RECORD PRESERVED",
+        "WELCOME TO THE ARCHIVES..."
+    ];
+
+    const terminalText =
+        document.getElementById("terminalText");
+
+    let terminalLine = 0;
+    let terminalChar = 0;
+
+    function typeTerminal() {
+        if (terminalLine >= terminalLines.length) {
+            setTimeout(() => {
+                terminalText.innerHTML = "";
+                terminalLine = 0;
+                terminalChar = 0;
+                typeTerminal();
+            }, 3000);
+            return;
+        }
+
+        const line = terminalLines[terminalLine];
+
+        if (terminalChar < line.length) {
+            terminalText.textContent +=
+                line.charAt(terminalChar);
+
+            terminalChar++;
+
+            setTimeout(typeTerminal, 25);
+        } else {
+            terminalText.innerHTML += "<br>";
+            terminalLine++;
+            terminalChar = 0;
+
+            setTimeout(typeTerminal, 350);
+        }
+    }
+
+    /* =========================================================
+       DECORATIVE DIGITAL RAIN
+    ========================================================= */
+
+    function createCodeRain() {
+        const rain =
+            document.getElementById("codeRain");
+
+        const characters =
+            "01{}<>[]/\\\\$#*";
+
+        for (let i = 0; i < 20; i++) {
+            const column =
+                document.createElement("div");
+
+            column.className =
+                "code-column";
+
+            let text = "";
+
+            for (let j = 0; j < 35; j++) {
+                text +=
+                    characters[
+                        Math.floor(
+                            Math.random() *
+                            characters.length
+                        )
+                    ] + "\n";
+            }
+
+            column.textContent = text;
+
+            column.style.left =
+                Math.random() * 100 + "%";
+
+            column.style.animationDuration =
+                (10 + Math.random() * 15) + "s";
+
+            column.style.animationDelay =
+                (-Math.random() * 20) + "s";
+
+            rain.appendChild(column);
+        }
+    }
+
+    /* =========================================================
+       START
+    ========================================================= */
+
+    createCodeRain();
+    typeTerminal();
+</script>
+
+</body>
+</html>
