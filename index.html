@@ -3,2777 +3,1537 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>THE HACKER EVENT | Devs Anarchy</title>
-
-    <meta name="description" content="Devs Anarchy presents THE HACKER EVENT — the ultimate dupe event starts Friday, August 28 at 12:00 PM Eastern Time.">
-    <meta name="theme-color" content="#1677ff">
-
-    <meta property="og:title" content="THE HACKER EVENT | Devs Anarchy">
-    <meta property="og:description" content="⚠️ SIGNAL DETECTED. The Devs Anarchy Dupe Event begins Friday at 12:00 PM Eastern Time.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://devsanarchy.xyz">
-    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
-
-    <link rel="icon" type="image/png" href="Devs Anarchy logo.png">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --blue: #1677ff;
-            --bright-blue: #00c8ff;
-            --green: #3cff88;
-            --orange: #ffae00;
-            --red: #ff315c;
-            --background: #030407;
-            --card: #090c10;
-            --muted: #737b87;
-        }
-
-        body {
-            background: var(--background);
-            color: #fff;
-            font-family: Arial, Helvetica, sans-serif;
-            overflow-x: hidden;
-        }
-
-        ::selection {
-            background: var(--blue);
-            color: #fff;
-        }
-
-        a {
-            color: inherit;
-        }
-
-        /* =========================
-           CYBER BACKGROUND
-        ========================= */
-
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -3;
-            background:
-                radial-gradient(circle at 50% -10%, rgba(22,119,255,.24), transparent 35%),
-                radial-gradient(circle at 100% 45%, rgba(0,200,255,.07), transparent 30%),
-                radial-gradient(circle at 0% 80%, rgba(22,119,255,.06), transparent 30%);
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: -2;
-            opacity: .16;
-            background-image:
-                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        #codeRain {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            opacity: .12;
-            overflow: hidden;
-        }
-
-        .code-column {
-            position: absolute;
-            top: -100%;
-            color: var(--bright-blue);
-            font-family: "Courier New", monospace;
-            font-size: 13px;
-            line-height: 16px;
-            white-space: pre;
-            animation: codeFall linear infinite;
-            text-shadow: 0 0 8px var(--blue);
-        }
-
-        @keyframes codeFall {
-            from {
-                transform: translateY(-20vh);
-            }
-
-            to {
-                transform: translateY(150vh);
-            }
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #030407;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--blue);
-            border-radius: 20px;
-        }
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 9999;
-            width: 100%;
-            height: 76px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 6%;
-            background: rgba(3,4,7,.82);
-            border-bottom: 1px solid rgba(255,255,255,.07);
-            backdrop-filter: blur(18px);
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .nav-logo img {
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-            filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
-        }
-
-        .nav-logo span {
-            font-size: 18px;
-            font-weight: 900;
-            letter-spacing: 1.5px;
-        }
-
-        .nav-logo span::after {
-            content: ".";
-            color: var(--blue);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            position: relative;
-            color: #8d9199;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-            transition: .25s;
-        }
-
-        .nav-links a:not(.discord-button)::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 0;
-            height: 2px;
-            background: var(--blue);
-            transition: .25s;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .discord-button {
-            padding: 10px 17px;
-            color: #fff !important;
-            background: #5865F2;
-            border-radius: 7px;
-            box-shadow: 0 5px 20px rgba(88,101,242,.2);
-        }
-
-        .discord-button:hover {
-            background: #4752c4 !important;
-            transform: translateY(-2px);
-        }
-
-        /* =========================
-           EVENT TAKEOVER BAR
-        ========================= */
-
-        .launch-bar {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding: 13px 20px;
-            text-align: center;
-            background: linear-gradient(
-                90deg,
-                rgba(22,119,255,.05),
-                rgba(22,119,255,.20),
-                rgba(22,119,255,.05)
-            );
-            border-bottom: 1px solid rgba(22,119,255,.22);
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: .8px;
-        }
-
-        .launch-bar::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(255,255,255,.08),
-                transparent
-            );
-            animation: barScan 4s linear infinite;
-        }
-
-        @keyframes barScan {
-            from {
-                transform: translateX(-100%);
-            }
-
-            to {
-                transform: translateX(100%);
-            }
-        }
-
-        .launch-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            margin-right: 8px;
-            background: var(--orange);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--orange);
-            animation: pulse 1.5s infinite;
-        }
-
-        .launch-bar span:not(.launch-dot) {
-            color: var(--bright-blue);
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            position: relative;
-            min-height: 900px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 20px 130px;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 750px;
-            height: 750px;
-            top: -400px;
-            background: var(--blue);
-            opacity: .1;
-            filter: blur(150px);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            max-width: 1100px;
-        }
-
-        .classified {
-            display: inline-block;
-            margin-bottom: 22px;
-            padding: 8px 16px;
-            border: 1px solid rgba(255,49,92,.55);
-            color: #ff6680;
-            background: rgba(255,49,92,.06);
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            animation: warningPulse 2s infinite;
-        }
-
-        @keyframes warningPulse {
-            50% {
-                box-shadow: 0 0 24px rgba(255,49,92,.22);
-            }
-        }
-
-        .hero-logo {
-            width: 165px;
-            height: 165px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            filter:
-                drop-shadow(0 0 20px rgba(22,119,255,.3))
-                drop-shadow(0 0 60px rgba(22,119,255,.12));
-            animation: floating 5s ease-in-out infinite;
-        }
-
-        .event-name {
-            margin-bottom: 15px;
-            color: var(--bright-blue);
-            font-family: "Courier New", monospace;
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        .glitch-title {
-            position: relative;
-            font-size: clamp(52px, 10vw, 115px);
-            line-height: .88;
-            font-weight: 1000;
-            letter-spacing: -4px;
-            text-transform: uppercase;
-            text-shadow:
-                4px 0 rgba(0,200,255,.5),
-                -3px 0 rgba(255,49,92,.35),
-                0 0 45px rgba(22,119,255,.2);
-            animation: titleGlitch 7s infinite;
-        }
-
-        .glitch-title span {
-            color: var(--blue);
-        }
-
-        @keyframes titleGlitch {
-            0%, 93%, 100% {
-                transform: translate(0);
-            }
-
-            94% {
-                transform: translate(-3px, 1px);
-            }
-
-            95% {
-                transform: translate(4px, -1px);
-            }
-
-            96% {
-                transform: translate(-2px, 2px);
-            }
-
-            97% {
-                transform: translate(0);
-            }
-        }
-
-        .hero-subtitle {
-            max-width: 720px;
-            margin: 25px auto 0;
-            color: #9299a5;
-            font-size: 17px;
-            line-height: 1.7;
-        }
-
-        .hero-subtitle strong {
-            color: #fff;
-        }
-
-        /* =========================
-           TERMINAL
-        ========================= */
-
-        .terminal {
-            max-width: 720px;
-            margin: 30px auto 0;
-            overflow: hidden;
-            text-align: left;
-            background: rgba(5,9,14,.88);
-            border: 1px solid rgba(22,119,255,.25);
-            border-radius: 12px;
-            box-shadow: 0 20px 70px rgba(0,0,0,.35);
-        }
-
-        .terminal-header {
-            padding: 11px 16px;
-            background: rgba(22,119,255,.08);
-            border-bottom: 1px solid rgba(22,119,255,.15);
-            color: var(--bright-blue);
-            font-family: monospace;
-            font-size: 11px;
-        }
-
-        .terminal-body {
-            min-height: 95px;
-            padding: 17px;
-            color: var(--green);
-            font-family: "Courier New", monospace;
-            font-size: 12px;
-            line-height: 1.7;
-        }
-
-        .terminal-cursor {
-            animation: blink .8s infinite;
-        }
-
-        /* =========================
-           COUNTDOWN
-        ========================= */
-
-        .countdown-container {
-            max-width: 900px;
-            margin: 35px auto 0;
-            padding: 28px;
-            background: linear-gradient(
-                145deg,
-                rgba(15,18,25,.96),
-                rgba(7,9,13,.96)
-            );
-            border: 1px solid rgba(22,119,255,.25);
-            border-radius: 18px;
-            box-shadow:
-                0 25px 80px rgba(0,0,0,.45),
-                0 0 50px rgba(22,119,255,.06);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .countdown-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                var(--bright-blue),
-                transparent
-            );
-            animation: scan 3s linear infinite;
-        }
-
-        .countdown-label {
-            color: #777d88;
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 3px;
-        }
-
-        .countdown-title {
-            margin-top: 8px;
-            font-size: 25px;
-            font-weight: 900;
-        }
-
-        .countdown-title span {
-            color: var(--blue);
-        }
-
-        .countdown {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
-            margin-top: 25px;
-        }
-
-        .time-box {
-            padding: 20px 10px;
-            background: #080a0e;
-            border: 1px solid #171c25;
-            border-radius: 12px;
-            transition: .25s;
-        }
-
-        .time-box:hover {
-            border-color: rgba(22,119,255,.5);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(22,119,255,.08);
-        }
-
-        .time-number {
-            display: block;
-            color: #fff;
-            font-size: clamp(32px, 5vw, 52px);
-            line-height: 1;
-            font-weight: 1000;
-            font-variant-numeric: tabular-nums;
-        }
-
-        .time-label {
-            display: block;
-            margin-top: 9px;
-            color: #555c68;
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .launch-time {
-            margin-top: 20px;
-            color: #666d78;
-            font-size: 12px;
-        }
-
-        .launch-time strong {
-            color: var(--bright-blue);
-        }
-
-        /* =========================
-           LIVE EVENT
-        ========================= */
-
-        .live-message {
-            display: none;
-            text-align: center;
-            padding: 10px 0 5px;
-            animation: liveAppear .8s ease forwards;
-        }
-
-        .live-icon {
-            width: 70px;
-            height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 18px;
-            border-radius: 50%;
-            background: rgba(60,255,136,.08);
-            border: 2px solid var(--green);
-            color: var(--green);
-            font-size: 30px;
-            box-shadow: 0 0 30px rgba(60,255,136,.15);
-        }
-
-        .live-message h3 {
-            color: var(--green);
-            font-size: 30px;
-            font-weight: 1000;
-        }
-
-        .live-message p {
-            margin-top: 10px;
-            color: #858d98;
-            font-size: 15px;
-        }
-
-        .join-server-button {
-            margin-top: 22px;
-            padding: 15px 28px;
-            border: none;
-            border-radius: 8px;
-            background: var(--blue);
-            color: #fff;
-            font-size: 13px;
-            font-weight: 900;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(22,119,255,.25);
-            transition: .25s;
-        }
-
-        .join-server-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(22,119,255,.4);
-        }
-
-        /* =========================
-           IP + BUTTONS
-        ========================= */
-
-        .ip-box {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 30px;
-            padding: 15px 22px;
-            color: var(--bright-blue);
-            background: rgba(8,10,14,.9);
-            border: 1px solid #1b2430;
-            border-radius: 9px;
-            font-size: 15px;
-            font-weight: 900;
-            cursor: pointer;
-            transition: .25s;
-        }
-
-        .ip-box:hover {
-            border-color: var(--blue);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(22,119,255,.12);
-        }
-
-        .copy-icon {
-            color: #5e6672;
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 13px;
-            margin-top: 25px;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 48px;
-            padding: 0 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 900;
-            transition: .25s;
-        }
-
-        .primary {
-            background: var(--blue);
-            color: #fff;
-            box-shadow: 0 10px 30px rgba(22,119,255,.2);
-        }
-
-        .primary:hover {
-            background: #0d63d8;
-            transform: translateY(-3px);
-        }
-
-        .secondary {
-            background: #0c0e12;
-            border: 1px solid #202631;
-            color: #fff;
-        }
-
-        .secondary:hover {
-            border-color: var(--blue);
-            transform: translateY(-3px);
-        }
-
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
-
-        section {
-            padding: 110px 7%;
-        }
-
-        .section-dark {
-            background: rgba(5,7,10,.78);
-            border-top: 1px solid rgba(255,255,255,.035);
-            border-bottom: 1px solid rgba(255,255,255,.035);
-        }
-
-        .section-title {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 55px;
-        }
-
-        .section-kicker {
-            color: var(--blue);
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-        }
-
-        .section-title h2 {
-            font-size: clamp(32px,5vw,46px);
-            font-weight: 1000;
-            letter-spacing: -1px;
-        }
-
-        .section-title p {
-            margin-top: 12px;
-            color: #707784;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        /* =========================
-           EVENT INTEL
-        ========================= */
-
-        .intel-grid {
-            max-width: 1100px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .intel-card {
-            padding: 30px;
-            background: linear-gradient(145deg, #0b0e13, #07090c);
-            border: 1px solid #161b23;
-            border-radius: 14px;
-            transition: .3s;
-        }
-
-        .intel-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(22,119,255,.4);
-            box-shadow: 0 20px 45px rgba(0,0,0,.25);
-        }
-
-        .intel-number {
-            color: var(--bright-blue);
-            font-family: monospace;
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
-
-        .intel-card h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .intel-card p {
-            color: #6d7580;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        /* =========================
-           LEGAL SECTION
-        ========================= */
-
-        .legal-grid {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        .legal-card {
-            display: block;
-            padding: 30px;
-            background: linear-gradient(145deg, #0b0e13, #07090c);
-            border: 1px solid #161b23;
-            border-radius: 14px;
-            text-decoration: none;
-            transition: .3s;
-        }
-
-        .legal-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(22,119,255,.5);
-            box-shadow: 0 20px 45px rgba(22,119,255,.08);
-        }
-
-        .legal-number {
-            color: var(--bright-blue);
-            font-family: monospace;
-            font-size: 11px;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
-
-        .legal-card h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .legal-card p {
-            color: #6d7580;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .legal-arrow {
-            display: inline-block;
-            margin-top: 18px;
-            color: var(--blue);
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        /* =========================
-           STATUS
-        ========================= */
-
+<title>THE DUPE EVENT | Devs Anarchy</title>
+<meta name="description" content="Devs Anarchy presents THE DUPE EVENT — the chaos is live! The event ends in three days.">
+<meta name="theme-color" content="#1677ff">
+<meta property="og:title" content="THE DUPE EVENT | Devs Anarchy">
+<meta property="og:description" content="⚠️ THE DUPE EVENT IS LIVE! Join Devs Anarchy before the event ends.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://devsanarchy.xyz">
+<meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+<link rel="icon" type="image/png" href="Devs Anarchy logo.png">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    :root {
+        --blue: #1677ff;
+        --bright-blue: #00c8ff;
+        --green: #3cff88;
+        --orange: #ffae00;
+        --red: #ff315c;
+        --background: #030407;
+        --card: #090c10;
+        --muted: #737b87;
+    }
+    body {
+        background: var(--background);
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        overflow-x: hidden;
+    }
+    ::selection {
+        background: var(--blue);
+        color: #fff;
+    }
+    a {
+        color: inherit;
+    }
+    /* =========================
+       CYBER BACKGROUND
+    ========================= */
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -3;
+        background:
+            radial-gradient(circle at 50% -10%, rgba(22,119,255,.24), transparent 35%),
+            radial-gradient(circle at 100% 45%, rgba(0,200,255,.07), transparent 30%),
+            radial-gradient(circle at 0% 80%, rgba(22,119,255,.06), transparent 30%);
+    }
+    body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -2;
+        opacity: .16;
+        background-image:
+            linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+        background-size: 50px 50px;
+    }
+    #codeRain {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        opacity: .12;
+        overflow: hidden;
+    }
+    .code-column {
+        position: absolute;
+        top: -100%;
+        color: var(--bright-blue);
+        font-family: "Courier New", monospace;
+        font-size: 13px;
+        line-height: 16px;
+        white-space: pre;
+        animation: codeFall linear infinite;
+        text-shadow: 0 0 8px var(--blue);
+    }
+    @keyframes codeFall {
+        from {
+            transform: translateY(-20vh);
+        }
+        to {
+            transform: translateY(150vh);
+        }
+    }
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #030407;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--blue);
+        border-radius: 20px;
+    }
+    /* =========================
+       NAVIGATION
+    ========================= */
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+        height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 6%;
+        background: rgba(3,4,7,.82);
+        border-bottom: 1px solid rgba(255,255,255,.07);
+        backdrop-filter: blur(18px);
+    }
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+    }
+    .nav-logo img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
+    }
+    .nav-logo span {
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 1.5px;
+    }
+    .nav-logo span::after {
+        content: ".";
+        color: var(--blue);
+    }
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        list-style: none;
+    }
+    .nav-links a {
+        position: relative;
+        color: #8d9199;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        transition: .25s;
+    }
+    .nav-links a:not(.discord-button)::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 2px;
+        background: var(--blue);
+        transition: .25s;
+    }
+    .nav-links a:hover {
+        color: #fff;
+    }
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+    .discord-button {
+        padding: 10px 17px;
+        color: #fff !important;
+        background: #5865F2;
+        border-radius: 7px;
+        box-shadow: 0 5px 20px rgba(88,101,242,.2);
+    }
+    .discord-button:hover {
+        background: #4752c4 !important;
+        transform: translateY(-2px);
+    }
+    /* =========================
+       EVENT BAR
+    ========================= */
+    .launch-bar {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding: 13px 20px;
+        text-align: center;
+        background: linear-gradient(
+            90deg,
+            rgba(22,119,255,.05),
+            rgba(22,119,255,.20),
+            rgba(22,119,255,.05)
+        );
+        border-bottom: 1px solid rgba(22,119,255,.22);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: .8px;
+    }
+    .launch-bar::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.08),
+            transparent
+        );
+        animation: barScan 4s linear infinite;
+    }
+    @keyframes barScan {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(100%);
+        }
+    }
+    .launch-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-right: 8px;
+        background: var(--green);
+        border-radius: 50%;
+        box-shadow: 0 0 12px var(--green);
+        animation: pulse 1.5s infinite;
+    }
+    .launch-bar span:not(.launch-dot) {
+        color: var(--bright-blue);
+    }
+    /* =========================
+       HERO
+    ========================= */
+    .hero {
+        position: relative;
+        min-height: 900px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 20px 130px;
+        overflow: hidden;
+    }
+    .hero::before {
+        content: "";
+        position: absolute;
+        width: 750px;
+        height: 750px;
+        top: -400px;
+        background: var(--blue);
+        opacity: .1;
+        filter: blur(150px);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1100px;
+    }
+    .classified {
+        display: inline-block;
+        margin-bottom: 22px;
+        padding: 8px 16px;
+        border: 1px solid rgba(255,49,92,.55);
+        color: #ff6680;
+        background: rgba(255,49,92,.06);
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 3px;
+        animation: warningPulse 2s infinite;
+    }
+    @keyframes warningPulse {
+        50% {
+            box-shadow: 0 0 24px rgba(255,49,92,.22);
+        }
+    }
+    .hero-logo {
+        width: 165px;
+        height: 165px;
+        object-fit: contain;
+        margin-bottom: 20px;
+        filter:
+            drop-shadow(0 0 20px rgba(22,119,255,.3))
+            drop-shadow(0 0 60px rgba(22,119,255,.12));
+        animation: floating 5s ease-in-out infinite;
+    }
+    .event-name {
+        margin-bottom: 15px;
+        color: var(--bright-blue);
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+    .glitch-title {
+        position: relative;
+        font-size: clamp(52px, 10vw, 115px);
+        line-height: .88;
+        font-weight: 1000;
+        letter-spacing: -4px;
+        text-transform: uppercase;
+        text-shadow:
+            4px 0 rgba(0,200,255,.5),
+            -3px 0 rgba(255,49,92,.35),
+            0 0 45px rgba(22,119,255,.2);
+        animation: titleGlitch 7s infinite;
+    }
+    .glitch-title span {
+        color: var(--blue);
+    }
+    @keyframes titleGlitch {
+        0%, 93%, 100% { transform: translate(0); }
+        94% { transform: translate(-3px, 1px); }
+        95% { transform: translate(4px, -1px); }
+        96% { transform: translate(-2px, 2px); }
+        97% { transform: translate(0); }
+    }
+    .hero-subtitle {
+        max-width: 720px;
+        margin: 25px auto 0;
+        color: #9299a5;
+        font-size: 17px;
+        line-height: 1.7;
+    }
+    .hero-subtitle strong {
+        color: #fff;
+    }
+    /* TERMINAL */
+    .terminal {
+        max-width: 720px;
+        margin: 30px auto 0;
+        overflow: hidden;
+        text-align: left;
+        background: rgba(5,9,14,.88);
+        border: 1px solid rgba(22,119,255,.25);
+        border-radius: 12px;
+        box-shadow: 0 20px 70px rgba(0,0,0,.35);
+    }
+    .terminal-header {
+        padding: 11px 16px;
+        background: rgba(22,119,255,.08);
+        border-bottom: 1px solid rgba(22,119,255,.15);
+        color: var(--bright-blue);
+        font-family: monospace;
+        font-size: 11px;
+    }
+    .terminal-body {
+        min-height: 95px;
+        padding: 17px;
+        color: var(--green);
+        font-family: "Courier New", monospace;
+        font-size: 12px;
+        line-height: 1.7;
+    }
+    .terminal-cursor {
+        animation: blink .8s infinite;
+    }
+    /* COUNTDOWN */
+    .countdown-container {
+        max-width: 900px;
+        margin: 35px auto 0;
+        padding: 28px;
+        background: linear-gradient(145deg, rgba(15,18,25,.96), rgba(7,9,13,.96));
+        border: 1px solid rgba(22,119,255,.25);
+        border-radius: 18px;
+        box-shadow: 0 25px 80px rgba(0,0,0,.45), 0 0 50px rgba(22,119,255,.06);
+        position: relative;
+        overflow: hidden;
+    }
+    .countdown-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--bright-blue), transparent);
+        animation: scan 3s linear infinite;
+    }
+    .countdown-label {
+        color: #777d88;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 3px;
+    }
+    .countdown-title {
+        margin-top: 8px;
+        font-size: 25px;
+        font-weight: 900;
+    }
+    .countdown-title span {
+        color: var(--blue);
+    }
+    .countdown {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        margin-top: 25px;
+    }
+    .time-box {
+        padding: 20px 10px;
+        background: #080a0e;
+        border: 1px solid #171c25;
+        border-radius: 12px;
+        transition: .25s;
+    }
+    .time-box:hover {
+        border-color: rgba(22,119,255,.5);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(22,119,255,.08);
+    }
+    .time-number {
+        display: block;
+        color: #fff;
+        font-size: clamp(32px, 5vw, 52px);
+        line-height: 1;
+        font-weight: 1000;
+        font-variant-numeric: tabular-nums;
+    }
+    .time-label {
+        display: block;
+        margin-top: 9px;
+        color: #555c68;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+    .launch-time {
+        margin-top: 20px;
+        color: #666d78;
+        font-size: 12px;
+    }
+    /* IP + BUTTONS */
+    .ip-box {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 30px;
+        padding: 15px 22px;
+        color: var(--bright-blue);
+        background: rgba(8,10,14,.9);
+        border: 1px solid #1b2430;
+        border-radius: 9px;
+        font-size: 15px;
+        font-weight: 900;
+        cursor: pointer;
+        transition: .25s;
+    }
+    .ip-box:hover {
+        border-color: var(--blue);
+        transform: translateY(-2px);
+    }
+    .copy-icon {
+        color: #5e6672;
+    }
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 13px;
+        margin-top: 25px;
+    }
+    .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 900;
+        transition: .25s;
+    }
+    .primary {
+        background: var(--blue);
+        color: #fff;
+        box-shadow: 0 10px 30px rgba(22,119,255,.2);
+    }
+    .primary:hover {
+        background: #0d63d8;
+        transform: translateY(-3px);
+    }
+    .secondary {
+        background: #0c0e12;
+        border: 1px solid #202631;
+        color: #fff;
+    }
+    .secondary:hover {
+        border-color: var(--blue);
+        transform: translateY(-3px);
+    }
+    /* GENERAL SECTIONS */
+    section {
+        padding: 110px 7%;
+    }
+    .section-dark {
+        background: rgba(5,7,10,.78);
+        border-top: 1px solid rgba(255,255,255,.035);
+        border-bottom: 1px solid rgba(255,255,255,.035);
+    }
+    .section-title {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 55px;
+    }
+    .section-kicker {
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+    }
+    .section-title h2 {
+        font-size: clamp(32px,5vw,46px);
+        font-weight: 1000;
+        letter-spacing: -1px;
+    }
+    .section-title p {
+        margin-top: 12px;
+        color: #707784;
+        font-size: 15px;
+        line-height: 1.7;
+    }
+    /* EVENT INTEL */
+    .intel-grid,
+    .legal-grid {
+        max-width: 1100px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+    .intel-card,
+    .legal-card {
+        padding: 30px;
+        background: linear-gradient(145deg, #0b0e13, #07090c);
+        border: 1px solid #161b23;
+        border-radius: 14px;
+        transition: .3s;
+    }
+    .intel-card:hover,
+    .legal-card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(22,119,255,.4);
+        box-shadow: 0 20px 45px rgba(0,0,0,.25);
+    }
+    .legal-card {
+        display: block;
+        text-decoration: none;
+    }
+    .intel-number,
+    .legal-number {
+        color: var(--bright-blue);
+        font-family: monospace;
+        font-size: 11px;
+        font-weight: bold;
+        margin-bottom: 18px;
+    }
+    .intel-card h3,
+    .legal-card h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .intel-card p,
+    .legal-card p {
+        color: #6d7580;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+    .legal-arrow {
+        display: inline-block;
+        margin-top: 18px;
+        color: var(--blue);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+    /* STATUS */
+    .status-grid {
+        max-width: 1150px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 16px;
+    }
+    .status-card {
+        padding: 30px 22px;
+        text-align: center;
+        background: linear-gradient(145deg,#0b0e13,#07090c);
+        border: 1px solid #161b23;
+        border-radius: 14px;
+        transition: .3s;
+    }
+    .status-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(22,119,255,.35);
+    }
+    .status-icon {
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+    .status-card h3 {
+        font-size: 15px;
+    }
+    .status-card p {
+        margin-top: 9px;
+        color: #777d88;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 1px;
+    }
+    .available { color: var(--green) !important; }
+    .coming { color: var(--orange) !important; }
+    /* JOIN */
+    .join-grid {
+        max-width: 1050px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 18px;
+    }
+    .join-card {
+        padding: 35px 28px;
+        background: #090c10;
+        border: 1px solid #171c23;
+        border-radius: 14px;
+        text-align: center;
+        transition: .3s;
+    }
+    .join-card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(22,119,255,.4);
+    }
+    .join-number {
+        width: 54px;
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        background: var(--blue);
+        border-radius: 50%;
+        font-weight: 1000;
+    }
+    .join-card h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .join-card p {
+        color: #6d7580;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+    .server-info {
+        max-width: 700px;
+        margin: 40px auto 0;
+        padding: 25px;
+        text-align: center;
+        background: #080a0e;
+        border: 1px solid #171c23;
+        border-radius: 12px;
+    }
+    .server-info small {
+        color: #4e5661;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: 2px;
+    }
+    .server-ip {
+        margin-top: 10px;
+        color: var(--bright-blue);
+        font-size: 22px;
+        font-weight: 1000;
+    }
+    .version {
+        margin-top: 8px;
+        color: #555d68;
+        font-size: 12px;
+    }
+    /* COMMANDS */
+    .command-grid {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 12px;
+    }
+    .command {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 21px 24px;
+        background: #090c10;
+        border: 1px solid #171c23;
+        border-radius: 10px;
+    }
+    .command code {
+        color: var(--bright-blue);
+        font-size: 14px;
+        font-weight: 900;
+    }
+    .command span {
+        color: #555d68;
+        font-size: 12px;
+    }
+    /* RANKS */
+    .rank-grid {
+        max-width: 1200px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        gap: 15px;
+    }
+    .rank {
+        padding: 32px 20px;
+        text-align: center;
+        background: linear-gradient(150deg,#0b0e13,#07090c);
+        border: 1px solid #171c23;
+        border-radius: 14px;
+        transition: .3s;
+    }
+    .rank:hover {
+        transform: translateY(-8px);
+        border-color: var(--blue);
+    }
+    .rank-icon {
+        font-size: 36px;
+        margin-bottom: 15px;
+    }
+    .rank h3 {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+    .rank-status {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: 1px solid rgba(255,174,0,.25);
+        background: rgba(255,174,0,.08);
+        border-radius: 20px;
+        color: var(--orange);
+        font-size: 9px;
+        font-weight: 900;
+    }
+    .rank-description {
+        margin-top: 18px;
+        color: #606772;
+        font-size: 12px;
+        line-height: 1.7;
+    }
+    .rank-button {
+        margin-top: 22px;
+        padding: 11px;
+        background: #0d1015;
+        border: 1px solid #1b212a;
+        border-radius: 7px;
+        color: #555d68;
+        font-size: 10px;
+        font-weight: 900;
+    }
+    .support-box {
+        max-width: 850px;
+        margin: 45px auto 0;
+        padding: 27px;
+        text-align: center;
+        background: linear-gradient(145deg, rgba(22,119,255,.08), rgba(8,10,14,.9));
+        border: 1px solid rgba(22,119,255,.15);
+        border-radius: 12px;
+    }
+    .support-box h3 {
+        color: var(--bright-blue);
+        margin-bottom: 10px;
+    }
+    .support-box p {
+        color: #666d78;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+    /* FAQ */
+    .faq {
+        max-width: 850px;
+        margin: auto;
+    }
+    details {
+        margin-bottom: 10px;
+        padding: 20px 22px;
+        background: #090c10;
+        border: 1px solid #171c23;
+        border-radius: 10px;
+    }
+    summary {
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 900;
+        list-style: none;
+    }
+    summary::-webkit-details-marker {
+        display: none;
+    }
+    summary::after {
+        content: "+";
+        float: right;
+        color: var(--bright-blue);
+        font-size: 18px;
+    }
+    details[open] summary::after {
+        content: "−";
+    }
+    details p {
+        margin-top: 15px;
+        color: #666d78;
+        font-size: 13px;
+        line-height: 1.7;
+    }
+    /* DISCORD */
+    .discord-section {
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+        background: radial-gradient(circle at center, rgba(88,101,242,.13), transparent 55%);
+    }
+    .discord-section h2 {
+        font-size: clamp(35px,6vw,55px);
+        font-weight: 1000;
+    }
+    .discord-section p {
+        max-width: 600px;
+        margin: 15px auto 25px;
+        color: #666d78;
+        line-height: 1.7;
+    }
+    .discord-main {
+        background: #5865F2;
+    }
+    .discord-main:hover {
+        background: #4752c4;
+        transform: translateY(-3px);
+    }
+    /* FOOTER */
+    footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        padding: 35px 7%;
+        background: #020304;
+        border-top: 1px solid #101318;
+    }
+    .footer-left p {
+        color: #454b54;
+        font-size: 12px;
+    }
+    .footer-left p + p {
+        margin-top: 8px;
+    }
+    footer span {
+        color: var(--blue);
+        font-weight: 900;
+    }
+    .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 18px;
+    }
+    .footer-links a {
+        color: #666d78;
+        text-decoration: none;
+        font-size: 12px;
+    }
+    .footer-links a:hover {
+        color: var(--bright-blue);
+    }
+    /* ANIMATIONS */
+    @keyframes floating {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    @keyframes pulse {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: .45; transform: scale(.75); }
+    }
+    @keyframes scan {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(100%); }
+    }
+    @keyframes blink {
+        50% { opacity: 0; }
+    }
+    /* MOBILE */
+    @media (max-width: 1100px) {
+        .rank-grid { grid-template-columns: repeat(3,1fr); }
+        .status-grid { grid-template-columns: repeat(2,1fr); }
+        .legal-grid { grid-template-columns: repeat(2,1fr); }
+        .nav-links { gap: 14px; }
+    }
+    @media (max-width: 750px) {
+        nav { padding: 0 20px; }
+        .nav-links { display: none; }
+        .hero { min-height: auto; padding-top: 75px; padding-bottom: 90px; }
+        .hero-logo { width: 130px; height: 130px; }
+        .glitch-title { letter-spacing: -2px; }
+        .hero-subtitle { font-size: 15px; }
+        .intel-grid,
+        .legal-grid,
+        .join-grid,
+        .command-grid,
+        .rank-grid,
         .status-grid {
-            max-width: 1150px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 16px;
+            grid-template-columns: 1fr;
         }
-
-        .status-card {
-            padding: 30px 22px;
-            text-align: center;
-            background: linear-gradient(145deg,#0b0e13,#07090c);
-            border: 1px solid #161b23;
-            border-radius: 14px;
-            transition: .3s;
-        }
-
-        .status-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(22,119,255,.35);
-        }
-
-        .status-icon {
-            font-size: 30px;
-            margin-bottom: 15px;
-        }
-
-        .status-card h3 {
-            font-size: 15px;
-        }
-
-        .status-card p {
-            margin-top: 9px;
-            color: #777d88;
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .available {
-            color: var(--green) !important;
-        }
-
-        .coming {
-            color: var(--orange) !important;
-        }
-
-        /* =========================
-           JOIN
-        ========================= */
-
-        .join-grid {
-            max-width: 1050px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 18px;
-        }
-
-        .join-card {
-            padding: 35px 28px;
-            background: #090c10;
-            border: 1px solid #171c23;
-            border-radius: 14px;
-            text-align: center;
-            transition: .3s;
-        }
-
-        .join-card:hover {
-            transform: translateY(-7px);
-            border-color: rgba(22,119,255,.4);
-        }
-
-        .join-number {
-            width: 54px;
-            height: 54px;
-            display: flex;
-            align-items: center;
+        .countdown-container { padding: 20px 14px; }
+        .countdown { gap: 7px; }
+        .time-box { padding: 17px 5px; }
+        .time-number { font-size: 28px; }
+        .time-label { font-size: 8px; letter-spacing: 1px; }
+        .ip-box {
+            width: 100%;
             justify-content: center;
-            margin: 0 auto 20px;
-            background: var(--blue);
-            border-radius: 50%;
-            font-weight: 1000;
-            box-shadow: 0 10px 25px rgba(22,119,255,.2);
         }
-
-        .join-card h3 {
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .join-card p {
-            color: #6d7580;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .server-info {
-            max-width: 700px;
-            margin: 40px auto 0;
-            padding: 25px;
-            text-align: center;
-            background: #080a0e;
-            border: 1px solid #171c23;
-            border-radius: 12px;
-        }
-
-        .server-info small {
-            color: #4e5661;
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 2px;
-        }
-
-        .server-ip {
-            margin-top: 10px;
-            color: var(--bright-blue);
-            font-size: 22px;
-            font-weight: 1000;
-        }
-
-        .version {
-            margin-top: 8px;
-            color: #555d68;
-            font-size: 12px;
-        }
-
-        /* =========================
-           COMMANDS
-        ========================= */
-
-        .command-grid {
-            max-width: 1000px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 12px;
-        }
-
-        .command {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 21px 24px;
-            background: #090c10;
-            border: 1px solid #171c23;
-            border-radius: 10px;
-            transition: .25s;
-        }
-
-        .command:hover {
-            border-color: rgba(22,119,255,.35);
-            transform: translateX(4px);
-        }
-
-        .command code {
-            color: var(--bright-blue);
-            font-size: 14px;
-            font-weight: 900;
-        }
-
-        .command span {
-            color: #555d68;
-            font-size: 12px;
-        }
-
-        /* =========================
-           RANKS
-        ========================= */
-
-        .rank-grid {
-            max-width: 1200px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(5,1fr);
-            gap: 15px;
-        }
-
-        .rank {
-            padding: 32px 20px;
-            text-align: center;
-            background: linear-gradient(150deg,#0b0e13,#07090c);
-            border: 1px solid #171c23;
-            border-radius: 14px;
-            transition: .3s;
-        }
-
-        .rank:hover {
-            transform: translateY(-8px);
-            border-color: var(--blue);
-            box-shadow: 0 20px 45px rgba(22,119,255,.08);
-        }
-
-        .rank-icon {
-            font-size: 36px;
-            margin-bottom: 15px;
-        }
-
-        .rank h3 {
-            font-size: 20px;
-            letter-spacing: 1px;
-        }
-
-        .rank-status {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 5px 10px;
-            border: 1px solid rgba(255,174,0,.25);
-            background: rgba(255,174,0,.08);
-            border-radius: 20px;
-            color: var(--orange);
-            font-size: 9px;
-            font-weight: 900;
-            letter-spacing: 1px;
-        }
-
-        .rank-description {
-            margin-top: 18px;
-            color: #606772;
-            font-size: 12px;
-            line-height: 1.7;
-        }
-
-        .rank-button {
-            margin-top: 22px;
-            padding: 11px;
-            background: #0d1015;
-            border: 1px solid #1b212a;
-            border-radius: 7px;
-            color: #555d68;
-            font-size: 10px;
-            font-weight: 900;
-        }
-
-        .support-box {
-            max-width: 850px;
-            margin: 45px auto 0;
-            padding: 27px;
-            text-align: center;
-            background: linear-gradient(
-                145deg,
-                rgba(22,119,255,.08),
-                rgba(8,10,14,.9)
-            );
-            border: 1px solid rgba(22,119,255,.15);
-            border-radius: 12px;
-        }
-
-        .support-box h3 {
-            color: var(--bright-blue);
-            margin-bottom: 10px;
-        }
-
-        .support-box p {
-            color: #666d78;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        /* =========================
-           FAQ
-        ========================= */
-
-        .faq {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        details {
-            margin-bottom: 10px;
-            padding: 20px 22px;
-            background: #090c10;
-            border: 1px solid #171c23;
-            border-radius: 10px;
-            transition: .25s;
-        }
-
-        details:hover,
-        details[open] {
-            border-color: rgba(22,119,255,.35);
-        }
-
-        summary {
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 900;
-            list-style: none;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::after {
-            content: "+";
-            float: right;
-            color: var(--bright-blue);
-            font-size: 18px;
-        }
-
-        details[open] summary::after {
-            content: "−";
-        }
-
-        details p {
-            margin-top: 15px;
-            color: #666d78;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        /* =========================
-           DISCORD
-        ========================= */
-
-        .discord-section {
-            position: relative;
-            text-align: center;
-            overflow: hidden;
-            background: radial-gradient(
-                circle at center,
-                rgba(88,101,242,.13),
-                transparent 55%
-            );
-        }
-
-        .discord-section h2 {
-            font-size: clamp(35px,6vw,55px);
-            font-weight: 1000;
-        }
-
-        .discord-section p {
-            max-width: 600px;
-            margin: 15px auto 25px;
-            color: #666d78;
-            line-height: 1.7;
-        }
-
-        .discord-main {
-            background: #5865F2;
-            box-shadow: 0 12px 35px rgba(88,101,242,.2);
-        }
-
-        .discord-main:hover {
-            background: #4752c4;
-            transform: translateY(-3px);
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
+        .hero-buttons { flex-direction: column; }
+        .hero-buttons .button { width: 100%; }
+        section { padding: 75px 20px; }
         footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-            padding: 35px 7%;
-            background: #020304;
-            border-top: 1px solid #101318;
+            flex-direction: column;
+            text-align: center;
         }
-
-        .footer-left p {
-            color: #454b54;
-            font-size: 12px;
-        }
-
-        .footer-left p + p {
-            margin-top: 8px;
-        }
-
-        footer span {
-            color: var(--blue);
-            font-weight: 900;
-        }
-
         .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            gap: 18px;
+            justify-content: center;
         }
-
-        .footer-links a {
-            color: #666d78;
-            text-decoration: none;
-            font-size: 12px;
-            transition: .25s;
+        .launch-bar {
+            font-size: 10px;
+            padding: 12px 10px;
         }
-
-        .footer-links a:hover {
-            color: var(--bright-blue);
-        }
-
-        /* =========================
-           ANIMATIONS
-        ========================= */
-
-        @keyframes floating {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: .45;
-                transform: scale(.75);
-            }
-        }
-
-        @keyframes scan {
-            from {
-                transform: translateX(-100%);
-            }
-
-            to {
-                transform: translateX(100%);
-            }
-        }
-
-        @keyframes liveAppear {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 1100px) {
-
-            .rank-grid {
-                grid-template-columns: repeat(3,1fr);
-            }
-
-            .status-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .legal-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .nav-links {
-                gap: 14px;
-            }
-        }
-
-        @media (max-width: 750px) {
-
-            nav {
-                padding: 0 20px;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                min-height: auto;
-                padding-top: 75px;
-                padding-bottom: 90px;
-            }
-
-            .hero-logo {
-                width: 130px;
-                height: 130px;
-            }
-
-            .glitch-title {
-                letter-spacing: -2px;
-            }
-
-            .hero-subtitle {
-                font-size: 15px;
-            }
-
-            .intel-grid,
-            .legal-grid,
-            .join-grid,
-            .command-grid,
-            .rank-grid,
-            .status-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .countdown-container {
-                padding: 20px 14px;
-            }
-
-            .countdown {
-                gap: 7px;
-            }
-
-            .time-box {
-                padding: 17px 5px;
-            }
-
-            .time-number {
-                font-size: 28px;
-            }
-
-            .time-label {
-                font-size: 8px;
-                letter-spacing: 1px;
-            }
-
-            .ip-box {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .hero-buttons .button {
-                width: 100%;
-            }
-
-            section {
-                padding: 75px 20px;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                justify-content: center;
-            }
-
-            .launch-bar {
-                font-size: 10px;
-                padding: 12px 10px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
-
 <body>
-
-<!-- Animated fictional terminal/code background -->
 <div id="codeRain" aria-hidden="true"></div>
-
 <!-- EVENT BAR -->
 <div class="launch-bar" id="launchBar">
     <span class="launch-dot"></span>
-    THE HACKER EVENT:
-    <span>FRIDAY • 12:00 PM EST</span>
+    THE DUPE EVENT IS LIVE!
+    <span>ENDING SOON</span>
     &nbsp; • &nbsp;
-    <strong>DEVS ANARCHY DUPE EVENT</strong>
+    <strong>DON'T MISS THE CHAOS</strong>
 </div>
-
-<!-- =========================
-     NAVIGATION
-========================= -->
-
+<!-- NAVIGATION -->
 <nav>
-
     <a href="#home" class="nav-logo">
         <img src="Devs Anarchy logo.png" alt="Devs Anarchy Logo">
         <span>DEVS ANARCHY</span>
     </a>
-
-    <ul class="nav-links">
-
-        <li>
-            <a href="#home">Home</a>
-        </li>
-
-        <li>
-            <a href="#event">Event Intel</a>
-        </li>
-
-        <li>
-            <a href="#join">How To Join</a>
-        </li>
-
-        <li>
-            <a href="#commands">Commands</a>
-        </li>
-
-        <li>
-            <a href="#ranks">Ranks</a>
-        </li>
-
-        <li>
-            <a href="#faq">FAQ</a>
-        </li>
-
-        <li>
-            <a href="#legal">Legal</a>
-        </li>
-
-        <li>
-            <a
-                class="discord-button"
-                href="https://discord.gg/VbrQCDNgmw"
-                target="_blank"
-                rel="noopener">
-                Discord
-            </a>
-        </li>
-
-    </ul>
-
+<ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#event">Event Intel</a></li>
+    <li><a href="#join">How To Join</a></li>
+    <li><a href="#commands">Commands</a></li>
+    <li><a href="#ranks">Ranks</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#legal">Legal</a></li>
+    <li>
+        <a class="discord-button"
+           href="https://discord.gg/VbrQCDNgmw"
+           target="_blank"
+           rel="noopener">
+            Discord
+        </a>
+    </li>
+</ul>
 </nav>
-
-<!-- =========================
-     HERO
-========================= -->
-
+<!-- HERO -->
 <section class="hero" id="home">
-
     <div class="hero-content">
-
-        <div class="classified">
-            ⚠ EVENT TRANSMISSION DETECTED ⚠
-        </div>
-
-        <img
-            src="Devs Anarchy logo.png"
-            alt="Devs Anarchy"
-            class="hero-logo">
-
-        <div class="event-name">
-            DEVS ANARCHY PRESENTS
-        </div>
-
-        <h1 class="glitch-title">
-            THE <span>HACKER</span><br>EVENT
-        </h1>
-
-        <p class="hero-subtitle">
-            The signal is spreading across the server. Something has changed.
-            <br>
-            <strong>
-                The Hacker Event is Devs Anarchy's official Dupe Event.
-            </strong>
-        </p>
-
-        <!-- TERMINAL -->
-
-        <div class="terminal">
-
-            <div class="terminal-header">
-                devs@anarchy:~/event_protocol
-            </div>
-
-            <div class="terminal-body">
-                <span id="terminalText"></span>
-                <span class="terminal-cursor">█</span>
-            </div>
-
-        </div>
-
-        <!-- COUNTDOWN -->
-
-        <div class="countdown-container" id="launchContainer">
-
-            <div class="countdown-label" id="countdownLabel">
-                EVENT COUNTDOWN
-            </div>
-
-            <div class="countdown-title" id="countdownTitle">
-                The event begins in
-                <span>Friday • 12:00 PM EST</span>
-            </div>
-
-            <div class="countdown" id="countdown">
-
-                <div class="time-box">
-                    <span class="time-number" id="days">00</span>
-                    <span class="time-label">DAYS</span>
-                </div>
-
-                <div class="time-box">
-                    <span class="time-number" id="hours">00</span>
-                    <span class="time-label">HOURS</span>
-                </div>
-
-                <div class="time-box">
-                    <span class="time-number" id="minutes">00</span>
-                    <span class="time-label">MINUTES</span>
-                </div>
-
-                <div class="time-box">
-                    <span class="time-number" id="seconds">00</span>
-                    <span class="time-label">SECONDS</span>
-                </div>
-
-            </div>
-
-            <!-- LIVE EVENT -->
-
-            <div class="live-message" id="liveMessage">
-
-                <div class="live-icon">
-                    ✓
-                </div>
-
-                <h3>
-                    THE HACKER EVENT IS LIVE!
-                </h3>
-
-                <p>
-                    The signal is active.
-                    The Devs Anarchy Dupe Event has begun.
-                </p>
-
-                <button
-                    class="join-server-button"
-                    onclick="copyIPAndJoin()">
-                    JOIN DEVS ANARCHY →
-                </button>
-
-            </div>
-
-            <div class="launch-time" id="launchTime">
-                Event time:
-                <strong>
-                    Friday, August 28 • 12:00 PM Eastern Time
-                </strong>
-            </div>
-
-        </div>
-
-        <!-- IP -->
-
-        <div
-            class="ip-box"
-            id="ipBox"
-            onclick="copyIP()"
-            title="Click to copy">
-
-            <span>
-                devsanarchy.xyz
-            </span>
-
-            <span class="copy-icon">
-                ⧉
-            </span>
-
-        </div>
-
-        <!-- BUTTONS -->
-
-        <div class="hero-buttons">
-
-            <a
-                href="#event"
-                class="button primary">
-                VIEW EVENT INTEL
-            </a>
-
-            <a
-                href="https://discord.gg/VbrQCDNgmw"
-                target="_blank"
-                rel="noopener"
-                class="button secondary">
-                JOIN DISCORD
-            </a>
-
-        </div>
-
+    <div class="classified">
+        ⚠ LIVE EVENT TRANSMISSION ⚠
     </div>
-
-</section>
-
-<!-- =========================
-     EVENT INTEL
-========================= -->
-
-<section class="section-dark" id="event">
-
-    <div class="section-title">
-
-        <div class="section-kicker">
-            CLASSIFIED INFORMATION
-        </div>
-
-        <h2>
-            The Hacker Event
-        </h2>
-
-        <p>
-            A special Devs Anarchy event built around chaos,
-            exploration, and the official dupe event.
-        </p>
-
+    <img src="Devs Anarchy logo.png"
+         alt="Devs Anarchy"
+         class="hero-logo">
+    <div class="event-name">
+        DEVS ANARCHY PRESENTS
     </div>
-
-    <div class="intel-grid">
-
-        <div class="intel-card">
-
-            <div class="intel-number">
-                [ EVENT_01 ]
-            </div>
-
-            <h3>
-                THE SIGNAL
-            </h3>
-
-            <p>
-                A mysterious event transmission has appeared.
-                Players are being called to enter the chaos.
-            </p>
-
-        </div>
-
-        <div class="intel-card">
-
-            <div class="intel-number">
-                [ EVENT_02 ]
-            </div>
-
-            <h3>
-                THE DUPE EVENT
-            </h3>
-
-            <p>
-                The Hacker Event is the official Devs Anarchy
-                Dupe Event. Get online when the countdown reaches zero.
-            </p>
-
-        </div>
-
-        <div class="intel-card">
-
-            <div class="intel-number">
-                [ EVENT_03 ]
-            </div>
-
-            <h3>
-                THE AFTERMATH
-            </h3>
-
-            <p>
-                What happens after the event is part of the story.
-                Join the server and experience it yourself.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     SERVER STATUS
-========================= -->
-
-<section>
-
-    <div class="section-title">
-
-        <div class="section-kicker">
-            SERVER STATUS
-        </div>
-
-        <h2>
-            Built For Anarchy
-        </h2>
-
-        <p>
-            Everything you need to know before entering the world.
-        </p>
-
-    </div>
-
-    <div class="status-grid">
-
-        <div class="status-card">
-
-            <div class="status-icon">
-                💻
-            </div>
-
-            <h3>
-                Java Edition
-            </h3>
-
-            <p class="available">
-                AVAILABLE
-            </p>
-
-        </div>
-
-        <div class="status-card">
-
-            <div class="status-icon">
-                📱
-            </div>
-
-            <h3>
-                Bedrock Edition
-            </h3>
-
-            <p class="coming">
-                COMING SOON
-            </p>
-
-        </div>
-
-        <div class="status-card">
-
-            <div class="status-icon">
-                🔓
-            </div>
-
-            <h3>
-                Cracked
-            </h3>
-
-            <p class="coming">
-                COMING SOON
-            </p>
-
-        </div>
-
-        <div class="status-card">
-
-            <div class="status-icon">
-                ⚡
-            </div>
-
-            <h3>
-                Version
-            </h3>
-
-            <p>
-                26.2 • ALL VERSIONS
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     HOW TO JOIN
-========================= -->
-
-<section class="section-dark" id="join">
-
-    <div class="section-title">
-
-        <div class="section-kicker">
-            GET STARTED
-        </div>
-
-        <h2>
-            How To Join
-        </h2>
-
-        <p>
-            Getting into the world takes less than a minute.
-        </p>
-
-    </div>
-
-    <div class="join-grid">
-
-        <div class="join-card">
-
-            <div class="join-number">
-                1
-            </div>
-
-            <h3>
-                Open Minecraft
-            </h3>
-
-            <p>
-                Launch Minecraft Java Edition on your computer.
-            </p>
-
-        </div>
-
-        <div class="join-card">
-
-            <div class="join-number">
-                2
-            </div>
-
-            <h3>
-                Add The Server
-            </h3>
-
-            <p>
-                Open Multiplayer and add
-                <strong>devsanarchy.xyz</strong>
-                as a server.
-            </p>
-
-        </div>
-
-        <div class="join-card">
-
-            <div class="join-number">
-                3
-            </div>
-
-            <h3>
-                Enter The Chaos
-            </h3>
-
-            <p>
-                Connect to Devs Anarchy and begin your journey.
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="server-info">
-
-        <small>
-            SERVER ADDRESS
-        </small>
-
-        <div class="server-ip">
-            devsanarchy.xyz
-        </div>
-
-        <div class="version">
-            Minecraft 26.2 • All Versions Supported
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     COMMANDS
-========================= -->
-
-<section id="commands">
-
-    <div class="section-title">
-
-        <div class="section-kicker">
-            PLAYER COMMANDS
-        </div>
-
-        <h2>
-            Commands
-        </h2>
-
-        <p>
-            Useful commands available to players.
-        </p>
-
-    </div>
-
-    <div class="command-grid">
-
-        <div class="command">
-            <code>/sit</code>
-            <span>Sit anywhere</span>
-        </div>
-
-        <div class="command">
-            <code>/lay</code>
-            <span>Lay anywhere</span>
-        </div>
-
-        <div class="command">
-            <code>/sethome</code>
-            <span>Set a home</span>
-        </div>
-
-        <div class="command">
-            <code>/home</code>
-            <span>Teleport home</span>
-        </div>
-
-        <div class="command">
-            <code>/homes</code>
-            <span>View your homes</span>
-        </div>
-
-        <div class="command">
-            <code>/delhome</code>
-            <span>Delete a home</span>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     RANKS
-========================= -->
-
-<section class="section-dark" id="ranks">
-
-    <div class="section-title">
-
-        <div class="section-kicker">
-            SUPPORT THE SERVER
-        </div>
-
-        <h2>
-            Ranks
-        </h2>
-
-        <p>
-            Optional ranks are planned for future release.
-        </p>
-
-    </div>
-
-    <div class="rank-grid">
-
-        <div class="rank">
-
-            <div class="rank-icon">
-                ⭐
-            </div>
-
-            <h3>
-                VIP
-            </h3>
-
-            <div class="rank-status">
-                COMING SOON
-            </div>
-
-            <p class="rank-description">
-                Our entry-level supporter rank with exclusive perks.
-            </p>
-
-            <div class="rank-button">
-                NOT AVAILABLE YET
-            </div>
-
-        </div>
-
-        <div class="rank">
-
-            <div class="rank-icon">
-                ⚡
-            </div>
-
-            <h3>
-                MVP
-            </h3>
-
-            <div class="rank-status">
-                COMING SOON
-            </div>
-
-            <p class="rank-description">
-                A higher supporter rank with additional perks.
-            </p>
-
-            <div class="rank-button">
-                NOT AVAILABLE YET
-            </div>
-
-        </div>
-
-        <div class="rank">
-
-            <div class="rank-icon">
-                💎
-            </div>
-
-            <h3>
-                ELITE
-            </h3>
-
-            <div class="rank-status">
-                COMING SOON
-            </div>
-
-            <p class="rank-description">
-                An elite supporter rank for dedicated players.
-            </p>
-
-            <div class="rank-button">
-                NOT AVAILABLE YET
-            </div>
-
-        </div>
-
-        <div class="rank">
-
-            <div class="rank-icon">
-                👑
-            </div>
-
-            <h3>
-                LEGEND
-            </h3>
-
-            <div class="rank-status">
-                COMING SOON
-            </div>
-
-            <p class="rank-description">
-                A premium rank for some of our biggest supporters.
-            </p>
-
-            <div class="rank-button">
-                NOT AVAILABLE YET
-            </div>
-
-        </div>
-
-        <div class="rank">
-
-            <div class="rank-icon">
-                🔥
-            </div>
-
-            <h3>
-                OVERLORD
-            </h3>
-
-            <div class="rank-status">
-                COMING SOON
-            </div>
-
-            <p class="rank-description">
-                The ultimate Devs Anarchy supporter rank.
-            </p>
-
-            <div class="rank-button">
-                NOT AVAILABLE YET
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="support-box">
-
-        <h3>
-            💙 Support Devs Anarchy
-        </h3>
-
-        <p>
-            Ranks are completely optional. Future purchases will
-            help support server hosting, infrastructure, development,
-            and operating costs.
-        </p>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     FAQ
-========================= -->
-
-<section id="faq">
-
-    <div class="section-title">
-
-        <div class="section-kicker">
-            QUESTIONS
-        </div>
-
-        <h2>
-            FAQ
-        </h2>
-
-        <p>
-            Answers to some of the most common questions.
-        </p>
-
-    </div>
-
-    <div class="faq">
-
-        <details>
-
-            <summary>
-                When is The Hacker Event?
-            </summary>
-
-            <p>
-                The Devs Anarchy Hacker Event and Dupe Event begins
-                Friday, August 28, 2026 at 12:00 PM Eastern Time.
-            </p>
-
-        </details>
-
-        <details>
-
-            <summary>
-                What is The Hacker Event?
-            </summary>
-
-            <p>
-                The Hacker Event is the themed name for
-                Devs Anarchy's special Dupe Event.
-            </p>
-
-        </details>
-
-        <details>
-
-            <summary>
-                What version does Devs Anarchy use?
-            </summary>
-
-            <p>
-                The server currently runs on Minecraft 26.2,
-                with support for versions that can connect.
-            </p>
-
-        </details>
-
-        <details>
-
-            <summary>
-                Can I play on Bedrock?
-            </summary>
-
-            <p>
-                Bedrock support is currently coming soon.
-            </p>
-
-        </details>
-
-        <details>
-
-            <summary>
-                Can cracked players join?
-            </summary>
-
-            <p>
-                Cracked support is currently coming soon.
-            </p>
-
-        </details>
-
-        <details>
-
-            <summary>
-                Are ranks available?
-            </summary>
-
-            <p>
-                Ranks are currently coming soon.
-                Planned ranks include VIP, MVP, ELITE,
-                LEGEND and OVERLORD.
-            </p>
-
-        </details>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     LEGAL & INFORMATION
-========================= -->
-
-<section class="section-dark" id="legal">
-
-    <div class="section-title">
-
-        <div class="section-kicker">
-            DEVS ANARCHY
-        </div>
-
-        <h2>
-            Legal & Information
-        </h2>
-
-        <p>
-            Important information, policies, rules,
-            and ways to contact the Devs Anarchy team.
-        </p>
-
-    </div>
-
-    <div class="legal-grid">
-
-        <!-- TERMS -->
-
-        <a
-            href="https://devsanarchy.xyz/terms-of-service/"
-            class="legal-card">
-
-            <div class="legal-number">
-                [ LEGAL_01 ]
-            </div>
-
-            <h3>
-                TERMS OF SERVICE
-            </h3>
-
-            <p>
-                Read the terms governing your use of
-                Devs Anarchy, including our services,
-                website, server, and community.
-            </p>
-
-            <span class="legal-arrow">
-                READ TERMS →
-            </span>
-
-        </a>
-
-        <!-- REFUND -->
-
-        <a
-            href="https://devsanarchy.xyz/refund-policy/"
-            class="legal-card">
-
-            <div class="legal-number">
-                [ LEGAL_02 ]
-            </div>
-
-            <h3>
-                REFUND POLICY
-            </h3>
-
-            <p>
-                Information about purchases, refunds,
-                eligibility, and how refund requests
-                are handled.
-            </p>
-
-            <span class="legal-arrow">
-                VIEW POLICY →
-            </span>
-
-        </a>
-
-        <!-- PRIVACY -->
-
-        <a
-            href="https://devsanarchy.xyz/privacy-policy/"
-            class="legal-card">
-
-            <div class="legal-number">
-                [ LEGAL_03 ]
-            </div>
-
-            <h3>
-                PRIVACY POLICY
-            </h3>
-
-            <p>
-                Learn what information Devs Anarchy
-                may collect, how it is used, and how
-                your information is protected.
-            </p>
-
-            <span class="legal-arrow">
-                VIEW PRIVACY →
-            </span>
-
-        </a>
-
-        <!-- RULES -->
-
-        <a
-            href="https://devsanarchy.xyz/rules/"
-            class="legal-card">
-
-            <div class="legal-number">
-                [ RULES_01 ]
-            </div>
-
-            <h3>
-                SERVER RULES
-            </h3>
-
-            <p>
-                Review the rules that apply to Devs Anarchy
-                players and members of our community.
-            </p>
-
-            <span class="legal-arrow">
-                VIEW RULES →
-            </span>
-
-        </a>
-
-        <!-- CONTACT -->
-
-        <a
-            href="https://devsanarchy.xyz/contact/"
-            class="legal-card">
-
-            <div class="legal-number">
-                [ SUPPORT_01 ]
-            </div>
-
-            <h3>
-                CONTACT US
-            </h3>
-
-            <p>
-                Need help or want to contact the Devs Anarchy
-                team? Find our official contact information here.
-            </p>
-
-            <span class="legal-arrow">
-                CONTACT US →
-            </span>
-
-        </a>
-
-        <!-- SAFETY -->
-
-        <div class="legal-card">
-
-            <div class="legal-number">
-                [ SECURITY_01 ]
-            </div>
-
-            <h3>
-                COMMUNITY SAFETY
-            </h3>
-
-            <p>
-                Illegal content, DDoSing, doxing, and other
-                harmful activity are prohibited within the
-                Devs Anarchy community.
-            </p>
-
-            <span class="legal-arrow">
-                COMMUNITY FIRST
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- =========================
-     DISCORD
-========================= -->
-
-<section class="discord-section">
-
-    <div class="section-kicker">
-        COMMUNITY
-    </div>
-
-    <h2>
-        DON'T MISS THE EVENT.
-    </h2>
-
-    <p>
-        Join the Devs Anarchy Discord for announcements,
-        updates, support and event notifications.
+    <h1 class="glitch-title">
+        THE <span>DUPE</span><br>EVENT
+    </h1>
+    <p class="hero-subtitle">
+        The chaos has begun across the server.
+        <br>
+        <strong>
+            The official Devs Anarchy Dupe Event is LIVE!
+        </strong>
+        Get online before time runs out.
     </p>
-
-    <a
-        href="https://discord.gg/VbrQCDNgmw"
-        target="_blank"
-        rel="noopener"
-        class="button discord-main">
-
-        JOIN THE DISCORD
-
-    </a>
-
+    <div class="terminal">
+        <div class="terminal-header">
+            devs@anarchy:~/event_protocol
+        </div>
+        <div class="terminal-body">
+            <span id="terminalText"></span>
+            <span class="terminal-cursor">█</span>
+        </div>
+    </div>
+    <!-- EVENT END COUNTDOWN -->
+    <div class="countdown-container">
+        <div class="countdown-label">
+            EVENT ENDING COUNTDOWN
+        </div>
+        <div class="countdown-title">
+            The Dupe Event ends in
+            <span>3 Days</span>
+        </div>
+        <div class="countdown">
+            <div class="time-box">
+                <span class="time-number" id="days">00</span>
+                <span class="time-label">DAYS</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="hours">00</span>
+                <span class="time-label">HOURS</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="minutes">00</span>
+                <span class="time-label">MINUTES</span>
+            </div>
+            <div class="time-box">
+                <span class="time-number" id="seconds">00</span>
+                <span class="time-label">SECONDS</span>
+            </div>
+        </div>
+        <div class="launch-time" id="launchTime">
+            ⚠ The Dupe Event is LIVE! Join Devs Anarchy before it ends.
+        </div>
+    </div>
+    <!-- IP -->
+    <div class="ip-box"
+         id="ipBox"
+         onclick="copyIP()"
+         title="Click to copy">
+        <span>devsanarchy.xyz</span>
+        <span class="copy-icon">⧉</span>
+    </div>
+    <div class="hero-buttons">
+        <a href="#event" class="button primary">
+            VIEW EVENT INTEL
+        </a>
+        <a href="https://discord.gg/VbrQCDNgmw"
+           target="_blank"
+           rel="noopener"
+           class="button secondary">
+            JOIN DISCORD
+        </a>
+    </div>
+</div>
 </section>
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer id="footer">
-
-    <div class="footer-left">
-
-        <p>
-            © 2026 <span>Devs Anarchy</span>.
-            All rights reserved.
-        </p>
-
-        <p>
-            THE HACKER EVENT • devsanarchy.xyz
-        </p>
-
+<!-- EVENT INTEL -->
+<section class="section-dark" id="event">
+<div class="section-title">
+    <div class="section-kicker">
+        LIVE EVENT INFORMATION
     </div>
-
-    <div class="footer-links">
-
-        <a href="https://devsanarchy.xyz/terms-of-service/">
-            Terms of Service
-        </a>
-
-        <a href="https://devsanarchy.xyz/refund-policy/">
-            Refund Policy
-        </a>
-
-        <a href="https://devsanarchy.xyz/privacy-policy/">
-            Privacy Policy
-        </a>
-
-        <a href="https://devsanarchy.xyz/rules/">
-            Rules
-        </a>
-
-        <a href="https://devsanarchy.xyz/contact/">
-            Contact
-        </a>
-
+    <h2>The Dupe Event</h2>
+    <p>
+        The official Devs Anarchy Dupe Event is happening right now.
+        Get online and experience the chaos before the event ends.
+    </p>
+</div>
+<div class="intel-grid">
+    <div class="intel-card">
+        <div class="intel-number">[ EVENT_01 ]</div>
+        <h3>THE EVENT IS LIVE</h3>
+        <p>
+            The Dupe Event is currently active on Devs Anarchy.
+            There is still time to join the chaos!
+        </p>
     </div>
-
+    <div class="intel-card">
+        <div class="intel-number">[ EVENT_02 ]</div>
+        <h3>THE CHAOS</h3>
+        <p>
+            Explore the world, meet other players, and experience
+            one of Devs Anarchy's biggest events.
+        </p>
+    </div>
+    <div class="intel-card">
+        <div class="intel-number">[ EVENT_03 ]</div>
+        <h3>DON'T MISS OUT</h3>
+        <p>
+            The event will only last for a limited time.
+            Join now before the countdown reaches zero.
+        </p>
+    </div>
+</div>
+</section>
+<!-- SERVER STATUS -->
+<section>
+<div class="section-title">
+    <div class="section-kicker">SERVER STATUS</div>
+    <h2>Built For Anarchy</h2>
+    <p>Everything you need to know before entering the world.</p>
+</div>
+<div class="status-grid">
+    <div class="status-card">
+        <div class="status-icon">💻</div>
+        <h3>Java Edition</h3>
+        <p class="available">AVAILABLE</p>
+    </div>
+    <div class="status-card">
+        <div class="status-icon">📱</div>
+        <h3>Bedrock Edition</h3>
+        <p class="coming">COMING SOON</p>
+    </div>
+    <div class="status-card">
+        <div class="status-icon">🔓</div>
+        <h3>Cracked</h3>
+        <p class="coming">COMING SOON</p>
+    </div>
+    <div class="status-card">
+        <div class="status-icon">⚡</div>
+        <h3>Version</h3>
+        <p>26.2 • ALL VERSIONS</p>
+    </div>
+</div>
+<!-- BEDROCK & CRACKED MESSAGE -->
+<div class="support-box">
+    <h3>🎉 Bedrock & Cracked Players — Don't Worry!</h3>
+    <p>
+        We haven't forgotten about you! When Bedrock and cracked
+        accounts are able to play on Devs Anarchy, we will host a
+        <strong>special event and giveaway</strong> to celebrate.
+        Stay tuned and join our Discord so you don't miss it! 💙
+    </p>
+</div>
+</section>
+<!-- HOW TO JOIN -->
+<section class="section-dark" id="join">
+<div class="section-title">
+    <div class="section-kicker">GET STARTED</div>
+    <h2>How To Join</h2>
+    <p>Getting into the world takes less than a minute.</p>
+</div>
+<div class="join-grid">
+    <div class="join-card">
+        <div class="join-number">1</div>
+        <h3>Open Minecraft</h3>
+        <p>Launch Minecraft Java Edition on your computer.</p>
+    </div>
+    <div class="join-card">
+        <div class="join-number">2</div>
+        <h3>Add The Server</h3>
+        <p>
+            Open Multiplayer and add
+            <strong>devsanarchy.xyz</strong>
+            as a server.
+        </p>
+    </div>
+    <div class="join-card">
+        <div class="join-number">3</div>
+        <h3>Enter The Chaos</h3>
+        <p>Connect to Devs Anarchy and begin your journey.</p>
+    </div>
+</div>
+<div class="server-info">
+    <small>SERVER ADDRESS</small>
+    <div class="server-ip">devsanarchy.xyz</div>
+    <div class="version">
+        Minecraft 26.2 • All Versions Supported
+    </div>
+</div>
+</section>
+<!-- COMMANDS -->
+<section id="commands">
+<div class="section-title">
+    <div class="section-kicker">PLAYER COMMANDS</div>
+    <h2>Commands</h2>
+    <p>Useful commands available to players.</p>
+</div>
+<div class="command-grid">
+    <div class="command"><code>/sit</code><span>Sit anywhere</span></div>
+    <div class="command"><code>/lay</code><span>Lay anywhere</span></div>
+    <div class="command"><code>/sethome</code><span>Set a home</span></div>
+    <div class="command"><code>/home</code><span>Teleport home</span></div>
+    <div class="command"><code>/homes</code><span>View your homes</span></div>
+    <div class="command"><code>/delhome</code><span>Delete a home</span></div>
+</div>
+</section>
+<!-- RANKS -->
+<section class="section-dark" id="ranks">
+<div class="section-title">
+    <div class="section-kicker">SUPPORT THE SERVER</div>
+    <h2>Ranks</h2>
+    <p>Optional ranks are planned for future release.</p>
+</div>
+<div class="rank-grid">
+    <div class="rank">
+        <div class="rank-icon">⭐</div>
+        <h3>VIP</h3>
+        <div class="rank-status">COMING SOON</div>
+        <p class="rank-description">
+            Our entry-level supporter rank with exclusive perks.
+        </p>
+        <div class="rank-button">NOT AVAILABLE YET</div>
+    </div>
+    <div class="rank">
+        <div class="rank-icon">⚡</div>
+        <h3>MVP</h3>
+        <div class="rank-status">COMING SOON</div>
+        <p class="rank-description">
+            A higher supporter rank with additional perks.
+        </p>
+        <div class="rank-button">NOT AVAILABLE YET</div>
+    </div>
+    <div class="rank">
+        <div class="rank-icon">💎</div>
+        <h3>ELITE</h3>
+        <div class="rank-status">COMING SOON</div>
+        <p class="rank-description">
+            An elite supporter rank for dedicated players.
+        </p>
+        <div class="rank-button">NOT AVAILABLE YET</div>
+    </div>
+    <div class="rank">
+        <div class="rank-icon">👑</div>
+        <h3>LEGEND</h3>
+        <div class="rank-status">COMING SOON</div>
+        <p class="rank-description">
+            A premium rank for some of our biggest supporters.
+        </p>
+        <div class="rank-button">NOT AVAILABLE YET</div>
+    </div>
+    <div class="rank">
+        <div class="rank-icon">🔥</div>
+        <h3>OVERLORD</h3>
+        <div class="rank-status">COMING SOON</div>
+        <p class="rank-description">
+            The ultimate Devs Anarchy supporter rank.
+        </p>
+        <div class="rank-button">NOT AVAILABLE YET</div>
+    </div>
+</div>
+<div class="support-box">
+    <h3>💙 Support Devs Anarchy</h3>
+    <p>
+        Ranks are completely optional. Future purchases will help
+        support server hosting, infrastructure, development, and
+        operating costs.
+    </p>
+</div>
+</section>
+<!-- FAQ -->
+<section id="faq">
+<div class="section-title">
+    <div class="section-kicker">QUESTIONS</div>
+    <h2>FAQ</h2>
+    <p>Answers to some of the most common questions.</p>
+</div>
+<div class="faq">
+    <details>
+        <summary>When does The Dupe Event end?</summary>
+        <p>
+            The Dupe Event is live for a limited time and is scheduled
+            to end on Monday, August 31, 2026. Check the countdown at
+            the top of the website for the exact remaining time.
+        </p>
+    </details>
+    <details>
+        <summary>What is The Dupe Event?</summary>
+        <p>
+            The Dupe Event is a special Devs Anarchy event built around
+            chaos and a unique server experience.
+        </p>
+    </details>
+    <details>
+        <summary>What version does Devs Anarchy use?</summary>
+        <p>
+            The server currently runs on Minecraft 26.2, with support
+            for versions that can connect.
+        </p>
+    </details>
+    <details>
+        <summary>Can I play on Bedrock?</summary>
+        <p>
+            Bedrock support is currently coming soon. Don't worry—we
+            haven't forgotten about Bedrock players! When Bedrock is
+            able to play, we'll host a special event and giveaway to
+            celebrate.
+        </p>
+    </details>
+    <details>
+        <summary>Can cracked players join?</summary>
+        <p>
+            Cracked account support is currently unavailable. When
+            cracked accounts are able to play again, we'll host a
+            special event and giveaway to celebrate!
+        </p>
+    </details>
+    <details>
+        <summary>Are ranks available?</summary>
+        <p>
+            Ranks are currently coming soon. Planned ranks include VIP,
+            MVP, ELITE, LEGEND and OVERLORD.
+        </p>
+    </details>
+</div>
+</section>
+<!-- LEGAL -->
+<section class="section-dark" id="legal">
+<div class="section-title">
+    <div class="section-kicker">DEVS ANARCHY</div>
+    <h2>Legal & Information</h2>
+    <p>
+        Important information, policies, rules, and ways to contact
+        the Devs Anarchy team.
+    </p>
+</div>
+<div class="legal-grid">
+    <a href="https://devsanarchy.xyz/terms-of-service/" class="legal-card">
+        <div class="legal-number">[ LEGAL_01 ]</div>
+        <h3>TERMS OF SERVICE</h3>
+        <p>Read the terms governing your use of Devs Anarchy.</p>
+        <span class="legal-arrow">READ TERMS →</span>
+    </a>
+    <a href="https://devsanarchy.xyz/refund-policy/" class="legal-card">
+        <div class="legal-number">[ LEGAL_02 ]</div>
+        <h3>REFUND POLICY</h3>
+        <p>Information about purchases, refunds, and eligibility.</p>
+        <span class="legal-arrow">VIEW POLICY →</span>
+    </a>
+    <a href="https://devsanarchy.xyz/privacy-policy/" class="legal-card">
+        <div class="legal-number">[ LEGAL_03 ]</div>
+        <h3>PRIVACY POLICY</h3>
+        <p>Learn how information may be collected and protected.</p>
+        <span class="legal-arrow">VIEW PRIVACY →</span>
+    </a>
+    <a href="https://devsanarchy.xyz/rules/" class="legal-card">
+        <div class="legal-number">[ RULES_01 ]</div>
+        <h3>SERVER RULES</h3>
+        <p>Review the rules that apply to our players and community.</p>
+        <span class="legal-arrow">VIEW RULES →</span>
+    </a>
+    <a href="https://devsanarchy.xyz/contact/" class="legal-card">
+        <div class="legal-number">[ SUPPORT_01 ]</div>
+        <h3>CONTACT US</h3>
+        <p>Find our official contact information and get support.</p>
+        <span class="legal-arrow">CONTACT US →</span>
+    </a>
+    <div class="legal-card">
+        <div class="legal-number">[ SECURITY_01 ]</div>
+        <h3>COMMUNITY SAFETY</h3>
+        <p>
+            Illegal content, DDoSing, doxing, and other harmful activity
+            are prohibited within the Devs Anarchy community.
+        </p>
+        <span class="legal-arrow">COMMUNITY FIRST</span>
+    </div>
+</div>
+</section>
+<!-- DISCORD -->
+<section class="discord-section">
+<div class="section-kicker">COMMUNITY</div>
+<h2>DON'T MISS THE EVENT.</h2>
+<p>
+    Join the Devs Anarchy Discord for announcements, updates,
+    support and event notifications.
+</p>
+<a href="https://discord.gg/VbrQCDNgmw"
+   target="_blank"
+   rel="noopener"
+   class="button discord-main">
+    JOIN THE DISCORD
+</a>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-left">
+    <p>
+        © 2026 <span>Devs Anarchy</span>. All rights reserved.
+    </p>
+    <p>
+        THE DUPE EVENT • devsanarchy.xyz
+    </p>
+</div>
+<div class="footer-links">
+    <a href="https://devsanarchy.xyz/terms-of-service/">Terms of Service</a>
+    <a href="https://devsanarchy.xyz/refund-policy/">Refund Policy</a>
+    <a href="https://devsanarchy.xyz/privacy-policy/">Privacy Policy</a>
+    <a href="https://devsanarchy.xyz/rules/">Rules</a>
+    <a href="https://devsanarchy.xyz/contact/">Contact</a>
+</div>
 </footer>
-
 <script>
-
     /* =========================================================
-       EVENT DATE
-
-       Friday, August 28, 2026
+       EVENT END DATE
+       Monday, August 31, 2026
        12:00 PM Eastern Daylight Time
     ========================================================= */
-
-    const launchTarget =
-        new Date("2026-08-28T12:00:00-04:00");
-
-    let eventIsLive = false;
-
-
+    const eventEndTarget =
+        new Date("2026-08-31T12:00:00-04:00");
     /* =========================================================
-       COUNTDOWN
+       EVENT END COUNTDOWN
     ========================================================= */
-
     function updateCountdown() {
-
         const difference =
-            launchTarget.getTime() - Date.now();
-
-        if (difference <= 0 && !eventIsLive) {
-
-            eventIsLive = true;
-
-            document.getElementById("countdownLabel")
+            eventEndTarget.getTime() - Date.now();
+        if (difference <= 0) {
+            document.querySelector(".countdown-label")
                 .textContent = "EVENT STATUS";
-
-            document.getElementById("countdownTitle")
+            document.querySelector(".countdown-title")
                 .innerHTML =
-                '<span>THE HACKER EVENT IS LIVE!</span>';
-
-            document.getElementById("countdown")
+                '<span>THE DUPE EVENT HAS ENDED!</span>';
+            document.querySelector(".countdown")
                 .style.display = "none";
-
-            document.getElementById("liveMessage")
-                .style.display = "block";
-
             document.getElementById("launchTime")
                 .innerHTML =
-                '<strong>🟢 EVENT IS LIVE NOW!</strong>';
-
+                "<strong>THE DUPE EVENT HAS ENDED — THANK YOU FOR PLAYING!</strong>";
             document.getElementById("launchBar")
                 .innerHTML =
-                '<span class="launch-dot" style="' +
-                'background:#3cff88;' +
-                'box-shadow:0 0 12px #3cff88;">' +
-                '</span>' +
-                'THE HACKER EVENT IS LIVE! ' +
+                '<span class="launch-dot" style="background:#ff315c;box-shadow:0 0 12px #ff315c;"></span>' +
+                'THE DUPE EVENT HAS ENDED ' +
                 '&nbsp; • &nbsp; ' +
-                '<span style="color:#3cff88;">' +
-                'JOIN DEVS ANARCHY NOW' +
-                '</span>';
-
+                '<span>THANK YOU FOR PLAYING!</span>';
             return;
         }
-
-        if (!eventIsLive) {
-
-            let remaining =
-                Math.max(0, difference);
-
-            const days =
-                Math.floor(remaining / 86400000);
-
-            remaining %= 86400000;
-
-            const hours =
-                Math.floor(remaining / 3600000);
-
-            remaining %= 3600000;
-
-            const minutes =
-                Math.floor(remaining / 60000);
-
-            remaining %= 60000;
-
-            const seconds =
-                Math.floor(remaining / 1000);
-
-
-            document.getElementById("days")
-                .textContent =
-                String(days).padStart(2, "0");
-
-            document.getElementById("hours")
-                .textContent =
-                String(hours).padStart(2, "0");
-
-            document.getElementById("minutes")
-                .textContent =
-                String(minutes).padStart(2, "0");
-
-            document.getElementById("seconds")
-                .textContent =
-                String(seconds).padStart(2, "0");
-        }
+        let remaining = difference;
+        const days =
+            Math.floor(remaining / 86400000);
+        remaining %= 86400000;
+        const hours =
+            Math.floor(remaining / 3600000);
+        remaining %= 3600000;
+        const minutes =
+            Math.floor(remaining / 60000);
+        remaining %= 60000;
+        const seconds =
+            Math.floor(remaining / 1000);
+        document.getElementById("days").textContent =
+            String(days).padStart(2, "0");
+        document.getElementById("hours").textContent =
+            String(hours).padStart(2, "0");
+        document.getElementById("minutes").textContent =
+            String(minutes).padStart(2, "0");
+        document.getElementById("seconds").textContent =
+            String(seconds).padStart(2, "0");
     }
-
-
     /* =========================================================
        COPY SERVER IP
     ========================================================= */
-
     function copyIP() {
-
-        navigator.clipboard.writeText(
-            "devsanarchy.xyz"
-        );
-
+        navigator.clipboard.writeText("devsanarchy.xyz");
         const box =
             document.getElementById("ipBox");
-
         const oldHTML =
             box.innerHTML;
-
         box.innerHTML =
             "<span>✓ IP COPIED!</span>";
-
         box.style.borderColor =
             "#3cff88";
-
         box.style.color =
             "#3cff88";
-
-
         setTimeout(() => {
-
             box.innerHTML =
                 oldHTML;
-
             box.style.borderColor =
                 "";
-
             box.style.color =
                 "";
-
         }, 1800);
     }
-
-
-    /* =========================================================
-       COPY IP + JOIN
-    ========================================================= */
-
-    function copyIPAndJoin() {
-
-        navigator.clipboard.writeText(
-            "devsanarchy.xyz"
-        );
-
-        const button =
-            document.querySelector(
-                ".join-server-button"
-            );
-
-        button.textContent =
-            "✓ IP COPIED — JOIN NOW!";
-
-        button.style.background =
-            "#3cff88";
-
-        button.style.color =
-            "#031006";
-
-
-        setTimeout(() => {
-
-            button.textContent =
-                "JOIN DEVS ANARCHY →";
-
-            button.style.background =
-                "";
-
-            button.style.color =
-                "";
-
-        }, 2000);
-    }
-
-
     /* =========================================================
        FICTIONAL EVENT TERMINAL
     ========================================================= */
-
     const terminalLines = [
-
-        "INITIALIZING EVENT_PROTOCOL...",
+        "INITIALIZING DUPE_EVENT...",
         "CONNECTING TO DEVS ANARCHY...",
-        "SIGNAL DETECTED.",
-        "EVENT TYPE: DUPE EVENT",
-        "STATUS: PREPARING CHAOS...",
-        "AWAITING PLAYERS..."
-
+        "EVENT STATUS: LIVE",
+        "CHAOS LEVEL: MAXIMUM",
+        "PLAYERS DETECTED...",
+        "EVENT ENDS SOON..."
     ];
-
     const terminalText =
-        document.getElementById(
-            "terminalText"
-        );
-
+        document.getElementById("terminalText");
     let terminalLine = 0;
     let terminalChar = 0;
-
-
     function typeTerminal() {
-
-        if (
-            terminalLine >=
-            terminalLines.length
-        ) {
-
+        if (terminalLine >= terminalLines.length) {
             setTimeout(() => {
-
                 terminalText.innerHTML = "";
-
                 terminalLine = 0;
                 terminalChar = 0;
-
                 typeTerminal();
-
             }, 2500);
-
             return;
         }
-
-
         const line =
-            terminalLines[
-                terminalLine
-            ];
-
-
-        if (
-            terminalChar <
-            line.length
-        ) {
-
+            terminalLines[terminalLine];
+        if (terminalChar < line.length) {
             terminalText.textContent +=
-                line.charAt(
-                    terminalChar
-                );
-
+                line.charAt(terminalChar);
             terminalChar++;
-
-            setTimeout(
-                typeTerminal,
-                22
-            );
-
+            setTimeout(typeTerminal, 22);
         } else {
-
-            terminalText.innerHTML +=
-                "<br>";
-
+            terminalText.innerHTML += "<br>";
             terminalLine++;
-
             terminalChar = 0;
-
-            setTimeout(
-                typeTerminal,
-                350
-            );
+            setTimeout(typeTerminal, 350);
         }
     }
-
-
     /* =========================================================
        DECORATIVE DIGITAL RAIN
     ========================================================= */
-
     function createCodeRain() {
-
         const rain =
-            document.getElementById(
-                "codeRain"
-            );
-
+            document.getElementById("codeRain");
         const characters =
             "01{}<>[]/\\\\$#*";
-
-
-        for (
-            let i = 0;
-            i < 20;
-            i++
-        ) {
-
+        for (let i = 0; i < 20; i++) {
             const column =
-                document.createElement(
-                    "div"
-                );
-
+                document.createElement("div");
             column.className =
                 "code-column";
-
-
             let text = "";
-
-
-            for (
-                let j = 0;
-                j < 35;
-                j++
-            ) {
-
+            for (let j = 0; j < 35; j++) {
                 text +=
                     characters[
                         Math.floor(
@@ -2782,45 +1542,23 @@
                         )
                     ] + "\n";
             }
-
-
-            column.textContent =
-                text;
-
+            column.textContent = text;
             column.style.left =
-                Math.random() * 100 +
-                "%";
-
+                Math.random() * 100 + "%";
             column.style.animationDuration =
-                (10 + Math.random() * 15) +
-                "s";
-
+                (10 + Math.random() * 15) + "s";
             column.style.animationDelay =
-                (-Math.random() * 20) +
-                "s";
-
-
-            rain.appendChild(
-                column
-            );
+                (-Math.random() * 20) + "s";
+            rain.appendChild(column);
         }
     }
-
-
     /* =========================================================
        START
     ========================================================= */
-
     createCodeRain();
     typeTerminal();
     updateCountdown();
-
-    setInterval(
-        updateCountdown,
-        1000
-    );
-
+    setInterval(updateCountdown, 1000);
 </script>
-
 </body>
 </html>
