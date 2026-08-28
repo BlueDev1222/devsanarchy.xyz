@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rules | Devs Anarchy</title>
+
+    <meta name="description" content="Official Devs Anarchy rules. No illegal content, DDoSing, or doxing.">
+    <meta name="theme-color" content="#1677ff">
+
+    <meta property="og:title" content="Rules | Devs Anarchy">
+    <meta property="og:description" content="Official rules for the Devs Anarchy Minecraft server and community.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsanarchy.xyz/rules">
+    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+
+    <link rel="icon" type="image/png" href="Devs Anarchy logo.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --blue: #1677ff;
+            --bright-blue: #00c8ff;
+            --green: #3cff88;
+            --orange: #ffae00;
+            --red: #ff315c;
+            --background: #030407;
+            --card: #090c10;
+        }
+
+        body {
+            background: var(--background);
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 50% -10%, rgba(22,119,255,.24), transparent 35%),
+                radial-gradient(circle at 100% 45%, rgba(0,200,255,.07), transparent 30%),
+                radial-gradient(circle at 0% 80%, rgba(22,119,255,.06), transparent 30%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -2;
+            opacity: .16;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        #codeRain {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            opacity: .12;
+            overflow: hidden;
+        }
+
+        .code-column {
+            position: absolute;
+            top: -100%;
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 13px;
+            line-height: 16px;
+            white-space: pre;
+            animation: codeFall linear infinite;
+            text-shadow: 0 0 8px var(--blue);
+        }
+
+        @keyframes codeFall {
+            from {
+                transform: translateY(-20vh);
+            }
+
+            to {
+                transform: translateY(150vh);
+            }
+        }
+
+        /* =========================
+           SCROLLBAR
+        ========================= */
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030407;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 20px;
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 6%;
+            background: rgba(3,4,7,.82);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            backdrop-filter: blur(18px);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
+        }
+
+        .nav-logo span {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-logo span::after {
+            content: ".";
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: #8d9199;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: .25s;
+        }
+
+        .nav-links a:not(.discord-button)::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 0;
+            height: 2px;
+            background: var(--blue);
+            transition: .25s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .discord-button {
+            padding: 10px 17px;
+            color: #fff !important;
+            background: #5865F2;
+            border-radius: 7px;
+            box-shadow: 0 5px 20px rgba(88,101,242,.2);
+        }
+
+        .discord-button:hover {
+            background: #4752c4 !important;
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 540px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            top: -400px;
+            background: var(--blue);
+            opacity: .1;
+            filter: blur(150px);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .classified {
+            display: inline-block;
+            margin-bottom: 25px;
+            padding: 8px 16px;
+            border: 1px solid rgba(22,119,255,.45);
+            color: var(--bright-blue);
+            background: rgba(22,119,255,.06);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter:
+                drop-shadow(0 0 20px rgba(22,119,255,.3))
+                drop-shadow(0 0 60px rgba(22,119,255,.12));
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .page-name {
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .glitch-title {
+            font-size: clamp(55px, 10vw, 100px);
+            line-height: .9;
+            font-weight: 1000;
+            letter-spacing: -4px;
+            text-transform: uppercase;
+            text-shadow:
+                4px 0 rgba(0,200,255,.5),
+                -3px 0 rgba(255,49,92,.25),
+                0 0 45px rgba(22,119,255,.2);
+        }
+
+        .glitch-title span {
+            color: var(--blue);
+        }
+
+        .hero-subtitle {
+            max-width: 700px;
+            margin: 25px auto 0;
+            color: #858d98;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           RULES SECTION
+        ========================= */
+
+        .rules-section {
+            padding: 90px 20px;
+            background: rgba(5,7,10,.78);
+            border-top: 1px solid rgba(255,255,255,.035);
+            border-bottom: 1px solid rgba(255,255,255,.035);
+        }
+
+        .rules-container {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 45px;
+        }
+
+        .section-kicker {
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(32px,5vw,46px);
+            font-weight: 1000;
+            letter-spacing: -1px;
+        }
+
+        .section-title p {
+            margin-top: 12px;
+            color: #707784;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           RULE CARDS
+        ========================= */
+
+        .rule-card {
+            position: relative;
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 25px;
+            margin-bottom: 18px;
+            padding: 30px;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #161b23;
+            border-radius: 15px;
+            transition: .3s;
+            overflow: hidden;
+        }
+
+        .rule-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--blue);
+            opacity: .8;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(22,119,255,.45);
+            box-shadow: 0 20px 45px rgba(0,0,0,.3);
+        }
+
+        .rule-number {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(22,119,255,.08);
+            border: 1px solid rgba(22,119,255,.3);
+            color: var(--bright-blue);
+            font-family: "Courier New", monospace;
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .rule-content h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .rule-content p {
+            color: #858d98;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .rule-content strong {
+            color: #fff;
+        }
+
+        .danger-text {
+            color: var(--red) !important;
+            font-weight: 900;
+        }
+
+        .warning-box {
+            margin-top: 35px;
+            padding: 25px;
+            background: rgba(255,49,92,.05);
+            border: 1px solid rgba(255,49,92,.2);
+            border-left: 3px solid var(--red);
+            border-radius: 8px;
+        }
+
+        .warning-box h3 {
+            color: var(--red);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .warning-box p {
+            color: #858d98;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-section {
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: clamp(35px,6vw,55px);
+            font-weight: 1000;
+        }
+
+        .contact-section p {
+            max-width: 650px;
+            margin: 15px auto 25px;
+            color: #666d78;
+            line-height: 1.7;
+        }
+
+        .email-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 25px;
+            background: var(--blue);
+            border-radius: 8px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 900;
+            box-shadow: 0 12px 35px rgba(22,119,255,.2);
+            transition: .25s;
+        }
+
+        .email-button:hover {
+            background: #0d63d8;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 7%;
+            background: #020304;
+            border-top: 1px solid #101318;
+        }
+
+        footer p {
+            color: #454b54;
+            font-size: 12px;
+        }
+
+        footer span {
+            color: var(--blue);
+            font-weight: 900;
+        }
+
+        footer a {
+            color: var(--bright-blue);
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 80px 20px 90px;
+            }
+
+            .hero-logo {
+                width: 105px;
+                height: 105px;
+            }
+
+            .glitch-title {
+                letter-spacing: -2px;
+            }
+
+            .hero-subtitle {
+                font-size: 15px;
+            }
+
+            .rules-section {
+                padding: 70px 20px;
+            }
+
+            .rule-card {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 25px;
+            }
+
+            .rule-number {
+                width: 60px;
+                height: 60px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="codeRain" aria-hidden="true"></div>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <a href="/" class="nav-logo">
+        <img src="Devs Anarchy logo.png" alt="Devs Anarchy Logo">
+        <span>DEVS ANARCHY</span>
+    </a>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="/">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="/#join">
+                How To Join
+            </a>
+        </li>
+
+        <li>
+            <a href="/#commands">
+                Commands
+            </a>
+        </li>
+
+        <li>
+            <a href="/#ranks">
+                Ranks
+            </a>
+        </li>
+
+        <li>
+            <a href="/#faq">
+                FAQ
+            </a>
+        </li>
+
+        <li>
+            <a
+                class="discord-button"
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener">
+                Discord
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="classified">
+            COMMUNITY SECURITY PROTOCOL
+        </div>
+
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy"
+            class="hero-logo">
+
+        <div class="page-name">
+            DEVS ANARCHY
+        </div>
+
+        <h1 class="glitch-title">
+            SERVER <span>RULES</span>
+        </h1>
+
+        <p class="hero-subtitle">
+            Devs Anarchy is built around freedom and anarchy.
+            However, certain actions are strictly prohibited to
+            protect our players, community, and infrastructure.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     RULES
+========================= -->
+
+<section class="rules-section">
+
+    <div class="rules-container">
+
+        <div class="section-title">
+
+            <div class="section-kicker">
+                OFFICIAL RULES
+            </div>
+
+            <h2>
+                The Rules
+            </h2>
+
+            <p>
+                These rules apply to the Devs Anarchy Minecraft server,
+                Discord community, website, and related services.
+            </p>
+
+        </div>
+
+        <!-- RULE 1 -->
+
+        <div class="rule-card">
+
+            <div class="rule-number">
+                01
+            </div>
+
+            <div class="rule-content">
+
+                <h3>
+                    No Illegal Content
+                </h3>
+
+                <p>
+                    <strong>Illegal content is strictly prohibited.</strong>
+                    You may not upload, send, distribute, request,
+                    store, link to, or otherwise share illegal content
+                    through any Devs Anarchy service.
+                </p>
+
+                <p class="danger-text">
+                    This rule heavily applies to anything involving
+                    minors. Any sexual, exploitative, abusive, or
+                    otherwise illegal content involving minors is
+                    strictly prohibited.
+                </p>
+
+                <p>
+                    Do not attempt to use Devs Anarchy, its Discord,
+                    Minecraft server, website, or staff channels to
+                    distribute or request illegal material.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- RULE 2 -->
+
+        <div class="rule-card">
+
+            <div class="rule-number">
+                02
+            </div>
+
+            <div class="rule-content">
+
+                <h3>
+                    No DDoSing
+                </h3>
+
+                <p>
+                    <strong>DDoS attacks and denial-of-service attacks
+                    are strictly prohibited.</strong>
+                </p>
+
+                <p>
+                    Do not attempt to overload, disrupt, crash, or
+                    intentionally interfere with the Devs Anarchy
+                    server, website, Discord, network, hosting
+                    infrastructure, or another player's connection.
+                </p>
+
+                <p>
+                    This includes using or coordinating third-party
+                    services to attack or disrupt another person or
+                    Devs Anarchy infrastructure.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- RULE 3 -->
+
+        <div class="rule-card">
+
+            <div class="rule-number">
+                03
+            </div>
+
+            <div class="rule-content">
+
+                <h3>
+                    No Doxing
+                </h3>
+
+                <p>
+                    <strong>Doxing is strictly prohibited.</strong>
+                </p>
+
+                <p>
+                    You may not publish, threaten to publish, request,
+                    trade, or distribute another person's private or
+                    identifying information without their permission.
+                </p>
+
+                <p>
+                    This includes information such as real names,
+                    home addresses, phone numbers, private email
+                    addresses, passwords, financial information,
+                    private account information, or other sensitive
+                    personal information.
+                </p>
+
+                <p>
+                    Threatening someone with the release of their
+                    personal information is also prohibited.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- WARNING -->
+
+        <div class="warning-box">
+
+            <h3>
+                ⚠ ZERO TOLERANCE
+            </h3>
+
+            <p>
+                These rules are not optional. Severe violations may
+                result in immediate removal from the server or
+                community, permanent bans, removal of purchased
+                privileges, and reports to the appropriate platform
+                or authorities when required.
+            </p>
+
+            <p style="margin-top: 10px;">
+                Devs Anarchy reserves the right to take action against
+                behavior that presents a serious threat to players,
+                the community, or our infrastructure, even if a
+                situation is not explicitly described above.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact-section">
+
+    <div class="section-kicker">
+        HAVE A QUESTION?
+    </div>
+
+    <h2>
+        Need Help?
+    </h2>
+
+    <p>
+        If you believe a rule has been violated or you have a question
+        about these rules, contact the Devs Anarchy support team.
+    </p>
+
+    <a
+        href="mailto:support@devsanarchy.xyz?subject=Devs%20Anarchy%20Rule%20Question"
+        class="email-button">
+        CONTACT SUPPORT →
+    </a>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 <span>Devs Anarchy</span>.
+        All rights reserved.
+    </p>
+
+    <p>
+        <a href="mailto:support@devsanarchy.xyz">
+            support@devsanarchy.xyz
+        </a>
+    </p>
+
+</footer>
+
+<!-- =========================
+     DIGITAL RAIN
+========================= -->
+
+<script>
+
+function createCodeRain() {
+
+    const rain = document.getElementById("codeRain");
+
+    const characters = "01{}<>[]/\\\\$#*";
+
+    for (let i = 0; i < 20; i++) {
+
+        const column = document.createElement("div");
+
+        column.className = "code-column";
+
+        let text = "";
+
+        for (let j = 0; j < 35; j++) {
+
+            text +=
+                characters[
+                    Math.floor(
+                        Math.random() * characters.length
+                    )
+                ] + "\n";
+
+        }
+
+        column.textContent = text;
+
+        column.style.left =
+            Math.random() * 100 + "%";
+
+        column.style.animationDuration =
+            (10 + Math.random() * 15) + "s";
+
+        column.style.animationDelay =
+            (-Math.random() * 20) + "s";
+
+        rain.appendChild(column);
+
+    }
+
+}
+
+createCodeRain();
+
+</script>
+
+</body>
+</html>
