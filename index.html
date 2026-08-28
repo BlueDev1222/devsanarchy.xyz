@@ -106,8 +106,13 @@
         }
 
         @keyframes codeFall {
-            from { transform: translateY(-20vh); }
-            to { transform: translateY(150vh); }
+            from {
+                transform: translateY(-20vh);
+            }
+
+            to {
+                transform: translateY(150vh);
+            }
         }
 
         ::-webkit-scrollbar {
@@ -170,7 +175,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 28px;
+            gap: 24px;
             list-style: none;
         }
 
@@ -225,10 +230,12 @@
             width: 100%;
             padding: 13px 20px;
             text-align: center;
-            background: linear-gradient(90deg,
+            background: linear-gradient(
+                90deg,
                 rgba(22,119,255,.05),
                 rgba(22,119,255,.20),
-                rgba(22,119,255,.05));
+                rgba(22,119,255,.05)
+            );
             border-bottom: 1px solid rgba(22,119,255,.22);
             font-size: 13px;
             font-weight: 800;
@@ -239,13 +246,23 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,.08), transparent);
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.08),
+                transparent
+            );
             animation: barScan 4s linear infinite;
         }
 
         @keyframes barScan {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(100%); }
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(100%);
+            }
         }
 
         .launch-dot {
@@ -312,7 +329,9 @@
         }
 
         @keyframes warningPulse {
-            50% { box-shadow: 0 0 24px rgba(255,49,92,.22); }
+            50% {
+                box-shadow: 0 0 24px rgba(255,49,92,.22);
+            }
         }
 
         .hero-logo {
@@ -355,11 +374,25 @@
         }
 
         @keyframes titleGlitch {
-            0%, 93%, 100% { transform: translate(0); }
-            94% { transform: translate(-3px, 1px); }
-            95% { transform: translate(4px, -1px); }
-            96% { transform: translate(-2px, 2px); }
-            97% { transform: translate(0); }
+            0%, 93%, 100% {
+                transform: translate(0);
+            }
+
+            94% {
+                transform: translate(-3px, 1px);
+            }
+
+            95% {
+                transform: translate(4px, -1px);
+            }
+
+            96% {
+                transform: translate(-2px, 2px);
+            }
+
+            97% {
+                transform: translate(0);
+            }
         }
 
         .hero-subtitle {
@@ -419,10 +452,16 @@
             max-width: 900px;
             margin: 35px auto 0;
             padding: 28px;
-            background: linear-gradient(145deg, rgba(15,18,25,.96), rgba(7,9,13,.96));
+            background: linear-gradient(
+                145deg,
+                rgba(15,18,25,.96),
+                rgba(7,9,13,.96)
+            );
             border: 1px solid rgba(22,119,255,.25);
             border-radius: 18px;
-            box-shadow: 0 25px 80px rgba(0,0,0,.45), 0 0 50px rgba(22,119,255,.06);
+            box-shadow:
+                0 25px 80px rgba(0,0,0,.45),
+                0 0 50px rgba(22,119,255,.06);
             position: relative;
             overflow: hidden;
         }
@@ -434,7 +473,12 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--bright-blue), transparent);
+            background: linear-gradient(
+                90deg,
+                transparent,
+                var(--bright-blue),
+                transparent
+            );
             animation: scan 3s linear infinite;
         }
 
@@ -720,6 +764,62 @@
         }
 
         /* =========================
+           LEGAL SECTION
+        ========================= */
+
+        .legal-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .legal-card {
+            display: block;
+            padding: 30px;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #161b23;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .legal-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(22,119,255,.5);
+            box-shadow: 0 20px 45px rgba(22,119,255,.08);
+        }
+
+        .legal-number {
+            color: var(--bright-blue);
+            font-family: monospace;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .legal-card h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .legal-card p {
+            color: #6d7580;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .legal-arrow {
+            display: inline-block;
+            margin-top: 18px;
+            color: var(--blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* =========================
            STATUS
         ========================= */
 
@@ -762,8 +862,13 @@
             letter-spacing: 1px;
         }
 
-        .available { color: var(--green) !important; }
-        .coming { color: var(--orange) !important; }
+        .available {
+            color: var(--green) !important;
+        }
+
+        .coming {
+            color: var(--orange) !important;
+        }
 
         /* =========================
            JOIN
@@ -957,7 +1062,11 @@
             margin: 45px auto 0;
             padding: 27px;
             text-align: center;
-            background: linear-gradient(145deg,rgba(22,119,255,.08),rgba(8,10,14,.9));
+            background: linear-gradient(
+                145deg,
+                rgba(22,119,255,.08),
+                rgba(8,10,14,.9)
+            );
             border: 1px solid rgba(22,119,255,.15);
             border-radius: 12px;
         }
@@ -1033,7 +1142,11 @@
             position: relative;
             text-align: center;
             overflow: hidden;
-            background: radial-gradient(circle at center,rgba(88,101,242,.13),transparent 55%);
+            background: radial-gradient(
+                circle at center,
+                rgba(88,101,242,.13),
+                transparent 55%
+            );
         }
 
         .discord-section h2 {
@@ -1066,14 +1179,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 30px;
             padding: 35px 7%;
             background: #020304;
             border-top: 1px solid #101318;
         }
 
-        footer p {
+        .footer-left p {
             color: #454b54;
             font-size: 12px;
+        }
+
+        .footer-left p + p {
+            margin-top: 8px;
         }
 
         footer span {
@@ -1081,32 +1199,76 @@
             font-weight: 900;
         }
 
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 18px;
+        }
+
+        .footer-links a {
+            color: #666d78;
+            text-decoration: none;
+            font-size: 12px;
+            transition: .25s;
+        }
+
+        .footer-links a:hover {
+            color: var(--bright-blue);
+        }
+
         /* =========================
            ANIMATIONS
         ========================= */
 
         @keyframes floating {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: .45; transform: scale(.75); }
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: .45;
+                transform: scale(.75);
+            }
         }
 
         @keyframes scan {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(100%); }
+            from {
+                transform: translateX(-100%);
+            }
+
+            to {
+                transform: translateX(100%);
+            }
         }
 
         @keyframes liveAppear {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes blink {
-            50% { opacity: 0; }
+            50% {
+                opacity: 0;
+            }
         }
 
         /* =========================
@@ -1114,6 +1276,7 @@
         ========================= */
 
         @media (max-width: 1100px) {
+
             .rank-grid {
                 grid-template-columns: repeat(3,1fr);
             }
@@ -1121,9 +1284,18 @@
             .status-grid {
                 grid-template-columns: repeat(2,1fr);
             }
+
+            .legal-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
         }
 
         @media (max-width: 750px) {
+
             nav {
                 padding: 0 20px;
             }
@@ -1152,6 +1324,7 @@
             }
 
             .intel-grid,
+            .legal-grid,
             .join-grid,
             .command-grid,
             .rank-grid,
@@ -1199,8 +1372,16 @@
 
             footer {
                 flex-direction: column;
-                gap: 10px;
                 text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+
+            .launch-bar {
+                font-size: 10px;
+                padding: 12px 10px;
             }
         }
     </style>
@@ -1220,40 +1401,81 @@
     <strong>DEVS ANARCHY DUPE EVENT</strong>
 </div>
 
-<!-- NAVIGATION -->
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <nav>
+
     <a href="#home" class="nav-logo">
         <img src="Devs Anarchy logo.png" alt="Devs Anarchy Logo">
         <span>DEVS ANARCHY</span>
     </a>
 
     <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#event">Event Intel</a></li>
-        <li><a href="#join">How To Join</a></li>
-        <li><a href="#commands">Commands</a></li>
-        <li><a href="#ranks">Ranks</a></li>
-        <li><a href="#faq">FAQ</a></li>
+
         <li>
-            <a class="discord-button"
-               href="https://discord.gg/VbrQCDNgmw"
-               target="_blank"
-               rel="noopener">Discord</a>
+            <a href="#home">Home</a>
         </li>
+
+        <li>
+            <a href="#event">Event Intel</a>
+        </li>
+
+        <li>
+            <a href="#join">How To Join</a>
+        </li>
+
+        <li>
+            <a href="#commands">Commands</a>
+        </li>
+
+        <li>
+            <a href="#ranks">Ranks</a>
+        </li>
+
+        <li>
+            <a href="#faq">FAQ</a>
+        </li>
+
+        <li>
+            <a href="#legal">Legal</a>
+        </li>
+
+        <li>
+            <a
+                class="discord-button"
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener">
+                Discord
+            </a>
+        </li>
+
     </ul>
+
 </nav>
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero" id="home">
+
     <div class="hero-content">
 
-        <div class="classified">⚠ EVENT TRANSMISSION DETECTED ⚠</div>
+        <div class="classified">
+            ⚠ EVENT TRANSMISSION DETECTED ⚠
+        </div>
 
-        <img src="Devs Anarchy logo.png"
-             alt="Devs Anarchy"
-             class="hero-logo">
+        <img
+            src="Devs Anarchy logo.png"
+            alt="Devs Anarchy"
+            class="hero-logo">
 
-        <div class="event-name">DEVS ANARCHY PRESENTS</div>
+        <div class="event-name">
+            DEVS ANARCHY PRESENTS
+        </div>
 
         <h1 class="glitch-title">
             THE <span>HACKER</span><br>EVENT
@@ -1262,18 +1484,28 @@
         <p class="hero-subtitle">
             The signal is spreading across the server. Something has changed.
             <br>
-            <strong>The Hacker Event is Devs Anarchy's official Dupe Event.</strong>
+            <strong>
+                The Hacker Event is Devs Anarchy's official Dupe Event.
+            </strong>
         </p>
 
-        <!-- FICTIONAL EVENT TERMINAL -->
+        <!-- TERMINAL -->
+
         <div class="terminal">
-            <div class="terminal-header">devs@anarchy:~/event_protocol</div>
-            <div class="terminal-body">
-                <span id="terminalText"></span><span class="terminal-cursor">█</span>
+
+            <div class="terminal-header">
+                devs@anarchy:~/event_protocol
             </div>
+
+            <div class="terminal-body">
+                <span id="terminalText"></span>
+                <span class="terminal-cursor">█</span>
+            </div>
+
         </div>
 
         <!-- COUNTDOWN -->
+
         <div class="countdown-container" id="launchContainer">
 
             <div class="countdown-label" id="countdownLabel">
@@ -1286,458 +1518,1308 @@
             </div>
 
             <div class="countdown" id="countdown">
+
                 <div class="time-box">
                     <span class="time-number" id="days">00</span>
                     <span class="time-label">DAYS</span>
                 </div>
+
                 <div class="time-box">
                     <span class="time-number" id="hours">00</span>
                     <span class="time-label">HOURS</span>
                 </div>
+
                 <div class="time-box">
                     <span class="time-number" id="minutes">00</span>
                     <span class="time-label">MINUTES</span>
                 </div>
+
                 <div class="time-box">
                     <span class="time-number" id="seconds">00</span>
                     <span class="time-label">SECONDS</span>
                 </div>
+
             </div>
 
+            <!-- LIVE EVENT -->
+
             <div class="live-message" id="liveMessage">
-                <div class="live-icon">✓</div>
-                <h3>THE HACKER EVENT IS LIVE!</h3>
-                <p>The signal is active. The Devs Anarchy Dupe Event has begun.</p>
-                <button class="join-server-button" onclick="copyIPAndJoin()">
+
+                <div class="live-icon">
+                    ✓
+                </div>
+
+                <h3>
+                    THE HACKER EVENT IS LIVE!
+                </h3>
+
+                <p>
+                    The signal is active.
+                    The Devs Anarchy Dupe Event has begun.
+                </p>
+
+                <button
+                    class="join-server-button"
+                    onclick="copyIPAndJoin()">
                     JOIN DEVS ANARCHY →
                 </button>
+
             </div>
 
             <div class="launch-time" id="launchTime">
                 Event time:
-                <strong>Friday, August 28 • 12:00 PM Eastern Time</strong>
+                <strong>
+                    Friday, August 28 • 12:00 PM Eastern Time
+                </strong>
             </div>
+
         </div>
 
-        <div class="ip-box" id="ipBox" onclick="copyIP()" title="Click to copy">
-            <span>devsanarchy.xyz</span>
-            <span class="copy-icon">⧉</span>
+        <!-- IP -->
+
+        <div
+            class="ip-box"
+            id="ipBox"
+            onclick="copyIP()"
+            title="Click to copy">
+
+            <span>
+                devsanarchy.xyz
+            </span>
+
+            <span class="copy-icon">
+                ⧉
+            </span>
+
         </div>
+
+        <!-- BUTTONS -->
 
         <div class="hero-buttons">
-            <a href="#event" class="button primary">VIEW EVENT INTEL</a>
-            <a href="https://discord.gg/VbrQCDNgmw"
-               target="_blank"
-               rel="noopener"
-               class="button secondary">JOIN DISCORD</a>
+
+            <a
+                href="#event"
+                class="button primary">
+                VIEW EVENT INTEL
+            </a>
+
+            <a
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener"
+                class="button secondary">
+                JOIN DISCORD
+            </a>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- EVENT INTEL -->
+<!-- =========================
+     EVENT INTEL
+========================= -->
+
 <section class="section-dark" id="event">
+
     <div class="section-title">
-        <div class="section-kicker">CLASSIFIED INFORMATION</div>
-        <h2>The Hacker Event</h2>
-        <p>A special Devs Anarchy event built around chaos, exploration, and the official dupe event.</p>
+
+        <div class="section-kicker">
+            CLASSIFIED INFORMATION
+        </div>
+
+        <h2>
+            The Hacker Event
+        </h2>
+
+        <p>
+            A special Devs Anarchy event built around chaos,
+            exploration, and the official dupe event.
+        </p>
+
     </div>
 
     <div class="intel-grid">
+
         <div class="intel-card">
-            <div class="intel-number">[ EVENT_01 ]</div>
-            <h3>THE SIGNAL</h3>
-            <p>A mysterious event transmission has appeared. Players are being called to enter the chaos.</p>
+
+            <div class="intel-number">
+                [ EVENT_01 ]
+            </div>
+
+            <h3>
+                THE SIGNAL
+            </h3>
+
+            <p>
+                A mysterious event transmission has appeared.
+                Players are being called to enter the chaos.
+            </p>
+
         </div>
 
         <div class="intel-card">
-            <div class="intel-number">[ EVENT_02 ]</div>
-            <h3>THE DUPE EVENT</h3>
-            <p>The Hacker Event is the official Devs Anarchy Dupe Event. Get online when the countdown reaches zero.</p>
+
+            <div class="intel-number">
+                [ EVENT_02 ]
+            </div>
+
+            <h3>
+                THE DUPE EVENT
+            </h3>
+
+            <p>
+                The Hacker Event is the official Devs Anarchy
+                Dupe Event. Get online when the countdown reaches zero.
+            </p>
+
         </div>
 
         <div class="intel-card">
-            <div class="intel-number">[ EVENT_03 ]</div>
-            <h3>THE AFTERMATH</h3>
-            <p>What happens after the event is part of the story. Join the server and experience it yourself.</p>
+
+            <div class="intel-number">
+                [ EVENT_03 ]
+            </div>
+
+            <h3>
+                THE AFTERMATH
+            </h3>
+
+            <p>
+                What happens after the event is part of the story.
+                Join the server and experience it yourself.
+            </p>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- SERVER STATUS -->
+<!-- =========================
+     SERVER STATUS
+========================= -->
+
 <section>
+
     <div class="section-title">
-        <div class="section-kicker">SERVER STATUS</div>
-        <h2>Built For Anarchy</h2>
-        <p>Everything you need to know before entering the world.</p>
+
+        <div class="section-kicker">
+            SERVER STATUS
+        </div>
+
+        <h2>
+            Built For Anarchy
+        </h2>
+
+        <p>
+            Everything you need to know before entering the world.
+        </p>
+
     </div>
 
     <div class="status-grid">
+
         <div class="status-card">
-            <div class="status-icon">💻</div>
-            <h3>Java Edition</h3>
-            <p class="available">AVAILABLE</p>
+
+            <div class="status-icon">
+                💻
+            </div>
+
+            <h3>
+                Java Edition
+            </h3>
+
+            <p class="available">
+                AVAILABLE
+            </p>
+
         </div>
 
         <div class="status-card">
-            <div class="status-icon">📱</div>
-            <h3>Bedrock Edition</h3>
-            <p class="coming">COMING SOON</p>
+
+            <div class="status-icon">
+                📱
+            </div>
+
+            <h3>
+                Bedrock Edition
+            </h3>
+
+            <p class="coming">
+                COMING SOON
+            </p>
+
         </div>
 
         <div class="status-card">
-            <div class="status-icon">🔓</div>
-            <h3>Cracked</h3>
-            <p class="coming">COMING SOON</p>
+
+            <div class="status-icon">
+                🔓
+            </div>
+
+            <h3>
+                Cracked
+            </h3>
+
+            <p class="coming">
+                COMING SOON
+            </p>
+
         </div>
 
         <div class="status-card">
-            <div class="status-icon">⚡</div>
-            <h3>Version</h3>
-            <p>26.2 • ALL VERSIONS</p>
+
+            <div class="status-icon">
+                ⚡
+            </div>
+
+            <h3>
+                Version
+            </h3>
+
+            <p>
+                26.2 • ALL VERSIONS
+            </p>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- HOW TO JOIN -->
+<!-- =========================
+     HOW TO JOIN
+========================= -->
+
 <section class="section-dark" id="join">
+
     <div class="section-title">
-        <div class="section-kicker">GET STARTED</div>
-        <h2>How To Join</h2>
-        <p>Getting into the world takes less than a minute.</p>
+
+        <div class="section-kicker">
+            GET STARTED
+        </div>
+
+        <h2>
+            How To Join
+        </h2>
+
+        <p>
+            Getting into the world takes less than a minute.
+        </p>
+
     </div>
 
     <div class="join-grid">
+
         <div class="join-card">
-            <div class="join-number">1</div>
-            <h3>Open Minecraft</h3>
-            <p>Launch Minecraft Java Edition on your computer.</p>
+
+            <div class="join-number">
+                1
+            </div>
+
+            <h3>
+                Open Minecraft
+            </h3>
+
+            <p>
+                Launch Minecraft Java Edition on your computer.
+            </p>
+
         </div>
 
         <div class="join-card">
-            <div class="join-number">2</div>
-            <h3>Add The Server</h3>
-            <p>Open Multiplayer and add <strong>devsanarchy.xyz</strong> as a server.</p>
+
+            <div class="join-number">
+                2
+            </div>
+
+            <h3>
+                Add The Server
+            </h3>
+
+            <p>
+                Open Multiplayer and add
+                <strong>devsanarchy.xyz</strong>
+                as a server.
+            </p>
+
         </div>
 
         <div class="join-card">
-            <div class="join-number">3</div>
-            <h3>Enter The Chaos</h3>
-            <p>Connect to Devs Anarchy and begin your journey.</p>
+
+            <div class="join-number">
+                3
+            </div>
+
+            <h3>
+                Enter The Chaos
+            </h3>
+
+            <p>
+                Connect to Devs Anarchy and begin your journey.
+            </p>
+
         </div>
+
     </div>
 
     <div class="server-info">
-        <small>SERVER ADDRESS</small>
-        <div class="server-ip">devsanarchy.xyz</div>
-        <div class="version">Minecraft 26.2 • All Versions Supported</div>
+
+        <small>
+            SERVER ADDRESS
+        </small>
+
+        <div class="server-ip">
+            devsanarchy.xyz
+        </div>
+
+        <div class="version">
+            Minecraft 26.2 • All Versions Supported
+        </div>
+
     </div>
+
 </section>
 
-<!-- COMMANDS -->
+<!-- =========================
+     COMMANDS
+========================= -->
+
 <section id="commands">
+
     <div class="section-title">
-        <div class="section-kicker">PLAYER COMMANDS</div>
-        <h2>Commands</h2>
-        <p>Useful commands available to players.</p>
+
+        <div class="section-kicker">
+            PLAYER COMMANDS
+        </div>
+
+        <h2>
+            Commands
+        </h2>
+
+        <p>
+            Useful commands available to players.
+        </p>
+
     </div>
 
     <div class="command-grid">
-        <div class="command"><code>/sit</code><span>Sit anywhere</span></div>
-        <div class="command"><code>/lay</code><span>Lay anywhere</span></div>
-        <div class="command"><code>/sethome</code><span>Set a home</span></div>
-        <div class="command"><code>/home</code><span>Teleport home</span></div>
-        <div class="command"><code>/homes</code><span>View your homes</span></div>
-        <div class="command"><code>/delhome</code><span>Delete a home</span></div>
+
+        <div class="command">
+            <code>/sit</code>
+            <span>Sit anywhere</span>
+        </div>
+
+        <div class="command">
+            <code>/lay</code>
+            <span>Lay anywhere</span>
+        </div>
+
+        <div class="command">
+            <code>/sethome</code>
+            <span>Set a home</span>
+        </div>
+
+        <div class="command">
+            <code>/home</code>
+            <span>Teleport home</span>
+        </div>
+
+        <div class="command">
+            <code>/homes</code>
+            <span>View your homes</span>
+        </div>
+
+        <div class="command">
+            <code>/delhome</code>
+            <span>Delete a home</span>
+        </div>
+
     </div>
+
 </section>
 
-<!-- RANKS -->
+<!-- =========================
+     RANKS
+========================= -->
+
 <section class="section-dark" id="ranks">
+
     <div class="section-title">
-        <div class="section-kicker">SUPPORT THE SERVER</div>
-        <h2>Ranks</h2>
-        <p>Optional ranks are planned for future release.</p>
+
+        <div class="section-kicker">
+            SUPPORT THE SERVER
+        </div>
+
+        <h2>
+            Ranks
+        </h2>
+
+        <p>
+            Optional ranks are planned for future release.
+        </p>
+
     </div>
 
     <div class="rank-grid">
+
         <div class="rank">
-            <div class="rank-icon">⭐</div>
-            <h3>VIP</h3>
-            <div class="rank-status">COMING SOON</div>
-            <p class="rank-description">Our entry-level supporter rank with exclusive perks.</p>
-            <div class="rank-button">NOT AVAILABLE YET</div>
+
+            <div class="rank-icon">
+                ⭐
+            </div>
+
+            <h3>
+                VIP
+            </h3>
+
+            <div class="rank-status">
+                COMING SOON
+            </div>
+
+            <p class="rank-description">
+                Our entry-level supporter rank with exclusive perks.
+            </p>
+
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
+
         </div>
 
         <div class="rank">
-            <div class="rank-icon">⚡</div>
-            <h3>MVP</h3>
-            <div class="rank-status">COMING SOON</div>
-            <p class="rank-description">A higher supporter rank with additional perks.</p>
-            <div class="rank-button">NOT AVAILABLE YET</div>
+
+            <div class="rank-icon">
+                ⚡
+            </div>
+
+            <h3>
+                MVP
+            </h3>
+
+            <div class="rank-status">
+                COMING SOON
+            </div>
+
+            <p class="rank-description">
+                A higher supporter rank with additional perks.
+            </p>
+
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
+
         </div>
 
         <div class="rank">
-            <div class="rank-icon">💎</div>
-            <h3>ELITE</h3>
-            <div class="rank-status">COMING SOON</div>
-            <p class="rank-description">An elite supporter rank for dedicated players.</p>
-            <div class="rank-button">NOT AVAILABLE YET</div>
+
+            <div class="rank-icon">
+                💎
+            </div>
+
+            <h3>
+                ELITE
+            </h3>
+
+            <div class="rank-status">
+                COMING SOON
+            </div>
+
+            <p class="rank-description">
+                An elite supporter rank for dedicated players.
+            </p>
+
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
+
         </div>
 
         <div class="rank">
-            <div class="rank-icon">👑</div>
-            <h3>LEGEND</h3>
-            <div class="rank-status">COMING SOON</div>
-            <p class="rank-description">A premium rank for some of our biggest supporters.</p>
-            <div class="rank-button">NOT AVAILABLE YET</div>
+
+            <div class="rank-icon">
+                👑
+            </div>
+
+            <h3>
+                LEGEND
+            </h3>
+
+            <div class="rank-status">
+                COMING SOON
+            </div>
+
+            <p class="rank-description">
+                A premium rank for some of our biggest supporters.
+            </p>
+
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
+
         </div>
 
         <div class="rank">
-            <div class="rank-icon">🔥</div>
-            <h3>OVERLORD</h3>
-            <div class="rank-status">COMING SOON</div>
-            <p class="rank-description">The ultimate Devs Anarchy supporter rank.</p>
-            <div class="rank-button">NOT AVAILABLE YET</div>
+
+            <div class="rank-icon">
+                🔥
+            </div>
+
+            <h3>
+                OVERLORD
+            </h3>
+
+            <div class="rank-status">
+                COMING SOON
+            </div>
+
+            <p class="rank-description">
+                The ultimate Devs Anarchy supporter rank.
+            </p>
+
+            <div class="rank-button">
+                NOT AVAILABLE YET
+            </div>
+
         </div>
+
     </div>
 
     <div class="support-box">
-        <h3>💙 Support Devs Anarchy</h3>
-        <p>Ranks are completely optional. Future purchases will help support server hosting, infrastructure, development, and operating costs.</p>
+
+        <h3>
+            💙 Support Devs Anarchy
+        </h3>
+
+        <p>
+            Ranks are completely optional. Future purchases will
+            help support server hosting, infrastructure, development,
+            and operating costs.
+        </p>
+
     </div>
+
 </section>
 
-<!-- FAQ -->
+<!-- =========================
+     FAQ
+========================= -->
+
 <section id="faq">
+
     <div class="section-title">
-        <div class="section-kicker">QUESTIONS</div>
-        <h2>FAQ</h2>
-        <p>Answers to some of the most common questions.</p>
+
+        <div class="section-kicker">
+            QUESTIONS
+        </div>
+
+        <h2>
+            FAQ
+        </h2>
+
+        <p>
+            Answers to some of the most common questions.
+        </p>
+
     </div>
 
     <div class="faq">
+
         <details>
-            <summary>When is The Hacker Event?</summary>
-            <p>The Devs Anarchy Hacker Event and Dupe Event begins Friday, August 28, 2026 at 12:00 PM Eastern Time.</p>
+
+            <summary>
+                When is The Hacker Event?
+            </summary>
+
+            <p>
+                The Devs Anarchy Hacker Event and Dupe Event begins
+                Friday, August 28, 2026 at 12:00 PM Eastern Time.
+            </p>
+
         </details>
 
         <details>
-            <summary>What is The Hacker Event?</summary>
-            <p>The Hacker Event is the themed name for Devs Anarchy's special Dupe Event.</p>
+
+            <summary>
+                What is The Hacker Event?
+            </summary>
+
+            <p>
+                The Hacker Event is the themed name for
+                Devs Anarchy's special Dupe Event.
+            </p>
+
         </details>
 
         <details>
-            <summary>What version does Devs Anarchy use?</summary>
-            <p>The server currently runs on Minecraft 26.2, with support for versions that can connect.</p>
+
+            <summary>
+                What version does Devs Anarchy use?
+            </summary>
+
+            <p>
+                The server currently runs on Minecraft 26.2,
+                with support for versions that can connect.
+            </p>
+
         </details>
 
         <details>
-            <summary>Can I play on Bedrock?</summary>
-            <p>Bedrock support is currently coming soon.</p>
+
+            <summary>
+                Can I play on Bedrock?
+            </summary>
+
+            <p>
+                Bedrock support is currently coming soon.
+            </p>
+
         </details>
 
         <details>
-            <summary>Can cracked players join?</summary>
-            <p>Cracked support is currently coming soon.</p>
+
+            <summary>
+                Can cracked players join?
+            </summary>
+
+            <p>
+                Cracked support is currently coming soon.
+            </p>
+
         </details>
 
         <details>
-            <summary>Are ranks available?</summary>
-            <p>Ranks are currently coming soon. Planned ranks include VIP, MVP, ELITE, LEGEND and OVERLORD.</p>
+
+            <summary>
+                Are ranks available?
+            </summary>
+
+            <p>
+                Ranks are currently coming soon.
+                Planned ranks include VIP, MVP, ELITE,
+                LEGEND and OVERLORD.
+            </p>
+
         </details>
+
     </div>
+
 </section>
 
-<!-- DISCORD -->
+<!-- =========================
+     LEGAL & INFORMATION
+========================= -->
+
+<section class="section-dark" id="legal">
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            DEVS ANARCHY
+        </div>
+
+        <h2>
+            Legal & Information
+        </h2>
+
+        <p>
+            Important information, policies, rules,
+            and ways to contact the Devs Anarchy team.
+        </p>
+
+    </div>
+
+    <div class="legal-grid">
+
+        <!-- TERMS -->
+
+        <a
+            href="https://devsanarchy.xyz/terms-of-service/"
+            class="legal-card">
+
+            <div class="legal-number">
+                [ LEGAL_01 ]
+            </div>
+
+            <h3>
+                TERMS OF SERVICE
+            </h3>
+
+            <p>
+                Read the terms governing your use of
+                Devs Anarchy, including our services,
+                website, server, and community.
+            </p>
+
+            <span class="legal-arrow">
+                READ TERMS →
+            </span>
+
+        </a>
+
+        <!-- REFUND -->
+
+        <a
+            href="https://devsanarchy.xyz/refund-policy/"
+            class="legal-card">
+
+            <div class="legal-number">
+                [ LEGAL_02 ]
+            </div>
+
+            <h3>
+                REFUND POLICY
+            </h3>
+
+            <p>
+                Information about purchases, refunds,
+                eligibility, and how refund requests
+                are handled.
+            </p>
+
+            <span class="legal-arrow">
+                VIEW POLICY →
+            </span>
+
+        </a>
+
+        <!-- PRIVACY -->
+
+        <a
+            href="https://devsanarchy.xyz/privacy-policy/"
+            class="legal-card">
+
+            <div class="legal-number">
+                [ LEGAL_03 ]
+            </div>
+
+            <h3>
+                PRIVACY POLICY
+            </h3>
+
+            <p>
+                Learn what information Devs Anarchy
+                may collect, how it is used, and how
+                your information is protected.
+            </p>
+
+            <span class="legal-arrow">
+                VIEW PRIVACY →
+            </span>
+
+        </a>
+
+        <!-- RULES -->
+
+        <a
+            href="https://devsanarchy.xyz/rules/"
+            class="legal-card">
+
+            <div class="legal-number">
+                [ RULES_01 ]
+            </div>
+
+            <h3>
+                SERVER RULES
+            </h3>
+
+            <p>
+                Review the rules that apply to Devs Anarchy
+                players and members of our community.
+            </p>
+
+            <span class="legal-arrow">
+                VIEW RULES →
+            </span>
+
+        </a>
+
+        <!-- CONTACT -->
+
+        <a
+            href="https://devsanarchy.xyz/contact/"
+            class="legal-card">
+
+            <div class="legal-number">
+                [ SUPPORT_01 ]
+            </div>
+
+            <h3>
+                CONTACT US
+            </h3>
+
+            <p>
+                Need help or want to contact the Devs Anarchy
+                team? Find our official contact information here.
+            </p>
+
+            <span class="legal-arrow">
+                CONTACT US →
+            </span>
+
+        </a>
+
+        <!-- SAFETY -->
+
+        <div class="legal-card">
+
+            <div class="legal-number">
+                [ SECURITY_01 ]
+            </div>
+
+            <h3>
+                COMMUNITY SAFETY
+            </h3>
+
+            <p>
+                Illegal content, DDoSing, doxing, and other
+                harmful activity are prohibited within the
+                Devs Anarchy community.
+            </p>
+
+            <span class="legal-arrow">
+                COMMUNITY FIRST
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     DISCORD
+========================= -->
+
 <section class="discord-section">
-    <div class="section-kicker">COMMUNITY</div>
-    <h2>DON'T MISS THE EVENT.</h2>
-    <p>Join the Devs Anarchy Discord for announcements, updates, support and event notifications.</p>
 
-    <a href="https://discord.gg/VbrQCDNgmw"
-       target="_blank"
-       rel="noopener"
-       class="button discord-main">
+    <div class="section-kicker">
+        COMMUNITY
+    </div>
+
+    <h2>
+        DON'T MISS THE EVENT.
+    </h2>
+
+    <p>
+        Join the Devs Anarchy Discord for announcements,
+        updates, support and event notifications.
+    </p>
+
+    <a
+        href="https://discord.gg/VbrQCDNgmw"
+        target="_blank"
+        rel="noopener"
+        class="button discord-main">
+
         JOIN THE DISCORD
+
     </a>
+
 </section>
 
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 <span>Devs Anarchy</span>. All rights reserved.</p>
-    <p>THE HACKER EVENT • devsanarchy.xyz</p>
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer id="footer">
+
+    <div class="footer-left">
+
+        <p>
+            © 2026 <span>Devs Anarchy</span>.
+            All rights reserved.
+        </p>
+
+        <p>
+            THE HACKER EVENT • devsanarchy.xyz
+        </p>
+
+    </div>
+
+    <div class="footer-links">
+
+        <a href="https://devsanarchy.xyz/terms-of-service/">
+            Terms of Service
+        </a>
+
+        <a href="https://devsanarchy.xyz/refund-policy/">
+            Refund Policy
+        </a>
+
+        <a href="https://devsanarchy.xyz/privacy-policy/">
+            Privacy Policy
+        </a>
+
+        <a href="https://devsanarchy.xyz/rules/">
+            Rules
+        </a>
+
+        <a href="https://devsanarchy.xyz/contact/">
+            Contact
+        </a>
+
+    </div>
+
 </footer>
 
 <script>
+
     /* =========================================================
        EVENT DATE
-       Friday, August 28, 2026 — 12:00 PM Eastern Daylight Time
+
+       Friday, August 28, 2026
+       12:00 PM Eastern Daylight Time
     ========================================================= */
 
-    const launchTarget = new Date("2026-08-28T12:00:00-04:00");
+    const launchTarget =
+        new Date("2026-08-28T12:00:00-04:00");
+
     let eventIsLive = false;
+
 
     /* =========================================================
        COUNTDOWN
     ========================================================= */
 
     function updateCountdown() {
-        const difference = launchTarget.getTime() - Date.now();
+
+        const difference =
+            launchTarget.getTime() - Date.now();
 
         if (difference <= 0 && !eventIsLive) {
+
             eventIsLive = true;
 
-            document.getElementById("countdownLabel").textContent = "EVENT STATUS";
-            document.getElementById("countdownTitle").innerHTML =
+            document.getElementById("countdownLabel")
+                .textContent = "EVENT STATUS";
+
+            document.getElementById("countdownTitle")
+                .innerHTML =
                 '<span>THE HACKER EVENT IS LIVE!</span>';
 
-            document.getElementById("countdown").style.display = "none";
-            document.getElementById("liveMessage").style.display = "block";
+            document.getElementById("countdown")
+                .style.display = "none";
 
-            document.getElementById("launchTime").innerHTML =
+            document.getElementById("liveMessage")
+                .style.display = "block";
+
+            document.getElementById("launchTime")
+                .innerHTML =
                 '<strong>🟢 EVENT IS LIVE NOW!</strong>';
 
-            document.getElementById("launchBar").innerHTML =
-                '<span class="launch-dot" style="background:#3cff88;box-shadow:0 0 12px #3cff88;"></span>' +
-                'THE HACKER EVENT IS LIVE! &nbsp; • &nbsp; ' +
-                '<span style="color:#3cff88;">JOIN DEVS ANARCHY NOW</span>';
+            document.getElementById("launchBar")
+                .innerHTML =
+                '<span class="launch-dot" style="' +
+                'background:#3cff88;' +
+                'box-shadow:0 0 12px #3cff88;">' +
+                '</span>' +
+                'THE HACKER EVENT IS LIVE! ' +
+                '&nbsp; • &nbsp; ' +
+                '<span style="color:#3cff88;">' +
+                'JOIN DEVS ANARCHY NOW' +
+                '</span>';
 
             return;
         }
 
         if (!eventIsLive) {
-            let remaining = Math.max(0, difference);
 
-            const days = Math.floor(remaining / 86400000);
+            let remaining =
+                Math.max(0, difference);
+
+            const days =
+                Math.floor(remaining / 86400000);
+
             remaining %= 86400000;
 
-            const hours = Math.floor(remaining / 3600000);
+            const hours =
+                Math.floor(remaining / 3600000);
+
             remaining %= 3600000;
 
-            const minutes = Math.floor(remaining / 60000);
+            const minutes =
+                Math.floor(remaining / 60000);
+
             remaining %= 60000;
 
-            const seconds = Math.floor(remaining / 1000);
+            const seconds =
+                Math.floor(remaining / 1000);
 
-            document.getElementById("days").textContent =
+
+            document.getElementById("days")
+                .textContent =
                 String(days).padStart(2, "0");
-            document.getElementById("hours").textContent =
+
+            document.getElementById("hours")
+                .textContent =
                 String(hours).padStart(2, "0");
-            document.getElementById("minutes").textContent =
+
+            document.getElementById("minutes")
+                .textContent =
                 String(minutes).padStart(2, "0");
-            document.getElementById("seconds").textContent =
+
+            document.getElementById("seconds")
+                .textContent =
                 String(seconds).padStart(2, "0");
         }
     }
+
 
     /* =========================================================
        COPY SERVER IP
     ========================================================= */
 
     function copyIP() {
-        navigator.clipboard.writeText("devsanarchy.xyz");
 
-        const box = document.getElementById("ipBox");
-        const oldHTML = box.innerHTML;
+        navigator.clipboard.writeText(
+            "devsanarchy.xyz"
+        );
 
-        box.innerHTML = "<span>✓ IP COPIED!</span>";
-        box.style.borderColor = "#3cff88";
-        box.style.color = "#3cff88";
+        const box =
+            document.getElementById("ipBox");
+
+        const oldHTML =
+            box.innerHTML;
+
+        box.innerHTML =
+            "<span>✓ IP COPIED!</span>";
+
+        box.style.borderColor =
+            "#3cff88";
+
+        box.style.color =
+            "#3cff88";
+
 
         setTimeout(() => {
-            box.innerHTML = oldHTML;
-            box.style.borderColor = "";
-            box.style.color = "";
+
+            box.innerHTML =
+                oldHTML;
+
+            box.style.borderColor =
+                "";
+
+            box.style.color =
+                "";
+
         }, 1800);
     }
 
-    function copyIPAndJoin() {
-        navigator.clipboard.writeText("devsanarchy.xyz");
 
-        const button = document.querySelector(".join-server-button");
-        button.textContent = "✓ IP COPIED — JOIN NOW!";
-        button.style.background = "#3cff88";
-        button.style.color = "#031006";
+    /* =========================================================
+       COPY IP + JOIN
+    ========================================================= */
+
+    function copyIPAndJoin() {
+
+        navigator.clipboard.writeText(
+            "devsanarchy.xyz"
+        );
+
+        const button =
+            document.querySelector(
+                ".join-server-button"
+            );
+
+        button.textContent =
+            "✓ IP COPIED — JOIN NOW!";
+
+        button.style.background =
+            "#3cff88";
+
+        button.style.color =
+            "#031006";
+
 
         setTimeout(() => {
-            button.textContent = "JOIN DEVS ANARCHY →";
-            button.style.background = "";
-            button.style.color = "";
+
+            button.textContent =
+                "JOIN DEVS ANARCHY →";
+
+            button.style.background =
+                "";
+
+            button.style.color =
+                "";
+
         }, 2000);
     }
+
 
     /* =========================================================
        FICTIONAL EVENT TERMINAL
     ========================================================= */
 
     const terminalLines = [
+
         "INITIALIZING EVENT_PROTOCOL...",
         "CONNECTING TO DEVS ANARCHY...",
         "SIGNAL DETECTED.",
         "EVENT TYPE: DUPE EVENT",
         "STATUS: PREPARING CHAOS...",
         "AWAITING PLAYERS..."
+
     ];
 
-    const terminalText = document.getElementById("terminalText");
+    const terminalText =
+        document.getElementById(
+            "terminalText"
+        );
+
     let terminalLine = 0;
     let terminalChar = 0;
 
+
     function typeTerminal() {
-        if (terminalLine >= terminalLines.length) {
+
+        if (
+            terminalLine >=
+            terminalLines.length
+        ) {
+
             setTimeout(() => {
+
                 terminalText.innerHTML = "";
+
                 terminalLine = 0;
                 terminalChar = 0;
+
                 typeTerminal();
+
             }, 2500);
+
             return;
         }
 
-        const line = terminalLines[terminalLine];
 
-        if (terminalChar < line.length) {
-            terminalText.textContent += line.charAt(terminalChar);
+        const line =
+            terminalLines[
+                terminalLine
+            ];
+
+
+        if (
+            terminalChar <
+            line.length
+        ) {
+
+            terminalText.textContent +=
+                line.charAt(
+                    terminalChar
+                );
+
             terminalChar++;
-            setTimeout(typeTerminal, 22);
+
+            setTimeout(
+                typeTerminal,
+                22
+            );
+
         } else {
-            terminalText.innerHTML += "<br>";
+
+            terminalText.innerHTML +=
+                "<br>";
+
             terminalLine++;
+
             terminalChar = 0;
-            setTimeout(typeTerminal, 350);
+
+            setTimeout(
+                typeTerminal,
+                350
+            );
         }
     }
+
 
     /* =========================================================
        DECORATIVE DIGITAL RAIN
     ========================================================= */
 
     function createCodeRain() {
-        const rain = document.getElementById("codeRain");
-        const characters = "01{}<>[]/\\\\$#*";
 
-        for (let i = 0; i < 20; i++) {
-            const column = document.createElement("div");
-            column.className = "code-column";
+        const rain =
+            document.getElementById(
+                "codeRain"
+            );
+
+        const characters =
+            "01{}<>[]/\\\\$#*";
+
+
+        for (
+            let i = 0;
+            i < 20;
+            i++
+        ) {
+
+            const column =
+                document.createElement(
+                    "div"
+                );
+
+            column.className =
+                "code-column";
+
 
             let text = "";
-            for (let j = 0; j < 35; j++) {
-                text += characters[Math.floor(Math.random() * characters.length)] + "\n";
+
+
+            for (
+                let j = 0;
+                j < 35;
+                j++
+            ) {
+
+                text +=
+                    characters[
+                        Math.floor(
+                            Math.random() *
+                            characters.length
+                        )
+                    ] + "\n";
             }
 
-            column.textContent = text;
-            column.style.left = Math.random() * 100 + "%";
-            column.style.animationDuration = (10 + Math.random() * 15) + "s";
-            column.style.animationDelay = (-Math.random() * 20) + "s";
 
-            rain.appendChild(column);
+            column.textContent =
+                text;
+
+            column.style.left =
+                Math.random() * 100 +
+                "%";
+
+            column.style.animationDuration =
+                (10 + Math.random() * 15) +
+                "s";
+
+            column.style.animationDelay =
+                (-Math.random() * 20) +
+                "s";
+
+
+            rain.appendChild(
+                column
+            );
         }
     }
+
+
+    /* =========================================================
+       START
+    ========================================================= */
 
     createCodeRain();
     typeTerminal();
     updateCountdown();
-    setInterval(updateCountdown, 1000);
+
+    setInterval(
+        updateCountdown,
+        1000
+    );
+
 </script>
 
 </body>
