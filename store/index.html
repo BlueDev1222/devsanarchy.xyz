@@ -4,338 +4,831 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Dev's Anarchy Store | Minecraft Ranks</title>
-    <meta name="description" content="Purchase ranks and upgrades for Dev's Anarchy Minecraft Server.">
+    <title>Store | Devs Anarchy</title>
+
+    <meta name="description" content="Upgrade your Devs Anarchy experience with exclusive ranks, perks, and premium benefits.">
+    <meta name="theme-color" content="#1677ff">
+
+    <meta property="og:title" content="Store | Devs Anarchy">
+    <meta property="og:description" content="Unlock exclusive ranks and premium benefits on Devs Anarchy.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devsanarchy.xyz/store">
+    <meta property="og:image" content="https://devsanarchy.xyz/Devs%20Anarchy%20logo.png">
+
+    <link rel="icon" type="image/png" href="../Devs Anarchy logo.png">
 
     <style>
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         :root {
-            --blue: #00aaff;
-            --bright-blue: #4dc3ff;
-            --dark-blue: #0066cc;
-            --bg: #050505;
-            --card: #0d0d0d;
-            --border: #252525;
-            --text: #ffffff;
-            --muted: #a0a0a0;
+            --blue: #1677ff;
+            --bright-blue: #00c8ff;
+            --gold: #f5c84b;
+            --gold-light: #ffe28a;
+            --green: #3cff88;
+            --purple: #b56cff;
+            --orange: #ff9d2e;
+            --background: #030407;
+            --card: #090c10;
+            --muted: #737b87;
         }
 
         body {
+            background: var(--background);
+            color: #fff;
             font-family: Arial, Helvetica, sans-serif;
-            background:
-                radial-gradient(circle at top, rgba(0, 140, 255, 0.13), transparent 35%),
-                var(--bg);
-            color: var(--text);
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* Navigation */
+        ::selection {
+            background: var(--blue);
+            color: #fff;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -4;
+            background:
+                radial-gradient(circle at 50% -15%, rgba(22,119,255,.22), transparent 32%),
+                radial-gradient(circle at 0% 60%, rgba(0,200,255,.06), transparent 28%),
+                radial-gradient(circle at 100% 80%, rgba(245,200,75,.05), transparent 30%);
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -3;
+            opacity: .18;
+            background-image:
+                linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+            background-size: 55px 55px;
+        }
+
+        /* PARTICLES */
+
+        #particles {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--bright-blue);
+            box-shadow: 0 0 12px var(--blue);
+            opacity: .35;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            from {
+                transform: translateY(110vh);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .4;
+            }
+
+            85% {
+                opacity: .4;
+            }
+
+            to {
+                transform: translateY(-10vh);
+                opacity: 0;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030407;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 20px;
+        }
+
+        /* NAVIGATION */
+
         nav {
-            width: 100%;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            background: rgba(5, 5, 5, 0.92);
-            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
+            height: 76px;
+            width: 100%;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(3,4,7,.82);
+            border-bottom: 1px solid rgba(255,255,255,.07);
+            backdrop-filter: blur(18px);
         }
 
-        .logo {
-            color: var(--blue);
-            font-size: 1.4rem;
-            font-weight: 900;
-            letter-spacing: 1px;
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
-            text-transform: uppercase;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 14px rgba(22,119,255,.4));
+        }
+
+        .nav-logo span {
+            font-size: 18px;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+        }
+
+        .nav-logo span::after {
+            content: ".";
+            color: var(--blue);
         }
 
         .nav-links {
             display: flex;
-            gap: 22px;
             align-items: center;
+            gap: 27px;
+            list-style: none;
         }
 
         .nav-links a {
-            color: #ccc;
+            color: #8d9199;
             text-decoration: none;
-            font-weight: bold;
-            transition: 0.2s;
+            font-size: 12px;
+            font-weight: 800;
+            transition: .25s;
         }
 
-        .nav-links a:hover,
-        .nav-links .active {
-            color: var(--blue);
+        .nav-links a:hover {
+            color: #fff;
         }
 
-        /* Hero */
+        .nav-discord {
+            padding: 10px 17px;
+            border-radius: 7px;
+            color: #fff !important;
+            background: #5865F2;
+            box-shadow: 0 5px 20px rgba(88,101,242,.2);
+        }
+
+        .nav-discord:hover {
+            background: #4752c4 !important;
+            transform: translateY(-2px);
+        }
+
+        /* HERO */
+
         .hero {
+            min-height: 610px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 90px 20px 55px;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .badge {
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .store-tag {
             display: inline-block;
-            padding: 8px 15px;
-            border: 1px solid rgba(0, 170, 255, 0.45);
-            border-radius: 999px;
+            padding: 8px 16px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(22,119,255,.4);
+            background: rgba(22,119,255,.06);
             color: var(--bright-blue);
-            background: rgba(0, 170, 255, 0.08);
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
-
-        h1 {
-            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-size: 10px;
             font-weight: 900;
-            text-transform: uppercase;
-            line-height: 1;
+            letter-spacing: 3px;
         }
 
-        h1 span {
+        .hero-logo {
+            width: 115px;
+            height: 115px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            filter:
+                drop-shadow(0 0 20px rgba(22,119,255,.3))
+                drop-shadow(0 0 60px rgba(22,119,255,.12));
+            animation: floating 5s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-kicker {
+            color: var(--bright-blue);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 10vw, 105px);
+            line-height: .9;
+            font-weight: 1000;
+            letter-spacing: -5px;
+            text-transform: uppercase;
+            text-shadow:
+                4px 0 rgba(0,200,255,.25),
+                0 0 45px rgba(22,119,255,.18);
+        }
+
+        .hero h1 span {
             color: var(--blue);
-            text-shadow: 0 0 30px rgba(0, 170, 255, 0.35);
         }
 
         .hero p {
-            color: var(--muted);
             max-width: 650px;
-            margin: 20px auto 0;
-            line-height: 1.6;
-            font-size: 1.05rem;
+            margin: 25px auto 0;
+            color: #858d98;
+            font-size: 16px;
+            line-height: 1.75;
         }
 
-        /* Username section */
-        .username-box {
-            max-width: 650px;
-            margin: 0 auto 45px;
-            padding: 25px;
-            background: rgba(13, 13, 13, 0.9);
-            border: 1px solid var(--border);
-            border-radius: 15px;
-        }
-
-        .username-box h2 {
-            margin-bottom: 8px;
-        }
-
-        .username-box p {
-            color: var(--muted);
-            margin-bottom: 18px;
-            font-size: 0.9rem;
-        }
-
-        .username-row {
+        .hero-buttons {
+            margin-top: 32px;
             display: flex;
-            gap: 10px;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
-        input {
-            flex: 1;
-            min-width: 0;
-            background: #070707;
-            border: 1px solid #303030;
-            color: white;
-            padding: 14px 16px;
-            border-radius: 9px;
-            font-size: 1rem;
-            outline: none;
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 900;
+            transition: .25s;
         }
 
-        input:focus {
+        .button-primary {
+            background: var(--blue);
+            color: #fff;
+            box-shadow: 0 12px 35px rgba(22,119,255,.2);
+        }
+
+        .button-primary:hover {
+            background: #0d63d8;
+            transform: translateY(-3px);
+        }
+
+        .button-secondary {
+            background: #0c0f14;
+            border: 1px solid #202631;
+            color: #d7d7d7;
+        }
+
+        .button-secondary:hover {
             border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.12);
+            transform: translateY(-3px);
         }
 
-        /* Store */
-        .store {
-            max-width: 1250px;
-            margin: auto;
-            padding: 10px 25px 80px;
+        /* GENERAL */
+
+        section {
+            padding: 95px 7%;
+        }
+
+        .section-dark {
+            background: rgba(5,7,10,.78);
+            border-top: 1px solid rgba(255,255,255,.035);
+            border-bottom: 1px solid rgba(255,255,255,.035);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 35px;
+            max-width: 700px;
+            margin: 0 auto 48px;
+        }
+
+        .section-kicker {
+            color: var(--blue);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin-bottom: 11px;
         }
 
         .section-title h2 {
-            font-size: 2rem;
+            font-size: clamp(35px, 5vw, 52px);
+            font-weight: 1000;
+            letter-spacing: -2px;
         }
 
         .section-title p {
-            color: var(--muted);
-            margin-top: 8px;
+            margin-top: 13px;
+            color: #707784;
+            font-size: 14px;
+            line-height: 1.7;
         }
 
+        /* RANKS */
+
         .rank-grid {
+            max-width: 1280px;
+            margin: auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 13px;
+            align-items: stretch;
         }
 
         .rank-card {
-            background: linear-gradient(145deg, #111, #090909);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 28px 22px;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            padding: 28px 20px;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #171c24;
+            border-radius: 14px;
             overflow: hidden;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: .3s;
         }
 
         .rank-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(0, 170, 255, 0.65);
+            transform: translateY(-8px);
+            border-color: rgba(22,119,255,.5);
+            box-shadow: 0 25px 50px rgba(0,0,0,.35);
         }
 
-        .rank-card.popular {
-            border-color: var(--blue);
-            box-shadow: 0 0 35px rgba(0, 170, 255, 0.1);
-        }
-
-        .popular-label {
+        .rank-card::before {
+            content: "";
             position: absolute;
-            top: 0;
-            right: 0;
-            padding: 7px 12px;
-            background: var(--blue);
-            color: #000;
-            font-size: 0.7rem;
-            font-weight: 900;
-            border-radius: 0 0 0 10px;
+            inset: 0;
+            opacity: 0;
+            transition: .3s;
+            background: radial-gradient(circle at 50% 0%, rgba(22,119,255,.12), transparent 60%);
+        }
+
+        .rank-card:hover::before {
+            opacity: 1;
+        }
+
+        .rank-top,
+        .rank-price,
+        .rank-description,
+        .rank-features,
+        .rank-button {
+            position: relative;
+            z-index: 1;
         }
 
         .rank-icon {
-            font-size: 2.3rem;
-            margin-bottom: 14px;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            background: rgba(22,119,255,.08);
+            border: 1px solid rgba(22,119,255,.2);
+            color: var(--bright-blue);
+            font-size: 23px;
         }
 
-        .rank-name {
-            font-size: 1.45rem;
+        .rank-card h3 {
+            font-size: 22px;
+            font-weight: 1000;
+            letter-spacing: -.5px;
+        }
+
+        .rank-tier {
+            margin-top: 6px;
+            color: #5d6570;
+            font-size: 9px;
             font-weight: 900;
-            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .price {
-            font-size: 2.1rem;
-            font-weight: 900;
-            color: var(--blue);
-            margin: 15px 0 5px;
+        .rank-price {
+            margin: 24px 0 7px;
+            font-size: 31px;
+            font-weight: 1000;
         }
 
-        .price small {
-            font-size: 0.85rem;
-            color: var(--muted);
-            font-weight: normal;
+        .rank-price span {
+            color: #606873;
+            font-size: 11px;
+            font-weight: 700;
         }
 
-        .homes {
-            color: #ddd;
-            margin: 15px 0;
-            font-size: 0.95rem;
+        .rank-description {
+            min-height: 65px;
+            color: #68717d;
+            font-size: 12px;
+            line-height: 1.65;
+            margin: 12px 0 18px;
         }
 
-        .perks {
+        .rank-features {
             list-style: none;
-            margin: 20px 0;
+            margin-bottom: 25px;
+            flex-grow: 1;
         }
 
-        .perks li {
-            color: var(--muted);
-            padding: 7px 0;
-            border-bottom: 1px solid #1d1d1d;
-            font-size: 0.9rem;
+        .rank-features li {
+            padding: 8px 0;
+            color: #a0a5ac;
+            font-size: 11px;
+            border-bottom: 1px solid rgba(255,255,255,.04);
         }
 
-        .perks li::before {
+        .rank-features li::before {
             content: "✓";
-            color: var(--blue);
-            font-weight: bold;
+            color: var(--green);
+            font-weight: 900;
             margin-right: 8px;
         }
 
-        .buy-btn {
-            width: 100%;
-            border: none;
-            background: var(--blue);
-            color: #000;
-            padding: 14px;
-            border-radius: 9px;
+        .rank-button {
+            display: block;
+            padding: 12px;
+            border-radius: 7px;
+            text-align: center;
+            text-decoration: none;
+            background: #10141a;
+            border: 1px solid #202631;
+            color: #fff;
+            font-size: 10px;
             font-weight: 900;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
+            transition: .25s;
         }
 
-        .buy-btn:hover {
-            background: var(--bright-blue);
-            transform: scale(1.02);
+        .rank-button:hover {
+            background: var(--blue);
+            border-color: var(--blue);
         }
 
-        .subscription {
-            margin-top: 12px;
-            font-size: 0.75rem;
-            color: var(--muted);
-            text-align: center;
+        /* RANK COLORS */
+
+        .vip .rank-icon {
+            color: var(--green);
+            border-color: rgba(60,255,136,.2);
+            background: rgba(60,255,136,.06);
         }
 
-        /* Information */
-        .info {
-            max-width: 900px;
+        .mvp .rank-icon {
+            color: var(--bright-blue);
+        }
+
+        .elite .rank-icon {
+            color: var(--purple);
+            border-color: rgba(181,108,255,.2);
+            background: rgba(181,108,255,.06);
+        }
+
+        .legend .rank-icon {
+            color: var(--orange);
+            border-color: rgba(255,157,46,.2);
+            background: rgba(255,157,46,.06);
+        }
+
+        /* OVERLORD */
+
+        .overlord {
+            border-color: rgba(245,200,75,.5);
+            background: linear-gradient(145deg, #16130b, #090909);
+            box-shadow: 0 0 45px rgba(245,200,75,.06);
+        }
+
+        .overlord:hover {
+            border-color: rgba(245,200,75,.8);
+            box-shadow: 0 25px 60px rgba(0,0,0,.45);
+        }
+
+        .overlord::before {
+            opacity: 1;
+            background: radial-gradient(circle at 50% 0%, rgba(245,200,75,.13), transparent 60%);
+        }
+
+        .overlord .rank-icon {
+            color: var(--gold-light);
+            background: rgba(245,200,75,.07);
+            border-color: rgba(245,200,75,.3);
+            box-shadow: 0 0 25px rgba(245,200,75,.08);
+        }
+
+        .overlord h3 {
+            color: var(--gold-light);
+        }
+
+        .overlord .rank-tier {
+            color: #a98734;
+        }
+
+        .overlord .rank-features li::before {
+            color: var(--gold);
+        }
+
+        .overlord .rank-button {
+            color: #0a0905;
+            background: linear-gradient(135deg, #ffe58b, #c88d20);
+            border-color: transparent;
+        }
+
+        .overlord .rank-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245,200,75,.2);
+        }
+
+        .top-rank {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 7px 11px;
+            background: var(--gold);
+            color: #080704;
+            font-size: 8px;
+            font-weight: 1000;
+            letter-spacing: 1px;
+            border-bottom-left-radius: 8px;
+        }
+
+        /* WHY SUPPORT */
+
+        .support-grid {
+            max-width: 1050px;
             margin: auto;
-            padding: 0 25px 70px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
         }
 
-        .info-card {
-            background: #0d0d0d;
-            border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 28px;
+        .support-card {
+            padding: 32px 25px;
+            text-align: center;
+            background: linear-gradient(145deg, #0b0e13, #07090c);
+            border: 1px solid #161b23;
+            border-radius: 14px;
+            transition: .3s;
+        }
+
+        .support-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(22,119,255,.4);
+        }
+
+        .support-icon {
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: rgba(22,119,255,.08);
+            border: 1px solid rgba(22,119,255,.2);
+            color: var(--bright-blue);
+            font-size: 23px;
+        }
+
+        .support-card h3 {
+            font-size: 17px;
+            margin-bottom: 9px;
+        }
+
+        .support-card p {
+            color: #69717d;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        /* INFO */
+
+        .store-info {
+            max-width: 950px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 14px;
+            background: rgba(22,119,255,.04);
+            border: 1px solid rgba(22,119,255,.13);
             text-align: center;
         }
 
-        .info-card h3 {
+        .store-info h3 {
+            font-size: 18px;
             margin-bottom: 10px;
         }
 
-        .info-card p {
-            color: var(--muted);
-            line-height: 1.6;
+        .store-info p {
+            color: #69717d;
+            font-size: 12px;
+            line-height: 1.8;
         }
+
+        .store-info a {
+            color: var(--bright-blue);
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        /* FAQ */
+
+        .faq {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #171b21;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 22px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            color: #ddd;
+            font-size: 14px;
+            font-weight: 800;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .faq-question span {
+            color: var(--blue);
+            font-size: 20px;
+            transition: .25s;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            color: #69717d;
+            font-size: 13px;
+            line-height: 1.75;
+            transition: max-height .35s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 5px 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question span {
+            transform: rotate(45deg);
+        }
+
+        /* CTA */
+
+        .cta {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at center, rgba(22,119,255,.12), transparent 58%);
+        }
+
+        .cta h2 {
+            font-size: clamp(38px, 7vw, 65px);
+            font-weight: 1000;
+            letter-spacing: -3px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 15px auto 27px;
+            color: #68717d;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* FOOTER */
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 30px 20px;
-            text-align: center;
-            color: #666;
-            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 35px 7%;
+            background: #020304;
+            border-top: 1px solid #101318;
         }
 
-        @media (max-width: 600px) {
+        footer p {
+            color: #454b54;
+            font-size: 11px;
+        }
+
+        footer strong {
+            color: var(--blue);
+        }
+
+        footer a {
+            color: var(--bright-blue);
+            text-decoration: none;
+            font-weight: 900;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 1100px) {
+            .rank-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 750px) {
             nav {
-                padding: 15px 20px;
+                padding: 0 20px;
             }
 
-            .nav-links a:not(.active) {
+            .nav-links {
                 display: none;
             }
 
-            .username-row {
-                flex-direction: column;
+            .hero {
+                min-height: auto;
+                padding: 80px 20px 90px;
             }
 
-            .hero {
-                padding-top: 60px;
+            .rank-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+            }
+
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
             }
         }
     </style>
@@ -343,214 +836,614 @@
 
 <body>
 
-    <nav>
-        <a href="/" class="logo">DEV'S ANARCHY</a>
+<div id="particles" aria-hidden="true"></div>
 
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/store" class="active">Store</a>
+<!-- NAVIGATION -->
+
+<nav>
+
+    <a href="/" class="nav-logo">
+        <img src="../Devs Anarchy logo.png" alt="Devs Anarchy Logo">
+        <span>DEVS ANARCHY</span>
+    </a>
+
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/#join">How To Join</a></li>
+        <li><a href="/#commands">Commands</a></li>
+        <li><a href="/#ranks">Ranks</a></li>
+        <li><a href="#faq">FAQ</a></li>
+
+        <li>
+            <a
+                class="nav-discord"
+                href="https://discord.gg/VbrQCDNgmw"
+                target="_blank"
+                rel="noopener">
+                Discord
+            </a>
+        </li>
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="store-tag">
+            OFFICIAL DEVS ANARCHY STORE
         </div>
-    </nav>
 
-    <section class="hero">
-        <div class="badge">⚔ SUPPORT THE SERVER</div>
+        <img
+            src="../Devs Anarchy logo.png"
+            alt="Devs Anarchy"
+            class="hero-logo">
 
-        <h1>DEV'S <span>STORE</span></h1>
+        <div class="hero-kicker">
+            PREMIUM RANKS
+        </div>
+
+        <h1>
+            UPGRADE YOUR <span>EXPERIENCE</span>
+        </h1>
 
         <p>
-            Upgrade your experience on Dev's Anarchy! Every purchase helps
-            support the server and keep the anarchy alive.
+            Unlock exclusive perks, premium features, and additional benefits
+            while supporting the continued development and operation of
+            Devs Anarchy.
         </p>
-    </section>
 
-    <main class="store">
+        <div class="hero-buttons">
+            <a href="#ranks" class="button button-primary">
+                VIEW RANKS →
+            </a>
 
-        <div class="username-box">
-            <h2>🎮 Your Minecraft Username</h2>
-            <p>Enter your username before purchasing so we know where to deliver your rank.</p>
-
-            <div class="username-row">
-                <input
-                    type="text"
-                    id="minecraftUsername"
-                    placeholder="Minecraft username..."
-                    maxlength="16"
-                    autocomplete="off"
-                >
-            </div>
+            <a href="#support" class="button button-secondary">
+                WHY SUPPORT US?
+            </a>
         </div>
 
-        <div class="section-title">
-            <h2>👑 Choose Your Rank</h2>
-            <p>Ranks are upgradeable — only pay the difference when moving up!</p>
+    </div>
+
+</section>
+
+<!-- RANKS -->
+
+<section id="ranks" class="section-dark">
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            CHOOSE YOUR RANK
         </div>
 
-        <div class="rank-grid">
+        <h2>
+            Premium Benefits. Your Way.
+        </h2>
 
-            <!-- VIP -->
-            <div class="rank-card">
-                <div class="rank-icon">👑</div>
-                <div class="rank-name">VIP</div>
+        <p>
+            Choose the rank that fits your playstyle. Each upgrade unlocks
+            additional perks and helps support Devs Anarchy.
+        </p>
 
-                <div class="price">$5 <small>one-time</small></div>
+    </div>
 
-                <div class="homes">🏠 10 Homes</div>
+    <div class="rank-grid">
 
-                <ul class="perks">
-                    <li>VIP Rank</li>
-                    <li>10 Homes</li>
-                    <li>Support Dev's Anarchy</li>
-                </ul>
+        <!-- VIP -->
 
-                <button class="buy-btn" onclick="purchase('vip')">
-                    BUY VIP — $5
-                </button>
-            </div>
+        <div class="rank-card vip">
 
-            <!-- MVP -->
-            <div class="rank-card popular">
-                <div class="popular-label">POPULAR</div>
+            <div class="rank-top">
+                <div class="rank-icon">◆</div>
 
-                <div class="rank-icon">💎</div>
-                <div class="rank-name">MVP</div>
+                <h3>VIP</h3>
 
-                <div class="price">$10 <small>one-time</small></div>
-
-                <div class="homes">🏠 15 Homes</div>
-
-                <ul class="perks">
-                    <li>MVP Rank</li>
-                    <li>15 Homes</li>
-                    <li>Upgradeable Rank</li>
-                </ul>
-
-                <button class="buy-btn" onclick="purchase('mvp')">
-                    BUY MVP — $10
-                </button>
-            </div>
-
-            <!-- ELITE -->
-            <div class="rank-card">
-                <div class="rank-icon">⚡</div>
-                <div class="rank-name">ELITE</div>
-
-                <div class="price">$15 <small>one-time</small></div>
-
-                <div class="homes">🏠 20 Homes</div>
-
-                <ul class="perks">
-                    <li>ELITE Rank</li>
-                    <li>20 Homes</li>
-                    <li>Upgradeable Rank</li>
-                </ul>
-
-                <button class="buy-btn" onclick="purchase('elite')">
-                    BUY ELITE — $15
-                </button>
-            </div>
-
-            <!-- LEGEND -->
-            <div class="rank-card">
-                <div class="rank-icon">🔥</div>
-                <div class="rank-name">LEGEND</div>
-
-                <div class="price">$20 <small>one-time</small></div>
-
-                <div class="homes">🏠 30 Homes</div>
-
-                <ul class="perks">
-                    <li>LEGEND Rank</li>
-                    <li>30 Homes</li>
-                    <li>Upgradeable Rank</li>
-                </ul>
-
-                <button class="buy-btn" onclick="purchase('legend')">
-                    BUY LEGEND — $20
-                </button>
-            </div>
-
-            <!-- OVERLORD -->
-            <div class="rank-card popular">
-                <div class="popular-label">BEST RANK</div>
-
-                <div class="rank-icon">🛡️</div>
-                <div class="rank-name">OVERLORD</div>
-
-                <div class="price">$25 <small>/ month</small></div>
-
-                <div class="homes">🏠 100 Homes</div>
-
-                <ul class="perks">
-                    <li>OVERLORD Rank</li>
-                    <li>100 Homes</li>
-                    <li>Monthly Subscription</li>
-                    <li>Best Dev's Anarchy Rank</li>
-                </ul>
-
-                <button class="buy-btn" onclick="purchase('overlord')">
-                    SUBSCRIBE — $25/MO
-                </button>
-
-                <div class="subscription">
-                    🔄 Renews monthly. Cancel anytime.
+                <div class="rank-tier">
+                    PREMIUM STARTER
                 </div>
             </div>
 
-        </div>
-    </main>
+            <div class="rank-price">
+                $5 <span>/ MONTH</span>
+            </div>
 
-    <section class="info">
-        <div class="info-card">
-            <h3>⬆️ Rank Upgrades</h3>
-            <p>
-                Already own a rank? Don't worry! Our store system will recognize
-                your previous purchases and calculate your upgrade price so you
-                only pay the difference.
+            <p class="rank-description">
+                A great way to start your premium Devs Anarchy experience.
             </p>
+
+            <ul class="rank-features">
+                <li>VIP rank prefix</li>
+                <li>5 homes</li>
+                <li>Premium perks</li>
+                <li>Support the server</li>
+            </ul>
+
+            <!-- Change this link to your checkout -->
+            <a href="/store/vip" class="rank-button">
+                CHOOSE VIP →
+            </a>
+
         </div>
-    </section>
 
-    <footer>
-        © 2026 DEV'S ANARCHY • NOT AN OFFICIAL MINECRAFT PRODUCT.
-        NOT APPROVED BY OR ASSOCIATED WITH MOJANG OR MICROSOFT.
-    </footer>
+        <!-- MVP -->
 
-    <script>
-        function purchase(rank) {
-            const username = document.getElementById("minecraftUsername").value.trim();
+        <div class="rank-card mvp">
 
-            if (!username) {
-                alert("Please enter your Minecraft username before purchasing!");
-                document.getElementById("minecraftUsername").focus();
-                return;
-            }
+            <div class="rank-top">
+                <div class="rank-icon">★</div>
 
-            if (!/^[a-zA-Z0-9_]{3,16}$/.test(username)) {
-                alert("Please enter a valid Minecraft username.");
-                return;
-            }
+                <h3>MVP</h3>
 
-            /*
-             * NEXT STEP:
-             * This will call our Cloudflare Worker, which creates a secure
-             * Stripe Checkout session.
-             */
+                <div class="rank-tier">
+                    PREMIUM PLAYER
+                </div>
+            </div>
 
-            alert(
-                "Store checkout is coming next!\\n\\n" +
-                "Username: " + username + "\\n" +
-                "Selected Rank: " + rank.toUpperCase()
+            <div class="rank-price">
+                $10 <span>/ MONTH</span>
+            </div>
+
+            <p class="rank-description">
+                More benefits for players who want to take things further.
+            </p>
+
+            <ul class="rank-features">
+                <li>MVP rank prefix</li>
+                <li>10 homes</li>
+                <li>Additional perks</li>
+                <li>Premium support</li>
+            </ul>
+
+            <a href="/store/mvp" class="rank-button">
+                CHOOSE MVP →
+            </a>
+
+        </div>
+
+        <!-- ELITE -->
+
+        <div class="rank-card elite">
+
+            <div class="rank-top">
+                <div class="rank-icon">✦</div>
+
+                <h3>ELITE</h3>
+
+                <div class="rank-tier">
+                    ADVANCED
+                </div>
+            </div>
+
+            <div class="rank-price">
+                $15 <span>/ MONTH</span>
+            </div>
+
+            <p class="rank-description">
+                Unlock even more benefits and stand out from the competition.
+            </p>
+
+            <ul class="rank-features">
+                <li>Elite rank prefix</li>
+                <li>15 homes</li>
+                <li>Exclusive benefits</li>
+                <li>Premium features</li>
+            </ul>
+
+            <a href="/store/elite" class="rank-button">
+                CHOOSE ELITE →
+            </a>
+
+        </div>
+
+        <!-- LEGEND -->
+
+        <div class="rank-card legend">
+
+            <div class="rank-top">
+                <div class="rank-icon">♜</div>
+
+                <h3>LEGEND</h3>
+
+                <div class="rank-tier">
+                    HIGH TIER
+                </div>
+            </div>
+
+            <div class="rank-price">
+                $20 <span>/ MONTH</span>
+            </div>
+
+            <p class="rank-description">
+                A powerful premium rank for dedicated Devs Anarchy players.
+            </p>
+
+            <ul class="rank-features">
+                <li>Legend rank prefix</li>
+                <li>20 homes</li>
+                <li>Exclusive features</li>
+                <li>Priority benefits</li>
+            </ul>
+
+            <a href="/store/legend" class="rank-button">
+                CHOOSE LEGEND →
+            </a>
+
+        </div>
+
+        <!-- OVERLORD -->
+
+        <div class="rank-card overlord">
+
+            <div class="top-rank">
+                HIGHEST TIER
+            </div>
+
+            <div class="rank-top">
+                <div class="rank-icon">♛</div>
+
+                <h3>OVERLORD</h3>
+
+                <div class="rank-tier">
+                    THE ULTIMATE RANK
+                </div>
+            </div>
+
+            <div class="rank-price">
+                $25 <span>/ MONTH</span>
+            </div>
+
+            <p class="rank-description">
+                The ultimate Devs Anarchy rank with exclusive premium benefits.
+            </p>
+
+            <ul class="rank-features">
+                <li>Overlord rank prefix</li>
+                <li>Priority benefits</li>
+                <li>Exclusive rewards</li>
+                <li>Future premium perks</li>
+            </ul>
+
+            <a href="/store/overlord" class="rank-button">
+                BECOME OVERLORD →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WHY SUPPORT -->
+
+<section id="support">
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            SUPPORT DEVS ANARCHY
+        </div>
+
+        <h2>
+            Your Support Makes A Difference
+        </h2>
+
+        <p>
+            Purchases help support the infrastructure, development,
+            maintenance, and future growth of the server.
+        </p>
+
+    </div>
+
+    <div class="support-grid">
+
+        <div class="support-card">
+
+            <div class="support-icon">⚡</div>
+
+            <h3>Server Development</h3>
+
+            <p>
+                Help us continue improving Devs Anarchy with new features,
+                updates, fixes, and improvements.
+            </p>
+
+        </div>
+
+        <div class="support-card">
+
+            <div class="support-icon">🛡</div>
+
+            <h3>Server Infrastructure</h3>
+
+            <p>
+                Your support helps keep the server online and provides
+                resources for reliable performance.
+            </p>
+
+        </div>
+
+        <div class="support-card">
+
+            <div class="support-icon">✦</div>
+
+            <h3>Future Updates</h3>
+
+            <p>
+                Supporting the server helps make future events, features,
+                and improvements possible.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STORE INFORMATION -->
+
+<section class="section-dark">
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            BEFORE YOU PURCHASE
+        </div>
+
+        <h2>
+            Store Information
+        </h2>
+
+    </div>
+
+    <div class="store-info">
+
+        <h3>
+            Thank You For Supporting Devs Anarchy
+        </h3>
+
+        <p>
+            Please make sure you enter the correct Minecraft username during
+            checkout. Digital purchases may take time to process depending on
+            the payment and delivery system. By making a purchase, you agree
+            to our
+            <a href="/terms-of-service/">Terms of Service</a>
+            and
+            <a href="/refund-policy/">Refund Policy</a>.
+            If you need help with a purchase, contact us at
+            <a href="mailto:support@devsanarchy.xyz">
+                support@devsanarchy.xyz
+            </a>.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+
+    <div class="section-title">
+
+        <div class="section-kicker">
+            QUESTIONS
+        </div>
+
+        <h2>
+            Store FAQ
+        </h2>
+
+        <p>
+            Answers to common questions about Devs Anarchy ranks and purchases.
+        </p>
+
+    </div>
+
+    <div class="faq">
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Are ranks subscriptions?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Rank duration and renewal information will be shown during
+                    checkout. Please review the product information carefully
+                    before completing your purchase.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                How long does it take to receive my rank?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Delivery times can vary depending on the payment and store
+                    system. If you experience an issue, please contact support
+                    with your purchase information.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                What happens if I enter the wrong username?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Contact support as soon as possible. Be sure to provide your
+                    order information and the correct Minecraft username.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Can ranks receive additional perks in the future?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Yes. Devs Anarchy may add or adjust rank perks as the server
+                    develops and new features become available.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="faq-item">
+
+            <button class="faq-question">
+                Where can I get purchase support?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    You can contact us at support@devsanarchy.xyz or visit our
+                    Discord community for additional assistance.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FINAL CTA -->
+
+<section class="cta">
+
+    <div class="section-kicker">
+        READY TO UPGRADE?
+    </div>
+
+    <h2>
+        Choose Your Rank.
+    </h2>
+
+    <p>
+        Join the premium side of Devs Anarchy and unlock a new level
+        of benefits.
+    </p>
+
+    <a href="#ranks" class="button button-primary">
+        VIEW ALL RANKS →
+    </a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 <strong>Devs Anarchy</strong>.
+        All rights reserved.
+    </p>
+
+    <p>
+        <a href="mailto:support@devsanarchy.xyz">
+            support@devsanarchy.xyz
+        </a>
+    </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    /* CREATE BACKGROUND PARTICLES */
+
+    const particles =
+        document.getElementById("particles");
+
+    for (let i = 0; i < 35; i++) {
+
+        const particle =
+            document.createElement("div");
+
+        particle.className =
+            "particle";
+
+        particle.style.left =
+            Math.random() * 100 + "%";
+
+        particle.style.animationDuration =
+            (10 + Math.random() * 16) + "s";
+
+        particle.style.animationDelay =
+            (-Math.random() * 20) + "s";
+
+        particle.style.opacity =
+            .15 + Math.random() * .35;
+
+        particles.appendChild(
+            particle
+        );
+
+    }
+
+
+    /* FAQ ACCORDION */
+
+    document
+        .querySelectorAll(".faq-question")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const item =
+                        button.parentElement;
+
+                    document
+                        .querySelectorAll(".faq-item")
+                        .forEach(other => {
+
+                            if (other !== item) {
+
+                                other.classList.remove(
+                                    "active"
+                                );
+
+                            }
+
+                        });
+
+                    item.classList.toggle(
+                        "active"
+                    );
+
+                }
             );
 
-            // Future code will look similar to:
-            //
-            // fetch("https://api.devsanarchy.xyz/create-checkout", {
-            //     method: "POST",
-            //     headers: { "Content-Type": "application/json" },
-            //     body: JSON.stringify({ username, rank })
-            // })
-        }
-    </script>
+        });
+
+</script>
 
 </body>
 </html>
