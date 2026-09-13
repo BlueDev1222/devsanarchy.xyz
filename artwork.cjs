@@ -1,0 +1,12 @@
+const fs=require('fs');
+let seed=1222;const random=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
+let svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#648374"/><stop offset="1" stop-color="#b1bc8a"/></linearGradient><linearGradient id="mist" x2="0" y2="1"><stop stop-color="#bbc6a2" stop-opacity=".15"/><stop offset="1" stop-color="#17281d" stop-opacity=".4"/></linearGradient></defs><rect width="1400" height="820" fill="url(#sky)"/><rect x="1050" y="90" width="75" height="75" fill="#d9deb0" opacity=".7"/>';
+for(let i=0;i<16;i++){let x=random()*1400,y=30+random()*210;svg+='<path d="M'+x+' '+y+'h110v-14h80v14h70v22H'+x+'z" fill="#d3dac2" opacity=".15"/>'}
+function cube(x,y,w,h,top,left,right){svg+='<path d="M'+x+' '+y+'l'+w+' '+(-w/2)+' '+w+' '+w/2+' '+(-w)+' '+w/2+'z" fill="'+top+'"/><path d="M'+x+' '+y+'v'+h+'l'+w+' '+w/2+'v-'+h+'z" fill="'+left+'"/><path d="M'+(x+w)+' '+(y+w/2)+'l'+w+' '+(-w/2)+'v'+h+'l-'+w+' '+w/2+'z" fill="'+right+'"/>'}
+// Distant stepped ridgelines.
+for(let layer=0;layer<3;layer++){let d='M0 820V'+(310+layer*85);for(let x=0;x<=1450;x+=35){let y=280+layer*80+Math.sin(x/125+layer)*65+Math.floor(random()*4)*18;d+='H'+x+'V'+y}svg+='<path d="'+d+'V820Z" fill="'+['#597765','#456651','#2c513e'][layer]+'"/>'}
+// Isometric terrain, built back to front with a river cutting through the valley.
+for(let z=0;z<23;z++){for(let x=0;x<27;x++){let px=590+(x-z)*35,py=280+(x+z)*17.5;let river=Math.abs(x-12-Math.sin(z/4)*3)<2.3;let height=river?8:22+Math.floor((Math.sin(x*.52)+Math.cos(z*.61)+2)*2)*14;let tone=Math.floor(random()*4);let tops=['#6c8545','#7a8e4b','#597e45','#718d50'];cube(px,py-height,35,height+48,river?'#558c85':tops[tone],river?'#3c6a65':'#3a4931',river?'#426e69':'#485a35');if(!river&&random()>.88&&z<17){cube(px+18,py-height-70,8,75,'#6b6340','#51492e','#413d28');cube(px-10,py-height-94,36,32,'#436b3d','#284e32','#335c36');cube(px+2,py-height-120,24,28,'#527749','#315538','#3e623c');}}}
+// Ruined stone watchtower.
+for(let level=0;level<6;level++){for(let x=0;x<3;x++){for(let z=0;z<3;z++){if(level>1&&x===1&&z===0)continue;if(level===5&&(x+z)%2)continue;cube(970+(x-z)*25,415+(x+z)*12.5-level*25,25,25,['#8e9377','#777f68','#93967a'][Math.floor(random()*3)],'#59634f','#6c745b')}}}
+svg+='<rect width="1400" height="820" fill="url(#mist)"/></svg>';fs.writeFileSync('assets/world.svg',svg);
