@@ -1,6 +1,12 @@
 # Direct Tebex purchase tracker — no goal modules needed
 
-This separate Cloudflare Worker receives signed Tebex webhooks and stores a minimal event ledger in D1. The GitHub Pages website polls its public /goal endpoint. It is not deployed yet.
+This separate Cloudflare Worker receives signed Tebex webhooks and stores a minimal event ledger in D1. The GitHub Pages website polls its public /goal endpoint.
+
+Deployed Worker: https://devs-anarchy-goal.bluevr-gt.workers.dev
+
+Tebex webhook URL: https://devs-anarchy-goal.bluevr-gt.workers.dev/webhook
+
+Campaign starts September 15, 2026 at 20:46:29 UTC. Signing-secret configuration and Tebex validation are still required. The tracker returns 503 until configured and validated.
 
 ## Setup
 

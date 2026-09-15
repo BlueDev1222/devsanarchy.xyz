@@ -3,13 +3,19 @@
   "name": "devs-anarchy-goal",
   "main": "worker.mjs",
   "compatibility_date": "2026-09-15",
+  "account_id": "e456f190a9d7b61e5141393a8eccc4b7",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "traces": { "enabled": true, "head_sampling_rate": 0.1 }
+  },
   "vars": {
-    // Set to the agreed campaign start in UTC before deployment.
-    "CAMPAIGN_START": ""
+    // Purchases from initial activation onward; retained across deployments.
+    "CAMPAIGN_START": "2026-09-15T20:46:29Z"
   },
   "d1_databases": [{
     "binding": "DB",
     "database_name": "devs-anarchy-goal",
-    "database_id": "REPLACE_WITH_CREATED_DATABASE_ID"
+    "database_id": "19e70a00-fc26-4fb4-8fea-3ed231bf1111"
   }]
 }
