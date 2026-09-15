@@ -1,6 +1,6 @@
 {
   "source": "webhook",
-  "endpoint": "",
+  "endpoint": "https://devs-anarchy-goal.bluevr-gt.workers.dev/goal",
   "publicToken": "14dge-5288960dd5920dfd12a351b701af9bcbe08e493f",
   "moduleHeader": "Unlock the Dupe Event",
   "currency": "USD",
