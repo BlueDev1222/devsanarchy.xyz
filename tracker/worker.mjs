@@ -83,8 +83,10 @@ export default {
       if (path !== '/webhook' || request.method !== 'POST') return json({error:'Method not allowed'},405);
       let raw;
       try { raw = await readBody(request); } catch { return json({error:'Invalid request body'},413); }
-      if (!await verifySignature(raw,request.headers.get('X-Signature'),env.TEBEX_WEBHOOK_SECRET))
+      if (!await verifySignature(raw,request.headers.get('X-Signature'),env.TEBEX_WEBHOOK_SECRET)) {
+        console.warn(JSON.stringify({event:'webhook_rejected',reason:request.headers.has('X-Signature')?'signature_mismatch':'signature_missing'}));
         return json({error:'Invalid signature'},401);
+      }
       let event;
       try { event = JSON.parse(new TextDecoder().decode(raw)); } catch { return json({error:'Invalid JSON'},400); }
       if (!event || typeof event !== 'object') return json({error:'Invalid event'},400);
@@ -92,6 +94,7 @@ export default {
         if (typeof event.id !== 'string' || !event.id || event.id.length > 200) return json({error:'Invalid validation'},400);
         await env.DB.prepare("INSERT OR REPLACE INTO tracker_meta(key,value) VALUES('validated',?)")
           .bind(new Date().toISOString()).run();
+        console.log(JSON.stringify({event:'tebex_validation_succeeded'}));
         return json({id:event.id});
       }
       let row;
@@ -99,6 +102,7 @@ export default {
       if (row) await env.DB.prepare('INSERT OR IGNORE INTO webhook_events VALUES(?,?,?,?,?,?,?,?)').bind(...row).run();
       return json({received:true});
     } catch {
+      console.error(JSON.stringify({event:'tracker_request_failed',path}));
       // No raw webhook bodies, customer data, or secrets in logs/responses.
       return json({error:'Tracker temporarily unavailable'},503);
     }
