@@ -1,0 +1,15 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "devs-anarchy-goal",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-15",
+  "vars": {
+    // Set to the agreed campaign start in UTC before deployment.
+    "CAMPAIGN_START": ""
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "devs-anarchy-goal",
+    "database_id": "REPLACE_WITH_CREATED_DATABASE_ID"
+  }]
+}

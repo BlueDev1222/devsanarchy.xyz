@@ -1,5 +1,7 @@
 # Dupe Event purchase goal
 
+**Current setup uses direct webhooks**, since neither Tebex goal module is available. Follow [tracker/README.md](tracker/README.md). The website is configured for webhook mode and will remain in the connecting state until its deployed tracker URL is supplied. The module-based alternatives below are retained only for stores where those features are available.
+
 ## Alternative when Community Goals are unavailable
 
 Use Webstore → Sidebar → Add Module → **Payment Goal** instead. Set the header to **Unlock the Dupe Event**, target to **50**, and enable amount display. Choose the revenue period deliberately: this module counts that period's revenue and resets daily, weekly, or monthly. It is not a permanent campaign total. Do not create both goal types with the same header; ambiguous matches are rejected.

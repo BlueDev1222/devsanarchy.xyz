@@ -19,6 +19,14 @@ export function formatAmount(amount, currency) {
   }).format(amount);
 }
 
+export function parseTracker(payload, config) {
+  if (payload?.currency !== config.currency || payload.target !== config.target ||
+      typeof payload.raised !== 'number' || !Number.isFinite(payload.raised) || payload.raised < 0)
+    throw new Error('Invalid tracker total');
+  return {raised: payload.raised, target: payload.target,
+    percent: Math.min(100, payload.raised / payload.target * 100)};
+}
+
 export function startGoal(document, fetcher = fetch) {
   const panel = document.getElementById('dupe-goal');
   if (!panel) return;
@@ -40,15 +48,19 @@ export function startGoal(document, fetcher = fetch) {
           throw new Error('Invalid goal configuration');
         }
       }
-      if (!config.publicToken) {
+      const webhook = config.source === 'webhook';
+      if (webhook ? !config.endpoint : !config.publicToken) {
         status.textContent = 'Purchase tracking is being connected. Visit the store to support the event.';
         config = null;
         return;
       }
-      const response = await fetcher('https://headless.tebex.io/api/accounts/' +
-        encodeURIComponent(config.publicToken) + '/sidebar', { cache: 'no-store', signal: AbortSignal.timeout(10000) });
+      const url = webhook ? config.endpoint : 'https://headless.tebex.io/api/accounts/' +
+        encodeURIComponent(config.publicToken) + '/sidebar';
+      if (webhook && new URL(url).protocol !== 'https:') throw new Error('Tracker must use HTTPS');
+      const response = await fetcher(url, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
       if (!response.ok) throw new Error('Tebex unavailable');
-      const goal = parseGoal(await response.json(), config);
+      const payload = await response.json();
+      const goal = webhook ? parseTracker(payload, config) : parseGoal(payload, config);
       const amountText = formatAmount(goal.raised, config.currency) + ' raised of ' + formatAmount(goal.target, config.currency);
       label.textContent = amountText;
       progress.value = Math.min(goal.raised, goal.target);
