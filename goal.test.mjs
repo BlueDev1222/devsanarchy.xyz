@@ -3,6 +3,15 @@ import assert from 'node:assert/strict';
 import {parseGoal, formatAmount, startGoal} from './assets/goal.mjs';
 const config={target:50,currency:'USD',moduleHeader:'Unlock the Dupe Event',publicToken:'public-test-token'};
 const payload=(total,target=50)=>({data:[{type:'community_goal',data:{header:config.moduleHeader,total_payments:total,target}}]});
+test('Payment Goal uses its exact total and rejects hidden amounts',()=>{
+ const payment = {type:'payment_goal', data:{header:config.moduleHeader,total:17.25,target:50}};
+ assert.deepEqual(parseGoal({data:[payment]},config),{raised:17.25,target:50,percent:34.5});
+ payment.data.total=null;
+ assert.throws(()=>parseGoal({data:[payment]},config));
+ payment.data.total=0;
+ assert.equal(parseGoal({data:[payment]},config).raised,0);
+ assert.throws(()=>parseGoal({data:[payment,...payload(10).data]},config));
+});
 test('real zero, partial and over-goal amounts',()=>{
  assert.deepEqual(parseGoal(payload(0),config),{raised:0,target:50,percent:0});
  assert.deepEqual(parseGoal(payload(12.5),config),{raised:12.5,target:50,percent:25});

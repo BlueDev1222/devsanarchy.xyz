@@ -1,13 +1,14 @@
 export function parseGoal(payload, config) {
   if (!Array.isArray(payload?.data)) throw new Error('Invalid sidebar response');
   const matches = payload.data.filter(module =>
-    module.type === 'community_goal' && module.data?.header === config.moduleHeader);
-  if (matches.length !== 1) throw new Error('Expected one matching Community Goal');
+    ['community_goal', 'payment_goal'].includes(module.type) && module.data?.header === config.moduleHeader);
+  if (matches.length !== 1) throw new Error('Expected one matching goal module');
   const data = matches[0].data;
-  if (typeof data.total_payments !== 'number' || !Number.isFinite(data.total_payments) ||
-      data.total_payments < 0 || data.target !== config.target)
+  const total = matches[0].type === 'payment_goal' ? data.total : data.total_payments;
+  if (typeof total !== 'number' || !Number.isFinite(total) ||
+      total < 0 || data.target !== config.target)
     throw new Error('Goal amount unavailable or target does not match');
-  const raised = Math.round(data.total_payments * 100) / 100;
+  const raised = Math.round(total * 100) / 100;
   return { raised, target: config.target, percent: Math.min(100, raised / config.target * 100) };
 }
 

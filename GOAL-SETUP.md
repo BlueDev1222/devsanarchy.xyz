@@ -1,5 +1,11 @@
 # Dupe Event purchase goal
 
+## Alternative when Community Goals are unavailable
+
+Use Webstore → Sidebar → Add Module → **Payment Goal** instead. Set the header to **Unlock the Dupe Event**, target to **50**, and enable amount display. Choose the revenue period deliberately: this module counts that period's revenue and resets daily, weekly, or monthly. It is not a permanent campaign total. Do not create both goal types with the same header; ambiguous matches are rejected.
+
+The website supports either module using the same configuration. If neither module is available, verified purchase webhooks and a persistent backend are required; the public token alone cannot provide a complete historical purchase ledger.
+
 The homepage reads Tebex's Community Goal total through the public Headless sidebar API. No private keys, webhook server, customer records, or payment processing are added to this repository.
 
 ## Connect the store
