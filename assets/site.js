@@ -1,18 +1,3 @@
-// Fixed start shared by every visitor; never resets on refresh.
-const EVENT_START = Date.parse('2026-09-20T16:15:00-04:00');
-function countdownParts(now) {
- const s = Math.max(0, Math.ceil((EVENT_START - now) / 1000));
- return [Math.floor(s/86400), Math.floor(s/3600)%24, Math.floor(s/60)%60, s%60];
-}
-function updateCountdown() {
- const now = Date.now();
- countdownParts(now).forEach((v,i) => document.getElementById(['days','hours','minutes','seconds'][i]).textContent = String(v).padStart(2,'0'));
- if(now >= EVENT_START) {
-  document.getElementById('event-status').textContent = 'THE WAIT IS OVER';
-  document.getElementById('event-message').textContent = 'The scheduled start has arrived. Check Discord for live event status and instructions.';
- }
-}
-updateCountdown(); setInterval(updateCountdown,1000);
 let toastTimeout;
 document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', async () => {
  const toast = document.querySelector('.toast');

@@ -8,7 +8,7 @@ Run `node preview.cjs`, then open http://127.0.0.1:4173.
 
 ## Dupe event
 
-The fixed start is **September 20, 2026, 4:15 PM America/New_York (20:15 UTC)**, seven days after the redesign request. To reschedule, update EVENT_START in assets/site.js and the matching date text, datetime attribute, FAQ, and metadata in index.html. Countdown values clamp at zero after the start; Discord is the source for live event status.
+The dupe event section displays a full-width $50 funding goal using confirmed Tebex purchase totals. The old countdown has been removed. Discord is the source for event start announcements. See GOAL-SETUP.md for the integration.
 
 Java and cracked support are advertised as requested. Website edits do not modify Minecraft server authentication or start an in-game event.
 
